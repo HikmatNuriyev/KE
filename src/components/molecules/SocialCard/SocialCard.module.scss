@@ -1,0 +1,71 @@
+@import "@/styles/variables";
+
+.socialGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); // İki kiçik kart yan-yana
+  gap: 16px;
+  height: 100%;
+}
+
+.card {
+  position: relative;
+  background: $white;
+  border-radius: $radius-lg;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: $v-transition;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  cursor: pointer;
+
+  .iconWrapper {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 22px;
+    transition: 0.3s;
+  }
+
+  .text {
+    margin-top: 15px;
+    h4 { font-size: 16px; font-weight: 700; }
+    p { font-size: 12px; color: $text-muted; }
+  }
+
+  // Platforma rəngləri
+  &.instagram {
+    &:hover {
+      background: linear-gradient(135deg, #fff 60%, #fff0f5 100%);
+      .iconWrapper { color: #E1306C; background: rgba(#E1306C, 0.1); }
+    }
+  }
+
+  &.facebook {
+    &:hover {
+      background: linear-gradient(135deg, #fff 60%, #f0f4ff 100%);
+      .iconWrapper { color: #1877F2; background: rgba(#1877F2, 0.1); }
+    }
+  }
+
+  // Üstə gələndə küncdən sızan rəng (Vərəq effekti)
+  &::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba($brand-purple, 0.05) 0%, transparent 70%);
+    transition: 0.5s;
+  }
+
+  &:hover::after {
+    top: -10%;
+    right: -10%;
+  }
+}

@@ -1,0 +1,83 @@
+@import "@/styles/variables";
+
+.main {
+  padding: 120px 0 60px;
+  background-color: $brand-light-bg;
+}
+
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 300px);
+  gap: 24px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bentoItem {
+  background: $white;
+  border-radius: $radius-lg;
+  padding: 32px;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  transition: $v-transition;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(115, 35, 130, 0.06);
+    border-color: rgba($brand-purple, 0.1);
+  }
+}
+
+// Kartların ölçüləri
+.heroCard {
+  grid-column: span 2;
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h1 {
+    font-size: clamp(32px, 4vw, 56px);
+    margin: 20px 0;
+    span { color: $brand-purple; }
+  }
+  
+  p {
+    color: $text-muted;
+    font-size: 18px;
+    margin-bottom: 30px;
+    max-width: 80%;
+  }
+}
+
+.calcArea {
+  grid-column: span 2;
+  background: linear-gradient(135deg, #ffffff 0%, #f9f4ff 100%);
+}
+
+.socialArea {
+  grid-column: span 1;
+}
+
+.trustCard {
+  grid-column: span 1;
+  background: $brand-purple;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  h3 { color: $white; font-size: 32px; }
+  p { opacity: 0.8; }
+}

@@ -1,0 +1,19 @@
+// src/styles/_variables.scss
+
+// Brand Colors
+$brand-purple: #732382;
+$brand-light-bg: #FDFBFF;  // Çox zərif bənövşəyi çalarlı ağ fon
+$white: #FFFFFF;
+
+// Text Colors
+$text-dark: #1A0B2E;       // Tünd bənövşəyi-qara (oxunaqlı mətn)
+$text-muted: #6B5E7E;      // Köməkçi mətnlər
+
+// Spacing & Radius
+$radius-lg: 24px;          // Bento kartlarının küncləri (daha yumşaq)
+$space-container: 8%;      // Kənarlardan daha çox boşluq (genişlik hissi üçün)
+
+$font-main: var(--font-inter), sans-serif;
+$font-heading: var(--font-jakarta), sans-serif;
+
+$v-transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);

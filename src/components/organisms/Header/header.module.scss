@@ -1,0 +1,89 @@
+@import "@/styles/variables";
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nav {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 1100;
+
+  span {
+    display: block;
+    width: 28px;
+    height: 2px;
+    background: $brand-purple;
+    transition: $v-transition;
+  }
+
+  &.active {
+    span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    span:nth-child(2) { opacity: 0; }
+    span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
+    margin-left: 15px;
+  }
+}
+
+.menu {
+  display: flex;
+  gap: 32px;
+
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 0;
+    right: -100%; // Gizli
+    width: 70%;
+    height: 100vh;
+    background: $white;
+    flex-direction: column;
+    padding: 100px 40px;
+    transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+
+    &.menuOpen {
+      right: 0; // Görünən
+    }
+  }
+}
+
+.mobileActions {
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+    margin-top: 20px;
+    button { width: 100%; }
+  }
+}
+
+.ctaBtn {
+  @media (max-width: 480px) {
+    display: none; // Çox kiçik ekranlarda müraciət düyməsini menyuya atırıq
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.2);
+  z-index: 900;
+}
