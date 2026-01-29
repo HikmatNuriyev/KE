@@ -4,7 +4,7 @@ import styles from './SocialCard.module.scss';
 const SocialCard = () => {
   return (
     <div className={styles.socialGrid}>
-      {/* Instagram */}
+      
       <a href="https://instagram.com" target="_blank" className={`${styles.card} ${styles.instagram}`}>
         <div className={styles.iconWrapper}>
           <FaInstagram />
@@ -15,7 +15,7 @@ const SocialCard = () => {
         </div>
       </a>
 
-      {/* Facebook və ya Telegram */}
+     
       <a href="https://facebook.com" target="_blank" className={`${styles.card} ${styles.facebook}`}>
         <div className={styles.iconWrapper}>
           <FaFacebookF />

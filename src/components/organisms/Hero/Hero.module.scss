@@ -1,7 +1,7 @@
 @import "@/styles/variables";
 
 .main {
-  padding: 120px 0 60px;
+  padding: 10px 0 60px;
   background-color: $brand-light-bg;
 }
 
@@ -80,4 +80,27 @@
 
   h3 { color: $white; font-size: 32px; }
   p { opacity: 0.8; }
+}
+.heroSection {
+  position: sticky; // Yuxarıda bərkidilir
+  top: 0;
+  height: 100vh; // Ekranı tam tutur ki, altda qalsın
+  z-index: 1; // Alt qat
+  background-color: #fff; // Və ya sənin əsas fon rəngin
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+// 566666666666
+.heroSection {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff; // Və ya Hero-nun öz fonu
+  position: relative; 
+  /* Buradan sticky-ni sil, yuxarıda page.js-də verdik */
 }

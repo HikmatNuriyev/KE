@@ -3,7 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import styles from "./header.module.scss";
 import Button from "@/components/atoms/Button/Button";
-
+import Image from "next/image";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -13,7 +13,14 @@ const Header = () => {
     <header className={styles.header}>
       <nav className={`${styles.nav} container`}>
         <div className={styles.logo}>
-          <Link href="/">KE<span>.</span></Link>
+        <Image 
+        className={styles.logo}
+            src="/images/KElogo.png"  
+            alt="Kredit Evi Loqo" 
+            width={100} 
+            height={50} 
+            priority 
+          />
         </div>
 
         {/* Masaüstü Menyu */}

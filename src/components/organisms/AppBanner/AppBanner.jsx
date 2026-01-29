@@ -1,33 +1,35 @@
 import styles from "./AppBanner.module.scss";
+import Button from "@/components/atoms/Button/Button";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
 
 const AppBanner = () => {
   return (
     <section className={styles.appSection}>
-      <div className={`${styles.mainCard} container`}>
+      <div className={styles.mainCard}>
         <div className={styles.visualSide}>
-          {/* Neon işıqlı telefon mühiti */}
-          <div className={styles.neonStage}>
-            <div className={styles.phoneFrame}>
-               <img src="/phone-screen.png" alt="App Screen" />
+          <div className={styles.phoneFrame}>
+            <div className={styles.screenInner}>
+              <div className={styles.brandLogo}>KE<span>.</span></div>
+              <small style={{color: '#999', fontSize: '10px'}}>Kredit Evi</small>
             </div>
           </div>
+          <div className={styles.glow}></div>
         </div>
 
         <div className={styles.contentSide}>
-          <h2>XalqOnline mobil tətbiqi</h2>
+          <h2>Kredit Evi <span>Hər an yanınızda.</span></h2>
           <p>
-            Funksional və rahat XalqOnline sistemi ilə hesablarınıza onlayn
-            nəzarət edə və müxtəlif bank əməliyyatlarınızı məsafədən icra edə bilərsiniz.
+            Girovlarınızı idarə etmək, növbəti ödənişləri izləmək və 
+            onlayn müraciət etmək indi daha asandır. Tətbiqi yükləyin, vaxtınıza qənaət edin.
           </p>
           
           <div className={styles.storeButtons}>
-            <button className={styles.storeBtn}>
-              <FaApple /> <span>App Store</span>
-            </button>
-            <button className={styles.storeBtn}>
-              <FaGooglePlay /> <span>Google Play</span>
-            </button>
+            <Button variant="primary" className={styles.appBtn}>
+              <FaApple /> App Store
+            </Button>
+            <Button variant="primary" className={styles.appBtn}>
+              <FaGooglePlay /> Google Play
+            </Button>
           </div>
         </div>
       </div>

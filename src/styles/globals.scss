@@ -105,3 +105,39 @@ img {
   height: auto;
   display: block;
 }
+main {
+  perspective: 1500px;
+  overflow-x: hidden;
+}
+
+.catalog-page {
+  position: relative;
+  background: #fff;
+  border-radius: 60px 60px 0 0;
+  box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.15);
+  
+  /* Əsas sehr buradadır: Vərəq gələndə bir az arxaya maili olur */
+  transform-origin: top center;
+  transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+  
+  /* Scroll edərkən bu klasları JS ilə və ya sadə CSS sticky ilə tətbiq edə bilərsən */
+  /* Amma gəl biz onu vizual olaraq "qat-qat" edək */
+  &:not(:first-child) {
+    margin-top: -60px; // Vərəqlərin bir-birinin üstünə minməsi üçün
+  }
+}
+
+.shadow-premium {
+  /* Vərəqin kənarındakı o incə qatlanma kölgəsi */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, transparent 100%);
+    border-radius: 60px 60px 0 0;
+    pointer-events: none;
+  }
+}

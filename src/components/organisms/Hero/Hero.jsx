@@ -2,6 +2,7 @@ import styles from "./Hero.module.scss";
 import Calculator from "@/components/molecules/Calculator/Calculator";
 import SocialCard from "@/components/molecules/SocialCard/SocialCard";
 import Button from "@/components/atoms/Button/Button";
+import CurrencyCard from "@/components/molecules/CurrencyCard/CurrencyCard";
 
 export default function Home() {
   return (
@@ -19,7 +20,7 @@ export default function Home() {
 
           {/* 2. Kalkulyator Kartı */}
           <div className={`${styles.bentoItem} ${styles.calcArea}`}>
-            {/* <Calculator /> */}
+           <CurrencyCard/>
           </div>
 
           {/* 3. Sosial Şəbəkə Kartı */}

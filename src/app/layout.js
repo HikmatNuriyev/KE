@@ -20,7 +20,7 @@ export const metadata = {
   description: "Qızıl girovu ilə sürətli kreditlər, lizinq və onlayn maliyyə həlləri.",
   keywords: ["kredit", "qızıl girovu", "lizinq", "fintech", "azərbaycan"],
   alternates: {
-    canonical: "https://ke.az", // Gələcəkdə real domeni bura yazacağıq
+    canonical: "https://ke.az", 
   },
   openGraph: {
     title: "KE - Modern Maliyyə Platforması",

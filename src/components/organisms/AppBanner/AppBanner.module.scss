@@ -2,83 +2,148 @@
 
 .appSection {
   position: relative;
-  min-height: 80vh;
-  padding: 60px 0;
-  background-color: #fff; // Heronun fonu ilə eyni
-  z-index: 1;
+  padding: 100px 0;
+  background-color: transparent;
 }
 
 .mainCard {
-  background: linear-gradient(135deg, #3d0303 0%, #1a0101 100%);
+  max-width: 1200px; 
+  margin: 0 auto;
+  background: linear-gradient(145deg, #2b0835 0%, #16041d 100%);
   border-radius: 40px;
-  min-height: 500px;
   display: flex;
   align-items: center;
-  padding: 60px;
-  overflow: hidden;
-  position: sticky; // Sürüşəndə bərkidilmə effekti üçün
-  top: 100px;
+  padding: 60px 80px;
+  min-height: 480px; 
   
-  // Vərəq effekti: Aşağıdan gələndə Heronun üstünə çıxması üçün
-  box-shadow: 0 -20px 50px rgba(0,0,0,0.15); 
+ 
+  position: sticky;
+  top: 80px;
+  z-index: 10;
+  box-shadow: 0 -30px 60px rgba(0, 0, 0, 0.12);
+  
+  @media (max-width: 1024px) {
+    width: 95%;
+    flex-direction: column;
+    padding: 50px 30px;
+    text-align: center;
+  }
 }
 
 .visualSide {
   flex: 1;
+  position: relative;
   display: flex;
   justify-content: center;
-  position: relative;
-}
+  
+  
+  .phoneFrame {
+    width: 190px;
+    height: 380px;
+    background: $white;
+    border: 7px solid #333;
+    border-radius: 32px;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 
-.neonStage {
-  position: relative;
-  &::after {
-    content: '';
+    .screenInner {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      
+      .brandLogo {
+        font-size: 28px;
+        font-weight: 800;
+        color: $brand-purple;
+      }
+    }
+  }
+
+  .glow {
     position: absolute;
-    inset: -20px;
-    border: 2px solid #ff0000; // Şəkildəki neon qırmızı
-    border-radius: 20px;
-    filter: blur(15px);
-    opacity: 0.5;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba($brand-purple, 0.4) 0%, transparent 75%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 
-.phoneFrame {
-  width: 220px;
-  height: 450px;
-  background: #fff;
-  border-radius: 30px;
-  border: 8px solid #333;
-  z-index: 2;
-  position: relative;
-}
-
 .contentSide {
-  flex: 1;
-  color: #fff;
+  flex: 1.2;
+  color: $white;
   padding-left: 50px;
 
-  h2 { font-size: 48px; margin-bottom: 24px; color: #fff; }
-  p { font-size: 18px; opacity: 0.8; line-height: 1.6; margin-bottom: 40px; }
+  h2 {
+    font-size: 46px; 
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: $white;
+    font-weight: 700;
+    
+    span { 
+      display: block; 
+      color: rgba($white, 0.6); 
+      font-size: 30px;
+      margin-top: 5px;
+    }
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.8;
+    margin-bottom: 35px;
+    max-width: 450px;
+  }
 }
 
 .storeButtons {
   display: flex;
   gap: 15px;
+
+  .appBtn {
+    background: $white !important;
+    color: $brand-purple !important;
+    border: none !important;
+    padding: 14px 28px !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    border-radius: 12px !important;
+    
+    &:hover {
+      background: #f8f8f8 !important;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+  }
 }
 
-.storeBtn {
-  background: #fff;
-  color: #000;
-  padding: 12px 24px;
-  border-radius: 12px;
+
+
+.appSection {
+  position: relative;
+  padding: 120px 0 60px;
+  background-color: transparent; 
+}
+
+.mainCard {
+  max-width: 1280px;
+  margin: 0 auto;
+ 
+  background: rgba(255, 255, 255, 0.03); 
+  backdrop-filter: blur(10px); 
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 48px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
-
-  &:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255,255,255,0.1); }
+  padding: 80px 100px;
+  
+  
 }

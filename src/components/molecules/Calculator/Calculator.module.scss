@@ -1,102 +1,254 @@
+// @import "@/styles/variables";
+
+// .exchangeSection {
+//   padding: 120px 0;
+//   background: #fff; // Tünddən sonra gələn təmiz keçid
+//   color: #1a1a1a;
+// }
+
+// .container {
+//   max-width: 1200px;
+//   margin: 0 auto;
+//   padding: 0 20px;
+// }
+
+// .grid {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   gap: 80px;
+//   align-items: center;
+
+//   @media (max-width: 991px) { grid-template-columns: 1fr; gap: 40px; }
+// }
+
+// .tag {
+//   color: #b08d26;
+//   font-weight: 700;
+//   text-transform: uppercase;
+//   font-size: 12px;
+//   letter-spacing: 2px;
+//   margin-bottom: 20px;
+// }
+
+// .title {
+//   font-size: 48px;
+//   font-weight: 800;
+//   line-height: 1.1;
+//   margin-bottom: 50px;
+//   span { color: $brand-purple; }
+// }
+
+// .field {
+//   margin-bottom: 40px;
+//   label { display: block; margin-bottom: 15px; color: #666; font-weight: 500; }
+// }
+
+// .weightInputWrapper {
+//   display: flex;
+//   align-items: baseline;
+//   border-bottom: 2px solid #eee;
+//   padding-bottom: 10px;
+//   input {
+//     border: none;
+//     font-size: 40px;
+//     font-weight: 700;
+//     width: 150px;
+//     outline: none;
+//     color: #1a1a1a;
+//   }
+//   .unit { font-size: 20px; color: #aaa; margin-left: 10px; }
+// }
+
+// .purityGrid {
+//   display: grid;
+//   grid-template-columns: repeat(5, 1fr);
+//   gap: 10px;
+//   .purityItem {
+//     padding: 12px;
+//     text-align: center;
+//     border: 1px solid #eee;
+//     border-radius: 8px;
+//     cursor: pointer;
+//     font-weight: 600;
+//     transition: 0.3s;
+//     &:hover { border-color: $brand-purple; }
+//     &.active { background: $brand-purple; color: #fff; border-color: $brand-purple; }
+//   }
+// }
+
+// .resultCard {
+//   background: #0d0211; // Nəticə hissəsini yenidən tünd edirik ki, premiumluq qalsın
+//   padding: 60px;
+//   border-radius: 40px;
+//   position: relative;
+//   overflow: hidden;
+//   color: #fff;
+//   box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+
+//   .resultLabel { color: rgba(255,255,255,0.5); text-transform: uppercase; font-size: 12px; letter-spacing: 2px; }
+//   .mainAmount {
+//     font-size: 64px;
+//     font-weight: 800;
+//     margin: 20px 0;
+//     span { font-size: 24px; color: #d4af37; }
+//   }
+  
+//   .details {
+//     border-top: 1px solid rgba(255,255,255,0.1);
+//     padding-top: 20px;
+//     margin-bottom: 40px;
+//     .detailItem { display: flex; justify-content: space-between; color: rgba(255,255,255,0.7); font-size: 14px; }
+//   }
+// }
+
+// .ctaBtn { width: 100%; border-radius: 12px; height: 60px; font-size: 18px !important; }
+
 @import "@/styles/variables";
 
-.calcCard {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  height: 100%;
+.exchangeSection {
+  padding: 140px 0;
+  background-color: #ffffff;
+  overflow: hidden;
+}
 
-  h3 {
-    font-size: 20px;
-    color: $text-dark;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 100px;
+  align-items: center;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    gap: 60px;
   }
 }
 
-.inputGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.badge {
+  color: $brand-purple;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 13px;
+  margin-bottom: 24px;
+}
 
+.title {
+  font-size: 48px;
+  font-weight: 800;
+  color: #1a1a1a;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  span { color: $brand-purple; }
+}
+
+.description {
+  color: #666;
+  font-size: 18px;
+  max-width: 480px;
+  margin-bottom: 48px;
+}
+
+.field {
+  margin-bottom: 32px;
   label {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14px;
+    display: block;
     font-weight: 600;
-    color: $text-muted;
-
-    span {
-      color: $brand-purple;
-      font-size: 16px;
-    }
+    color: #444;
+    margin-bottom: 16px;
+    font-size: 15px;
   }
 }
 
-// Custom Range Slider
-.rangeInput {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 6px;
-  background: rgba($brand-purple, 0.1);
-  border-radius: 10px;
-  outline: none;
+.weightInputBox {
+  display: flex;
+  align-items: baseline;
+  border-bottom: 2px solid #efefef;
+  transition: border-color 0.3s;
+  &:focus-within { border-color: $brand-purple; }
 
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    background: $brand-purple;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 3px solid $white;
-    box-shadow: 0 4px 10px rgba($brand-purple, 0.3);
-    transition: $v-transition;
-
-    &:hover {
-      transform: scale(1.2);
-    }
-  }
-}
-
-.selectInput {
-  padding: 12px 16px;
-  border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background: $white;
-  font-family: inherit;
-  font-size: 15px;
-  color: $text-dark;
-  cursor: pointer;
-  transition: $v-transition;
-
-  &:focus {
-    border-color: $brand-purple;
-    outline: none;
-  }
-}
-
-.resultArea {
-  margin-top: auto;
-  padding: 20px;
-  background: rgba($brand-purple, 0.04);
-  border-radius: 16px;
-  text-align: center;
-
-  p {
-    font-size: 13px;
-    color: $text-muted;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-  }
-
-  .amount {
-    font-size: 32px;
+  input {
+    border: none;
+    background: transparent;
+    font-size: 42px;
     font-weight: 800;
-    color: $brand-purple;
-    
-    span {
-      font-size: 16px;
-      margin-left: 4px;
+    width: 100%;
+    outline: none;
+    color: #1a1a1a;
+    padding: 10px 0;
+  }
+  .unit { font-size: 20px; color: #aaa; font-weight: 600; }
+}
+
+.purityGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+
+  .purityBtn {
+    padding: 14px;
+    background: #f8f8f8;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover { border-color: $brand-purple; }
+    &.active {
+      background: $brand-purple;
+      color: #fff;
+      border-color: $brand-purple;
+      box-shadow: 0 10px 20px rgba($brand-purple, 0.15);
     }
   }
+}
+
+.resultCard {
+  background: #0d0211; // Dark premium background
+  border-radius: 40px;
+  padding: 50px;
+  color: white;
+  position: relative;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+
+  .cardHeader {
+    margin-bottom: 40px;
+    small { color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 2px; font-size: 12px; }
+    .mainPrice {
+      font-size: 64px;
+      font-weight: 900;
+      margin-top: 12px;
+      span { font-size: 24px; color: #d4af37; } // Gold AZN
+    }
+  }
+
+  .detailsList {
+    border-top: 1px dotted rgba(255,255,255,0.1);
+    padding: 30px 0;
+    .detailItem {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      &:last-child { color: #00ff88; font-weight: 600; } // Green for 0%
+    }
+  }
+}
+
+.ctaButton {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.footerNote {
+  margin-top: 24px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  text-align: center;
 }
