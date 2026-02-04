@@ -1,32 +1,35 @@
-import { FaInstagram, FaFacebookF, FaTelegramPlane } from 'react-icons/fa';
+import { FaInstagram, FaFacebookF, FaArrowRight } from 'react-icons/fa';
 import styles from './SocialCard.module.scss';
 
 const SocialCard = () => {
   return (
-    <div className={styles.socialGrid}>
-      
-      <a href="https://instagram.com" target="_blank" className={`${styles.card} ${styles.instagram}`}>
-        <div className={styles.iconWrapper}>
-          <FaInstagram />
-        </div>
-        <div className={styles.text}>
-          <h4>Instagram</h4>
-          <p>Bizi izləyin</p>
-        </div>
-      </a>
+    <div className={styles.socialContainer}>
+      <div className={styles.header}>
+        <h3>Sosial Media</h3>
+        <p>Bizi izləyərək ən son kampaniyalardan xəbərdar olun.</p>
+      </div>
 
-     
-      <a href="https://facebook.com" target="_blank" className={`${styles.card} ${styles.facebook}`}>
-        <div className={styles.iconWrapper}>
-          <FaFacebookF />
-        </div>
-        <div className={styles.text}>
-          <h4>Facebook</h4>
-          <p>Xəbərlər</p>
-        </div>
-      </a>
+      <div className={styles.platforms}>
+        <a href="#" className={styles.item}>
+          <div className={styles.mainInfo}>
+            <div className={styles.iconBox}><FaInstagram /></div>
+            <span>Instagram</span>
+          </div>
+          <FaArrowRight className={styles.arrow} />
+        </a>
+
+        <a href="#" className={styles.item}>
+          <div className={styles.mainInfo}>
+            <div className={styles.iconBox}><FaFacebookF /></div>
+            <span>Facebook</span>
+          </div>
+          <FaArrowRight className={styles.arrow} />
+        </a>
+      </div>
+
+      {/* Boşluğu dolduran lüks həndəsi dekor */}
+      <div className={styles.decorCircle}></div>
     </div>
   );
 };
-
-export default SocialCard;
+export default SocialCard

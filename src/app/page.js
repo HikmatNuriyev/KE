@@ -1,7 +1,13 @@
 import CreditCalculator from "@/components/molecules/Calculator/Calculator";
+import NetworkStats from "@/components/molecules/NetworkStats/NetworkStats";
+import VacancyBanner from "@/components/molecules/VacancyBanner/VacancyBanner";
 import AppBanner from "@/components/organisms/AppBanner/AppBanner";
 import Hero from "@/components/organisms/Hero/Hero";
 import SocialBanner from "@/components/organisms/SocialBanner/SocialBanner";
+import Faq, { FAQQ } from "@/components/molecules/FAQ/faqq";
+import Footer from "@/components/organisms/Footer/Footer";
+import NewsSection from "@/components/molecules/NewsSection/NewsSection";
+import BranchPreview from "@/components/organisms/BranchPreview/BranchPreview";
 
 
 export default function Home() {
@@ -36,6 +42,12 @@ export default function Home() {
            <AppBanner />
            <SocialBanner />
            <CreditCalculator/>
+           <VacancyBanner/>
+           <NetworkStats/>
+           {/* <BranchPreview/> */}
+           <NewsSection/>
+            <Faq/>
+            <Footer/>
         </div>
       </div>
       

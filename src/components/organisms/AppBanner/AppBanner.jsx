@@ -1,7 +1,7 @@
 import styles from "./AppBanner.module.scss";
 import Button from "@/components/atoms/Button/Button";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
-
+import Image from "next/image";
 const AppBanner = () => {
   return (
     <section className={styles.appSection}>
@@ -9,14 +9,23 @@ const AppBanner = () => {
         <div className={styles.visualSide}>
           <div className={styles.phoneFrame}>
             <div className={styles.screenInner}>
-              <div className={styles.brandLogo}>KE<span>.</span></div>
-              <small style={{color: '#999', fontSize: '10px'}}>Kredit Evi</small>
+                 <Image 
+        className={styles.logo}
+            src="/images/KE1.webp"  
+            alt="Kredit Evi Loqo" 
+            width={250} 
+            height={100} 
+            priority 
+          />
+              <div className={styles.brandLogo}><span></span></div>
+              <small style={{color: '#999', fontSize: '10px'}}></small>
             </div>
           </div>
           <div className={styles.glow}></div>
         </div>
 
         <div className={styles.contentSide}>
+        
           <h2>Kredit Evi <span>Hər an yanınızda.</span></h2>
           <p>
             Girovlarınızı idarə etmək, növbəti ödənişləri izləmək və 

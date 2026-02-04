@@ -1,0 +1,325 @@
+// @use "sass:color";
+// @use "@/styles/variables" as *;
+
+// .newsSection {
+//   padding: 120px 0;
+//   background: var(--bg-main, $white); // Dark Mode üçün dəyişən
+//   transition: background 0.3s ease;
+// }
+
+// .container {
+//   max-width: 1440px;
+//   margin: 0 auto;
+//   padding: 0 $space-container;
+// }
+
+// .header {
+//   margin-bottom: 60px;
+//   h2 {
+//     font-size: 48px;
+//     color: var(--text, $text-dark);
+//     span { color: var(--accent, $brand-purple); }
+//   }
+//   p { color: var(--text-dim, $text-muted); font-size: 18px; margin-top: 10px; }
+// }
+
+// .bentoGrid {
+//   display: grid;
+//   grid-template-columns: 1.8fr 1fr;
+//   gap: 30px;
+//   height: 600px;
+
+//   @media (max-width: 1024px) {
+//     grid-template-columns: 1fr;
+//     height: auto;
+//   }
+// }
+
+// .mainNews {
+//   position: relative;
+//   border-radius: 40px;
+//   overflow: hidden;
+//   background-color: var(--card-bg, #eee); // Şəkil yoxdursa, boş qalmasın
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: flex-end;
+//   padding: 50px;
+//   transition: transform 0.3s ease;
+
+//   &:hover {
+//     transform: scale(0.99);
+//     .imageOverlay { background: rgba(0,0,0,0.5); }
+//   }
+
+//   .imageOverlay {
+//     position: absolute;
+//     inset: 0;
+//     background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+//     z-index: 1;
+//     transition: 0.3s;
+//   }
+
+//   .badge {
+//     position: absolute;
+//     top: 30px;
+//     left: 30px;
+//     background: var(--accent, $brand-purple);
+//     color: #fff;
+//     padding: 8px 20px;
+//     border-radius: 100px;
+//     font-weight: 700;
+//     font-size: 13px;
+//     z-index: 2;
+//   }
+
+//   .content {
+//     position: relative;
+//     z-index: 2;
+//     color: #fff;
+
+//     .date { opacity: 0.7; font-size: 14px; margin-bottom: 15px; display: block; }
+//     h3 { font-size: 32px; margin-bottom: 15px; line-height: 1.2; }
+//     p { opacity: 0.8; margin-bottom: 30px; max-width: 500px; }
+    
+//     .readMore {
+//       background: #fff;
+//       color: #333;
+//       border: none;
+//       padding: 12px 25px;
+//       border-radius: 14px;
+//       font-weight: 700;
+//       display: flex;
+//       align-items: center;
+//       gap: 10px;
+//       cursor: pointer;
+//     }
+//   }
+// }
+
+// .sideNews {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 30px;
+
+//   .smallCard {
+//     flex: 1;
+//     background: var(--card-bg, $brand-light-bg);
+//     border-radius: 35px;
+//     padding: 40px;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     border: 1px solid var(--border, rgba(0,0,0,0.03));
+//     transition: all 0.3s ease;
+
+//     &:hover {
+//       background: var(--card-hover, $white);
+//       border-color: rgba($brand-purple, 0.2);
+//       box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+//     }
+
+//     .date { color: var(--accent, $brand-purple); font-weight: 700; font-size: 13px; margin-bottom: 15px; }
+//     h4 { font-size: 20px; color: var(--text, $text-dark); line-height: 1.4; margin-bottom: 20px; }
+    
+//     button {
+//       width: fit-content;
+//       background: transparent;
+//       border: 1px solid var(--border, #ddd);
+//       color: var(--text, $text-dark);
+//       padding: 8px 20px;
+//       border-radius: 10px;
+//       font-weight: 600;
+//       cursor: pointer;
+//       &:hover { background: var(--text, $text-dark); color: var(--bg-main, $white); }
+//     }
+//   }
+// }
+
+
+
+
+
+@use "@/styles/variables" as *;
+
+.newsSection {
+  padding: 100px 0;
+  background: var(--bg-main);
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 $space-container;
+}
+
+/* HEADER */
+.header {
+  margin-bottom: 50px;
+
+  h2 {
+    font-size: 44px;
+    font-weight: 800;
+    color: var(--text-main);
+
+    span {
+      color: var(--accent-color);
+    }
+  }
+
+  p {
+    margin-top: 10px;
+    color: var(--text-muted);
+    font-size: 18px;
+  }
+}
+
+/* GRID */
+.bentoGrid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 25px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* MAIN NEWS */
+.mainNews {
+  position: relative;
+  min-height: 650px;
+  border-radius: 40px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+
+  &:hover .bgImage {
+    transform: scale(1.05);
+  }
+}
+
+.bgImage {
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 10%,
+    rgba(0, 0, 0, 0.3) 60%,
+    transparent
+  );
+  z-index: 1;
+}
+
+.content {
+  position: absolute;
+  bottom: 0;
+  padding: 50px;
+  z-index: 2;
+  color: #fff;
+
+  .badge {
+    display: inline-block;
+    background: var(--accent-color);
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  .date {
+    display: block;
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 15px;
+  }
+
+  h3 {
+    font-size: 32px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+
+  p {
+    max-width: 520px;
+    margin-bottom: 25px;
+    opacity: 0.85;
+  }
+
+  .readMore {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 26px;
+    border-radius: 14px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    background: #fff;
+    color: #000;
+  }
+}
+
+/* SIDE NEWS */
+.sideNews {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.smallCard {
+  flex: 1;
+  background: var(--bg-card);
+  border-radius: 30px;
+  padding: 35px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-color);
+  }
+
+  .date {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  h4 {
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    color: var(--text-main);
+  }
+
+  button {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    padding: 8px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--text-main);
+      color: var(--bg-main);
+    }
+  }
+}
+
+/* DARK MODE */
+:global(.dark) {
+  .header h2,
+  .smallCard h4 {
+    color: #fff;
+  }
+}

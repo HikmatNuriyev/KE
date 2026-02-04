@@ -1,71 +1,111 @@
-@import "@/styles/variables";
-
-.socialGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  gap: 16px;
+@use "@/styles/variables" as *;
+.socialContainer {
   height: 100%;
-}
-
-.card {
-  position: relative;
-  background: $white;
-  border-radius: $radius-lg;
-  padding: 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: $v-transition;
-  border: 1px solid rgba(0, 0, 0, 0.03);
-  overflow: hidden;
-  cursor: pointer;
+  // Arxa fonda çox-çox zərif bir hərəkətli gradient (boşluğu doldurur)
+  background: radial-gradient(at top right, rgba($brand-purple, 0.03) 0%, #ffffff 70%);
+  position: relative;
+}
 
-  .iconWrapper {
-    width: 40px;
-    height: 40px;
+.header {
+  z-index: 2;
+  h3 {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1d1d1f;
+    margin-bottom: 8px;
+  }
+  p {
+    font-size: 13px;
+    color: #86868b;
+    line-height: 1.4;
+  }
+}
+
+.platforms {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 2;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid #efeff2;
+  border-radius: 18px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  .mainInfo {
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    font-size: 22px;
+    gap: 12px;
+
+    .iconBox {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      font-size: 18px;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      transition: 0.3s;
+    }
+
+    span {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1d1d1f;
+    }
+  }
+
+  .arrow {
+    font-size: 12px;
+    color: #d2d2d7;
     transition: 0.3s;
   }
 
-  .text {
-    margin-top: 15px;
-    h4 { font-size: 16px; font-weight: 700; }
-    p { font-size: 12px; color: $text-muted; }
-  }
+  &:hover {
+    transform: translateX(6px);
+    border-color: $brand-purple;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
 
-  
-  &.instagram {
-    &:hover {
-      background: linear-gradient(135deg, #fff 60%, #fff0f5 100%);
-      .iconWrapper { color: #E1306C; background: rgba(#E1306C, 0.1); }
+    .iconBox {
+      background: $brand-purple;
+      color: #ffffff;
+    }
+    
+    .arrow {
+      color: $brand-purple;
+      transform: translateX(4px);
     }
   }
+}
 
-  &.facebook {
-    &:hover {
-      background: linear-gradient(135deg, #fff 60%, #f0f4ff 100%);
-      .iconWrapper { color: #1877F2; background: rgba(#1877F2, 0.1); }
-    }
-  }
-
+// Kartın küncünə lüks bir element (Pattern)
+.decorCircle {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgba($brand-purple, 0.05);
+  border-radius: 50%;
+  pointer-events: none;
   
-  &::after {
+  &::before {
     content: '';
     position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 100px;
-    height: 100px;
-    background: radial-gradient(circle, rgba($brand-purple, 0.05) 0%, transparent 70%);
-    transition: 0.5s;
-  }
-
-  &:hover::after {
-    top: -10%;
-    right: -10%;
+    inset: 15px;
+    border: 1px solid rgba($brand-purple, 0.03);
+    border-radius: 50%;
   }
 }

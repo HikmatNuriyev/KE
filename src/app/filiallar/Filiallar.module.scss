@@ -1,0 +1,130 @@
+@use "@/styles/variables" as *;
+
+.filiallarPage {
+  background: #ffffff;
+  min-height: 100vh;
+  padding-bottom: 100px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.header {
+  padding: 120px 0 60px;
+  
+  .topTag {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: $brand-purple;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .title {
+    font-size: clamp(32px, 5vw, 64px);
+    font-weight: 500;
+    color: #111;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 50px;
+
+    span { color: #888; } // İkinci hissə daha sönük, lüks kontrast
+  }
+}
+
+.searchWrapper {
+  position: relative;
+  max-width: 600px;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 15px 0;
+
+  .searchIcon { color: #aaa; position: absolute; left: 0; top: 50%; transform: translateY(-50%); }
+
+  input {
+    width: 100%;
+    padding-left: 35px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 300;
+    color: #333;
+    &::placeholder { color: #ccc; }
+  }
+}
+
+.branchRow {
+  display: grid;
+  grid-template-columns: 1.2fr 1.5fr 0.8fr;
+  padding: 40px 0;
+  border-bottom: 1px solid #f2f2f2;
+  align-items: center;
+  transition: 0.4s ease;
+  opacity: 0;
+  animation: slideIn 0.5s forwards;
+  animation-delay: calc(var(--delay) * 0.05s);
+
+  &:hover {
+    border-color: #000; // Hover olanda sadəcə alt xətt tündləşir
+    
+    .name { color: $brand-purple; }
+    .mapBtn { color: #000; transform: translateX(5px); }
+  }
+
+  .mainInfo {
+    .city {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #aaa;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .name {
+      font-size: 24px;
+      font-weight: 500;
+      color: #111;
+      transition: 0.3s;
+    }
+  }
+
+  .addressInfo {
+    p { font-size: 15px; color: #666; max-width: 300px; line-height: 1.6; }
+  }
+
+  .action {
+    text-align: right;
+    
+    .mapBtn {
+      background: none;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      color: #888;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+      transition: 0.3s;
+    }
+  }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 850px) {
+  .branchRow {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 30px 0;
+    .action { text-align: left; .mapBtn { margin-left: 0; } }
+  }
+}

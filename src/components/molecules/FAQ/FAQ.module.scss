@@ -1,0 +1,60 @@
+@use "@/styles/variables" as *;
+
+.faqSection {
+  padding: 100px 0;
+  background: $white;
+}
+
+.container {
+  max-width: 900px; // Daha dar tuturuq ki, oxumaq rahat olsun
+  margin: 0 auto;
+  padding: 0 $space-container;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+  span { color: $brand-purple; font-weight: 800; text-transform: uppercase; font-size: 13px; }
+  h2 { font-size: 38px; color: $text-dark; margin-top: 10px; span { color: $brand-purple; } }
+}
+
+.faqItem {
+  background: $brand-light-bg;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: $v-transition;
+  border: 1px solid transparent;
+
+  &:hover { border-color: rgba($brand-purple, 0.2); }
+
+  .question {
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h3 { font-size: 18px; color: $text-dark; font-weight: 700; }
+    .icon { color: $brand-purple; font-size: 14px; }
+  }
+
+  .answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0 30px;
+    opacity: 0;
+    p { padding-bottom: 25px; color: $text-muted; line-height: 1.6; }
+  }
+
+  &.active {
+    background: $white;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    border-color: rgba($brand-purple, 0.1);
+    
+    .answer {
+      max-height: 200px;
+      opacity: 1;
+      padding-top: 10px;
+    }
+  }
+}

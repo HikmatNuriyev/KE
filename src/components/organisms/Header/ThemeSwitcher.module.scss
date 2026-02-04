@@ -1,0 +1,31 @@
+.switcher {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background: var(--text-main);
+    color: var(--bg-color);
+    transform: translateY(-2px);
+  }
+
+  .iconBox {
+    display: flex;
+    font-size: 18px;
+    // Basanda ikonun fırlanma animasiyası
+    animation: scaleIn 0.3s ease-out;
+  }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.5) rotate(-20deg); opacity: 0; }
+  to { transform: scale(1) rotate(0); opacity: 1; }
+}

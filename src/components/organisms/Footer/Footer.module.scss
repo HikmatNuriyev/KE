@@ -1,0 +1,148 @@
+@use "@/styles/variables" as *;
+
+.footer {
+  background: #0d0d0f; // Ultra dark background
+  padding: 100px 0 40px;
+  color: #ffffff;
+  font-family: $font-main;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 $space-container;
+}
+
+.topSection {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 50px;
+  padding-bottom: 80px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.brand {
+  flex: 1;
+  min-width: 250px;
+
+  .footerLogo {
+    object-fit: contain;
+    margin-bottom: 30px;
+    filter: brightness(0) invert(1); // Əgər loqo rənglidirsə, onu tam ağ edir
+  }
+
+  .description {
+    color: #888;
+    line-height: 1.6;
+    font-size: 15px;
+    max-width: 300px;
+  }
+}
+
+.navLinks {
+  display: flex;
+  gap: 80px;
+  flex: 2;
+
+  @media (max-width: 768px) { gap: 40px; }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    h4 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: #666;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $brand-purple;
+      }
+    }
+  }
+}
+
+.contact {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 200px;
+
+  .hotline {
+    text-align: right;
+    margin-bottom: 30px;
+    
+    span {
+      display: block;
+      color: #666;
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+    
+    a {
+      font-size: 32px;
+      font-weight: 800;
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s;
+      &:hover { color: $brand-purple; }
+    }
+  }
+}
+
+.socials {
+  display: flex;
+  gap: 15px;
+
+  a {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+
+    &:hover {
+      background: $brand-purple;
+      border-color: $brand-purple;
+      transform: translateY(-5px);
+    }
+    
+    &.whatsapp:hover {
+      background: #25d366;
+      border-color: #25d366;
+    }
+  }
+}
+
+.bottomBar {
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  color: #444;
+  font-size: 13px;
+  font-weight: 500;
+
+  .studio {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}

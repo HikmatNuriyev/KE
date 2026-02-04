@@ -1,0 +1,35 @@
+@use "@/styles/variables" as *;
+
+.mapContainer {
+  width: 100%;
+  background: var(--card-bg, #fff);
+  border-radius: 20px;
+  padding: 20px;
+  
+  .mapSvg {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.05));
+  }
+}
+
+.pin {
+  fill: var(--accent, #9d50bb);
+  cursor: pointer;
+  transition: r 0.3s ease;
+  
+  &:hover {
+    r: 10; // Üzərinə gələndə nöqtə böyüsün
+  }
+}
+
+.pulse {
+  fill: var(--accent, #9d50bb);
+  opacity: 0.4;
+  animation: mapPulse 2s infinite;
+}
+
+@keyframes mapPulse {
+  0% { r: 6; opacity: 0.6; }
+  100% { r: 15; opacity: 0; }
+}

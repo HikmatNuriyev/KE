@@ -1,5 +1,4 @@
-@import "@/styles/variables";
-
+@use "@/styles/variables" as *;
 .appSection {
   position: relative;
   padding: 100px 0;

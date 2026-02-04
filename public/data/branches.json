@@ -1,0 +1,20 @@
+[
+  { "id": 1, "name": "Mərkəz", "city": "Bakı", "coords": { "top": "39%", "left": "93%" } },
+  { "id": 2, "name": "Gəncə", "city": "Gəncə", "coords": { "top": "45%", "left": "42%" } },
+  { "id": 3, "name": "Sumqayıt", "city": "Sumqayıt", "coords": { "top": "34%", "left": "87%" } },
+  { "id": 4, "name": "Naxçıvan", "city": "Naxçıvan", "coords": { "top": "78%", "left": "14%" } },
+  { "id": 5, "name": "Quba", "city": "Quba", "coords": { "top": "19%", "left": "74%" } },
+  { "id": 6, "name": "Lənkəran", "city": "Lənkəran", "coords": { "top": "84%", "left": "79%" } },
+  { "id": 7, "name": "Şamaxı", "city": "Şamaxı", "coords": { "top": "38%", "left": "73%" } },
+  { "id": 8, "name": "Xaçmaz", "city": "Xaçmaz", "coords": { "top": "14%", "left": "75%" } },
+  { "id": 9, "name": "Göyçay", "city": "Göyçay", "coords": { "top": "43%", "left": "61%" } },
+  { "id": 10, "name": "Yevlax", "city": "Yevlax", "coords": { "top": "47%", "left": "51%" } },
+  { "id": 11, "name": "Şəmkir", "city": "Şəmkir", "coords": { "top": "43%", "left": "34%" } },
+  { "id": 12, "name": "Masallı", "city": "Masallı", "coords": { "top": "76%", "left": "76%" } },
+  { "id": 13, "name": "Astara", "city": "Astara", "coords": { "top": "88%", "left": "79%" } },
+  { "id": 14, "name": "Tovuz", "city": "Tovuz", "coords": { "top": "40%", "left": "26%" } },
+  { "id": 15, "name": "Xırdalan", "city": "Xırdalan", "coords": { "top": "36%", "left": "88%" } },
+  { "id": 16, "name": "Mingəçevir", "city": "Mingəçevir", "coords": { "top": "42%", "left": "50%" } },
+  { "id": 17, "name": "Sabirabad", "city": "Sabirabad", "coords": { "top": "56%", "left": "75%" } },
+  { "id": 18, "name": "Bərdə", "city": "Bərdə", "coords": { "top": "52%", "left": "53%" } }
+]
