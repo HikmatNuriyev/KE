@@ -13,7 +13,7 @@ const AppBanner = () => {
         className={styles.logo}
             src="/images/KE1.webp"  
             alt="Kredit Evi Loqo" 
-            width={250} 
+            width={100} 
             height={100} 
             priority 
           />

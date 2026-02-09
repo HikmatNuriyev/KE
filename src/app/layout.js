@@ -1,13 +1,15 @@
 // import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 // import "@/styles/globals.scss";
 // import Header from "@/components/organisms/Header/Header";
+// import Providers from "./providers"; // Bunu indi yaradacağıq
+// import Chatbot from "@/components/Chatbot/Chatbot";
 
-// const inter = Inter({ 
+// const inter = Inter({
 //   subsets: ["latin"],
 //   variable: "--font-inter",
 // });
 
-// const jakarta = Plus_Jakarta_Sans({ 
+// const jakarta = Plus_Jakarta_Sans({
 //   subsets: ["latin"],
 //   variable: "--font-jakarta",
 // });
@@ -18,24 +20,18 @@
 //     template: "%s | KE"
 //   },
 //   description: "Qızıl girovu ilə sürətli kreditlər, lizinq və onlayn maliyyə həlləri.",
-//   keywords: ["kredit", "qızıl girovu", "lizinq", "fintech", "azərbaycan"],
-//   alternates: {
-//     canonical: "https://ke.az", 
-//   },
-//   openGraph: {
-//     title: "KE - Modern Maliyyə Platforması",
-//     description: "Sürətli və etibarlı kredit müraciəti.",
-//     type: "website",
-//     locale: "az_AZ",
-//   },
+//   // ... digər metadata hissələri olduğu kimi qalır
 // };
 
 // export default function RootLayout({ children }) {
 //   return (
-//     <html lang="az" className={`${inter.variable} ${jakarta.variable}`}>
+//     <html lang="az" className={`${inter.variable} ${jakarta.variable}`} suppressHydrationWarning>
 //       <body suppressHydrationWarning={true}>
-//         <Header />
-//         {children}
+//         <Providers>
+//           <Header />
+//           {children}
+//           <Chatbot/>
+//         </Providers>
 //       </body>
 //     </html>
 //   );
@@ -44,14 +40,15 @@
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "@/styles/globals.scss";
 import Header from "@/components/organisms/Header/Header";
-import Providers from "./providers"; // Bunu indi yaradacağıq
+import Chatbot from "@/components/Chatbot/Chatbot"; // Chatbotu bura əlavə etdik
+import Providers from "./providers";
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
 
-const jakarta = Plus_Jakarta_Sans({ 
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-jakarta",
 });
@@ -59,19 +56,24 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata = {
   title: {
     default: "KE - Qızıl Girovlu Kredit və Lizinq",
-    template: "%s | KE"
+    template: "%s | KE",
   },
-  description: "Qızıl girovu ilə sürətli kreditlər, lizinq və onlayn maliyyə həlləri.",
-  // ... digər metadata hissələri olduğu kimi qalır
+  description:
+    "Qızıl girovu ilə sürətli kreditlər, lizinq və onlayn maliyyə həlləri.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="az" className={`${inter.variable} ${jakarta.variable}`} suppressHydrationWarning>
+    <html
+      lang="az"
+      className={`${inter.variable} ${jakarta.variable}`}
+      suppressHydrationWarning
+    >
       <body suppressHydrationWarning={true}>
-        <Providers> 
+        <Providers>
           <Header />
-          {children}
+          <main>{children}</main>
+          <Chatbot />
         </Providers>
       </body>
     </html>

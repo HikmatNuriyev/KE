@@ -1,38 +1,4 @@
-// // src/styles/_variables.scss
 
-// // Brand Colors
-// $brand-purple: #732382;
-// $brand-gold: #D4AF37;       // Qızıl tonu (qiymətlər və aksentlər üçün lazımdır)
-// $brand-light-bg: #F5F5F7;   // O dediyimiz Apple-vari "Off-white" fon (FDFBFF çox açıq qala bilər)
-// $white: #FFFFFF;
-
-// // Text Colors
-// $text-dark: #1A0B2E;        // Sənin seçdiyin tünd bənövşəyi-qara
-// $text-muted: #6B5E7E;       // Köməkçi mətnlər
-// $text-apple-grey: #86868b;  // Daha modern, neytral boz (alt yazılar üçün alternativ)
-
-// // Header & Navigation Specific
-// $header-bg: rgba($white, 0.8);
-// $header-border: rgba(0, 0, 0, 0.05);
-// $nav-link-color: #515154;
-
-// // Spacing & Radius
-// $radius-lg: 32px;           // Bento üçün 24px bir az kəskin ola bilər, 32px daha premiumdur
-// $radius-md: 18px;           // Dropdown və kiçik kartlar üçün
-// $radius-sm: 12px;           // Düymələr üçün
-// $space-container: 8%;       
-
-// // Typography
-// $font-main: var(--font-inter), sans-serif;
-// $font-heading: var(--font-jakarta), sans-serif;
-
-// // Animation & Transitions
-// $v-transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-// $v-shadow: 0 20px 40px rgba(0, 0, 0, 0.06); // Standart premium kölgə dəyişənimiz
-
-// src/styles/_variables.scss
-
-// Mütləq bunları CSS dəyişənlərinə bağlayırıq:
 $white: var(--bg-card);
 $brand-light-bg: var(--bg-main);
 $text-dark: var(--text-main);
