@@ -162,16 +162,18 @@
   }
 
   .ctaBtn {
-    background: var(--text-main); // Dark Mode-da ağ, Light Mode-da qara olacaq
+    background: #621e6e; // Dark Mode-da ağ, Light Mode-da qara olacaq
     color: var(--bg-main);
     padding: 10px 20px;
     border-radius: 12px;
     font-weight: 700;
+     cursor: pointer;
     font-size: 14px;
     transition: $v-transition;
-
-    &:hover { background: var(--accent-color); color: #fff; transform: translateY(-2px); }
+border: none;
+    &:hover {  color: #fff; transform: translateY(-2px); }
   }
+ 
 }
 
 .themeToggle {

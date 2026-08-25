@@ -1,12 +1,14 @@
+
 // @use "@/styles/variables" as *;
 
 // .main {
 //   padding: 80px 0;
-//   // Kalkulyatorla eyni lüks boz fon
-//   background-color: #f5f5f7; 
+//   // Sabit #f5f5f7 yerinə dinamik fon
+//   background-color: var(--bg-main); 
 //   min-height: 100vh;
 //   display: flex;
 //   align-items: center;
+//   transition: background-color 0.4s ease;
 // }
 
 // .bentoGrid {
@@ -26,11 +28,12 @@
 // }
 
 // .bentoItem {
-//   background: #ffffff; // Saf ağ kartlar
-//   border-radius: 32px; // Daha yumşaq künclər
+//   // Sabit #ffffff yerinə var(--bg-card)
+//   background: var(--bg-card); 
+//   border-radius: 32px; 
 //   padding: 40px;
-//   border: 1px solid rgba(0, 0, 0, 0.03);
-//   // Daha dərini kölgə (depth)
+//   border: 1px solid var(--border-color);
+//   // Kölgəni dark mode-da daha zəif edirik ki, lüks görünsün
 //   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); 
 //   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 //   overflow: hidden;
@@ -38,8 +41,8 @@
 
 //   &:hover {
 //     transform: translateY(-8px);
-//     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
-//     border-color: rgba($brand-purple, 0.1);
+//     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+//     border-color: var(--accent-color);
 //   }
 // }
 
@@ -50,7 +53,6 @@
 //   flex-direction: column;
 //   justify-content: center;
   
-//   // Arxa fonda çox gizli bir bənövşəyi parıltı (glow)
 //   &::before {
 //     content: "";
 //     position: absolute;
@@ -58,7 +60,8 @@
 //     left: -20%;
 //     width: 300px;
 //     height: 300px;
-//     background: radial-gradient(circle, rgba($brand-purple, 0.03) 0%, transparent 70%);
+//     // Glow effektini dəyişənə bağlayırıq
+//     background: radial-gradient(circle, rgba($brand-purple, 0.05) 0%, transparent 70%);
 //     pointer-events: none;
 //   }
 
@@ -68,12 +71,12 @@
 //     line-height: 1.1;
 //     letter-spacing: -2px;
 //     margin: 24px 0;
-//     color: #1d1d1f;
-//     span { color: $brand-purple; }
+//     color: var(--text-main); // #1d1d1f yerinə dinamik rəng
+//     span { color: var(--accent-color); }
 //   }
   
 //   p {
-//     color: #86868b;
+//     color: var(--text-muted); // #86868b yerinə dinamik rəng
 //     font-size: 19px;
 //     line-height: 1.5;
 //     margin-bottom: 40px;
@@ -83,8 +86,8 @@
 
 // .calcArea {
 //   grid-column: span 2;
-//   // Kalkulyator sahəsinə zərif gradient
-//   background: linear-gradient(135deg, #ffffff 0%, #fcfaff 100%);
+//   // Gradienti hər iki rejimə uyğunlaşdırdıq
+//   background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-main) 100%);
 // }
 
 // .socialArea {
@@ -92,51 +95,21 @@
 //   display: flex;
 //   align-items: center;
 //   justify-content: center;
-//   // Sosial kart sönük qalmasın deyə yüngül bir "tint"
-//   background: linear-gradient(to bottom, #ffffff, #f9f9fb);
-  
-//   :global(.SocialCard) { // Əgər içindəki komponenti stilizə etmək lazımdırsa
-//     width: 100%;
-//   }
+//   background: linear-gradient(to bottom, var(--bg-card), var(--bg-main));
 // }
 
 // .trustCard {
 //   grid-column: span 1;
-//   background: $brand-purple; // Bu kart zatən vurğuludur, rəngi saxlayırıq
+//   background: var(--accent-color); // Brend bənövşəyi hər iki modda qalsın
 //   color: #ffffff;
 //   display: flex;
 //   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   text-align: center;
-//   border: none;
-
-//   h3 { 
-//     color: #ffffff; 
-//     font-size: 40px; 
-//     font-weight: 800;
-//     margin-bottom: 8px;
-//   }
-  
-//   p { 
-//     font-size: 16px;
-//     font-weight: 500;
-//     opacity: 0.9; 
-//   }
-// }
-// .trustCard {
-//   grid-column: span 1;
-//   background: $brand-purple;
-//   color: #fff;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between; // Yazı və vizualı ayırır
+//   justify-content: space-between;
 //   align-items: flex-start;
 //   position: relative;
 //   overflow: hidden;
 //   border: none;
 
-//   // Arxa fonda zərif, lüks bir dairəvi hərəkət (Saat effekti)
 //   &::before {
 //     content: "";
 //     position: absolute;
@@ -144,70 +117,52 @@
 //     right: -20px;
 //     width: 140px;
 //     height: 140px;
-//     border: 8px solid rgba(255, 255, 255, 0.05);
+//     border: 8px solid rgba(255, 255, 255, 0.1);
 //     border-radius: 50%;
-//   }
-
-//   &::after {
-//     content: "";
-//     position: absolute;
-//     top: 40px;
-//     right: 40px;
-//     width: 20px;
-//     height: 2px;
-//     background: rgba(255, 255, 255, 0.3);
-//     transform-origin: left;
-//     animation: rotateHand 10s linear infinite; // Saat əqrəbi kimi fırlanır
 //   }
 
 //   .cardContent {
 //     position: relative;
 //     z-index: 2;
-//     margin-top: auto; // Yazıları aşağı sıxır ki, yuxarıda boşluq/dekor qalsın
+//     margin-top: auto;
 
 //     h3 { 
 //       color: #fff; 
 //       font-size: 38px; 
 //       font-weight: 800;
 //       margin-bottom: 5px;
-//       letter-spacing: -1px;
 //     }
     
 //     p { 
+//       color: #fff;
 //       opacity: 0.8; 
 //       font-size: 14px;
-//       font-weight: 500;
 //       text-transform: uppercase;
-//       letter-spacing: 1px;
 //     }
-//   }
-
-//   // Kiçik bir vizual element (məsələn: ildırım və ya saat ikonu)
-//   .iconTag {
-//     background: rgba(255, 255, 255, 0.15);
-//     padding: 10px;
-//     border-radius: 12px;
-//     font-size: 20px;
-//     margin-bottom: 20px;
 //   }
 // }
 
-// @keyframes rotateHand {
-//   from { transform: rotate(0deg); }
-//   to { transform: rotate(360deg); }
+// :global(.dark) {
+//   .bentoItem {
+//     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); // Daha tünd kölgə
+//     border-color: rgba(255, 255, 255, 0.05);
+//   }
 // }
 
 
 @use "@/styles/variables" as *;
 
 .main {
-  padding: 80px 0;
-  // Sabit #f5f5f7 yerinə dinamik fon
-  background-color: var(--bg-main); 
-  min-height: 100vh;
+  padding: 80px 20px; // Mobildə kənarlardan yapışmaması üçün 20px əlavə etdik
+  background-color: var(--bg-main);
+  min-height: 85vh;
   display: flex;
   align-items: center;
   transition: background-color 0.4s ease;
+
+  @media (max-width: 768px) {
+    padding: 40px 16px; // Mobil üçün daha yığcam padding
+  }
 }
 
 .bentoGrid {
@@ -215,33 +170,42 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 320px);
   gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
+    grid-template-rows: auto; // Avtomatik hündürlük ki, kontent sıxılmasın
+    gap: 16px;
   }
 
   @media (max-width: 600px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; // Mobildə hamısı alt-alta
+    grid-template-rows: auto;
   }
 }
 
 .bentoItem {
-  // Sabit #ffffff yerinə var(--bg-card)
-  background: var(--bg-card); 
-  border-radius: 32px; 
+  background: var(--bg-card);
+  border-radius: 32px;
   padding: 40px;
   border: 1px solid var(--border-color);
-  // Kölgəni dark mode-da daha zəif edirik ki, lüks görünsün
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); 
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   overflow: hidden;
   position: relative;
 
+  @media (max-width: 768px) {
+    padding: 24px; // Mobildə daxili boşluğu azaldırıq
+  }
+
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
-    border-color: var(--accent-color);
+    @media (min-width: 1025px) { // Hover effektini yalnız desktopda saxlamaq daha yaxşıdır
+      transform: translateY(-8px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+      border-color: var(--accent-color);
+    }
   }
 }
 
@@ -251,99 +215,77 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
-  &::before {
-    content: "";
-    position: absolute;
-    top: -20%;
-    left: -20%;
-    width: 300px;
-    height: 300px;
-    // Glow effektini dəyişənə bağlayırıq
-    background: radial-gradient(circle, rgba($brand-purple, 0.05) 0%, transparent 70%);
-    pointer-events: none;
+
+  @media (max-width: 1024px) {
+    grid-column: span 2; // Planşetdə tam en tutsun
+    grid-row: span 1;
+    min-height: 400px;
+  }
+
+  @media (max-width: 600px) {
+    grid-column: span 1;
+    min-height: auto;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 
   h1 {
-    font-size: clamp(36px, 5vw, 64px);
+    font-size: clamp(32px, 8vw, 64px); // Mobildə minimum 32px-ə qədər kiçiləcək
     font-weight: 800;
     line-height: 1.1;
-    letter-spacing: -2px;
-    margin: 24px 0;
-    color: var(--text-main); // #1d1d1f yerinə dinamik rəng
+    letter-spacing: -1.5px;
+    margin: 20px 0;
+    color: var(--text-main);
     span { color: var(--accent-color); }
   }
-  
+
   p {
-    color: var(--text-muted); // #86868b yerinə dinamik rəng
-    font-size: 19px;
+    color: var(--text-muted);
+    font-size: clamp(16px, 2vw, 19px);
     line-height: 1.5;
-    margin-bottom: 40px;
-    max-width: 90%;
+    margin-bottom: 30px;
+    max-width: 100%;
   }
 }
 
 .calcArea {
   grid-column: span 2;
-  // Gradienti hər iki rejimə uyğunlaşdırdıq
   background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-main) 100%);
+  
+  @media (max-width: 600px) {
+    grid-column: span 1;
+    min-height: 250px;
+  }
 }
 
-.socialArea {
-  grid-column: span 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(to bottom, var(--bg-card), var(--bg-main));
+.socialArea, .trustCard {
+  @media (max-width: 1024px) {
+    grid-column: span 1; // Yan-yana qalsınlar
+    min-height: 200px;
+  }
+  
+  @media (max-width: 600px) {
+    grid-column: span 1; // Mobildə tək-tək alt-alta
+  }
 }
 
 .trustCard {
-  grid-column: span 1;
-  background: var(--accent-color); // Brend bənövşəyi hər iki modda qalsın
+  background: var(--accent-color);
   color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  position: relative;
-  overflow: hidden;
   border: none;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    width: 140px;
-    height: 140px;
-    border: 8px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-  }
-
+  
   .cardContent {
-    position: relative;
-    z-index: 2;
-    margin-top: auto;
-
     h3 { 
-      color: #fff; 
-      font-size: 38px; 
-      font-weight: 800;
-      margin-bottom: 5px;
-    }
-    
-    p { 
-      color: #fff;
-      opacity: 0.8; 
-      font-size: 14px;
-      text-transform: uppercase;
+      font-size: clamp(28px, 4vw, 38px);
+      margin-bottom: 8px;
     }
   }
 }
 
+// Dark Mode üçün xüsusi kölgə tənzimləməsi
 :global(.dark) {
   .bentoItem {
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); // Daha tünd kölgə
-    border-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.08);
   }
 }

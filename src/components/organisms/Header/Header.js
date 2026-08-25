@@ -80,7 +80,7 @@ import { useTheme } from "next-themes"; // Bunu əlavə etdik
 import { FaChevronDown, FaMoon, FaSun, FaHeadset } from 'react-icons/fa';
 import styles from './header.module.scss';
 import Image from 'next/image';
-
+import Link from 'next/link';
 const Header = () => {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -155,9 +155,19 @@ const Header = () => {
           </div>
 
           <div className={styles.btnGroup}>
-            <button className={styles.paymentBtn}>Ödəniş</button>
-            <button className={styles.ctaBtn}>Onlayn Müraciət</button>
+            {/* <button className={styles.paymentBtn}>Ödəniş</button> */}
+            <Link
+  href="https://www.million.az/services/bank/KreditEvi"
+  target="_blank"
+  rel="noopener noreferrer"
+  className={styles.paymentBtn}
+>
+  Ödəniş
+</Link>
+            <button className=
+            {styles.ctaBtn}>Onlayn Müraciət</button>
           </div>
+        
         </div>
       </div>
     </header>

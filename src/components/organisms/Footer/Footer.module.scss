@@ -1,7 +1,7 @@
 @use "@/styles/variables" as *;
 
 .footer {
-  background: #0d0d0f; // Ultra dark background
+  background: #621e6e; // Ultra dark background
   padding: 100px 0 40px;
   color: #ffffff;
   font-family: $font-main;
@@ -33,7 +33,7 @@
   }
 
   .description {
-    color: #888;
+    color: #ffffff ;
     line-height: 1.6;
     font-size: 15px;
     max-width: 300px;
@@ -62,13 +62,13 @@
     }
 
     a {
-      color: #666;
+      color: #ffffff ;
       text-decoration: none;
       font-size: 15px;
       transition: color 0.3s ease;
 
       &:hover {
-        color: $brand-purple;
+        color: #ffffff ;
       }
     }
   }
@@ -87,7 +87,7 @@
     
     span {
       display: block;
-      color: #666;
+      color: #ffffff ;
       font-size: 13px;
       margin-bottom: 5px;
     }
@@ -98,7 +98,7 @@
       color: #ffffff;
       text-decoration: none;
       transition: color 0.3s;
-      &:hover { color: $brand-purple; }
+      &:hover {  color: #ffffff ; }
     }
   }
 }
@@ -137,7 +137,7 @@
   padding-top: 40px;
   display: flex;
   justify-content: space-between;
-  color: #444;
+  color: #ffffff ;
   font-size: 13px;
   font-weight: 500;
 

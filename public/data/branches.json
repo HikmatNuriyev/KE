@@ -2,7 +2,7 @@
   { "id": 1, "name": "Mərkəz", "city": "Bakı", "coords": { "top": "39%", "left": "93%" } },
   { "id": 2, "name": "Gəncə", "city": "Gəncə", "coords": { "top": "45%", "left": "42%" } },
   { "id": 3, "name": "Sumqayıt", "city": "Sumqayıt", "coords": { "top": "34%", "left": "87%" } },
-  { "id": 4, "name": "Naxçıvan", "city": "Naxçıvan", "coords": { "top": "78%", "left": "14%" } },
+  { "id": 4, "name": "Qarayev", "city": "Naxçıvan", "coords": { "top": "78%", "left": "14%" } },
   { "id": 5, "name": "Quba", "city": "Quba", "coords": { "top": "19%", "left": "74%" } },
   { "id": 6, "name": "Lənkəran", "city": "Lənkəran", "coords": { "top": "84%", "left": "79%" } },
   { "id": 7, "name": "Şamaxı", "city": "Şamaxı", "coords": { "top": "38%", "left": "73%" } },
