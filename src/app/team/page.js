@@ -11,13 +11,7 @@ const teamMembers = [
     image: "/team/member1.jpg",
     linkedin: "#"
   },
-  // {
-  //   id: 2,
-  //   name: "Sadiq Ələkbərov",
-  //   role: "İT üzrə mütəxəssis",
-  //   // image: "/images/sadiq.jpg",
-  //   linkedin: "#"
-  // }
+  
 ];
 
 const Team = () => {

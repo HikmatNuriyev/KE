@@ -1,159 +1,6 @@
-// @use "@/styles/variables" as *;
-// .appSection {
-//   position: relative;
-//   padding: 100px 0;
-//   background-color: transparent;
-// }
-
-// .mainCard {
-//   max-width: 1200px; 
-//   margin: 0 auto;
-//   background: linear-gradient(145deg, #2b0835 0%, #16041d 100%);
-//   border-radius: 40px;
-//   display: flex;
-//   align-items: center;
-//   padding: 60px 80px;
-//   min-height: 480px; 
-  
- 
-//   position: sticky;
-//   top: 80px;
-//   z-index: 10;
-//   box-shadow: 0 -30px 60px rgba(0, 0, 0, 0.12);
-  
-//   @media (max-width: 1024px) {
-//     width: 95%;
-//     flex-direction: column;
-//     padding: 50px 30px;
-//     text-align: center;
-//   }
-// }
-
-// .visualSide {
-//   flex: 1;
-//   position: relative;
-//   display: flex;
-//   justify-content: center;
-  
-  
-//   .phoneFrame {
-//     width: 190px;
-//     height: 380px;
-//     background: $white;
-//     border: 7px solid #333;
-//     border-radius: 32px;
-//     position: relative;
-//     z-index: 2;
-//     overflow: hidden;
-//     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-
-//     .screenInner {
-//       height: 100%;
-//       display: flex;
-//       flex-direction: column;
-//       align-items: center;
-//       justify-content: center;
-//       gap: 10px;
-      
-//       .brandLogo {
-//         font-size: 28px;
-//         font-weight: 800;
-//         color: $brand-purple;
-//       }
-//     }
-//   }
-
-//   .glow {
-//     position: absolute;
-//     width: 300px;
-//     height: 300px;
-//     background: radial-gradient(circle, rgba($brand-purple, 0.4) 0%, transparent 75%);
-//     top: 50%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//   }
-// }
-
-// .contentSide {
-//   flex: 1.2;
-//   color: $white;
-//   padding-left: 50px;
-
-//   h2 {
-//     font-size: 46px; 
-//     line-height: 1.1;
-//     margin-bottom: 20px;
-//     color: $white;
-//     font-weight: 700;
-    
-//     span { 
-//       display: block; 
-//       color: rgba($white, 0.6); 
-//       font-size: 30px;
-//       margin-top: 5px;
-//     }
-//   }
-
-//   p {
-//     font-size: 18px;
-//     line-height: 1.6;
-//     opacity: 0.8;
-//     margin-bottom: 35px;
-//     max-width: 450px;
-//   }
-// }
-
-// .storeButtons {
-//   display: flex;
-//   gap: 15px;
-
-//   .appBtn {
-//     background: $white !important;
-//     color: $brand-purple !important;
-//     border: none !important;
-//     padding: 14px 28px !important;
-//     font-weight: 700 !important;
-//     font-size: 14px !important;
-//     border-radius: 12px !important;
-    
-//     &:hover {
-//       background: #f8f8f8 !important;
-//       transform: translateY(-4px);
-//       box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-//     }
-//   }
-// }
-
-
-
-// .appSection {
-//   position: relative;
-//   padding: 120px 0 60px;
-//   background-color: transparent; 
-// }
-
-// .mainCard {
-//   max-width: 1280px;
-//   margin: 0 auto;
- 
-//   background: rgba(255, 255, 255, 0.03); 
-//   backdrop-filter: blur(10px); 
-//   border: 1px solid rgba(255, 255, 255, 0.08);
-//   border-radius: 48px;
-//   display: flex;
-//   align-items: center;
-//   padding: 80px 100px;
-  
-  
-// }
 
 @use "@/styles/variables" as *;
 
-.appSection {
-  position: relative;
-  padding: 120px 0 60px;
-  background-color: transparent;
-}
 
 .mainCard {
   max-width: 1280px;
@@ -169,13 +16,11 @@
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
 
-  // --- LIGHT MODE (Premium Apple Style) ---
-  background: rgba(255, 255, 255, 0.6);
+
   backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.7);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
 
-  // --- DARK MODE (Lüks Bənövşəyi Gradient) ---
   :global(.dark) & {
     background: linear-gradient(145deg, #1e0525 0%, #0d0212 100%);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -296,8 +141,7 @@
     border-radius: 16px !important;
     transition: transform 0.3s, box-shadow 0.3s !important;
     
-    // Light Mode Buttons (Tünd bənövşəyi/qara premium görünüş)
-    background: #1a1a1a !important;
+    background: var(--gradient-primary);
     color: white !important;
 
     &:hover {
@@ -305,7 +149,6 @@
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
     }
 
-    // Dark Mode Buttons (Ağ premium düymələr)
     :global(.dark) & {
       background: $white !important;
       color: #1a1a1a !important;

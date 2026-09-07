@@ -1,50 +1,45 @@
 import styles from "./Hero.module.scss";
-import Calculator from "@/components/molecules/Calculator/Calculator";
 import SocialCard from "@/components/molecules/SocialCard/SocialCard";
 import Button from "@/components/atoms/Button/Button";
 import CurrencyCard from "@/components/molecules/CurrencyCard/CurrencyCard";
-import { MdFlashOn } from 'react-icons/md';
+import { MdFlashOn } from "react-icons/md";
+
 export default function Home() {
   return (
     <main className={styles.main}>
       <section className="container">
         <div className={styles.bentoGrid}>
-          
-          {/* 1. Böyük Hero Kartı (Main Offer) */}
           <div className={`${styles.bentoItem} ${styles.heroCard}`}>
             <span className="badge">Qızıl Girovlu Kredit</span>
-            <h1>Sənin Qızılın, <span>Sənin İmkanın.</span></h1>
-            <p>Sürətli rəsmiləşdirmə, aşağı faizlər və komissiyasız nağdlaşdırma.</p>
-            <Button variant="primary" size="lg">İndi müraciət et</Button>
+            <h1>
+              Sənin Qızılın, <span>Sənin İmkanın.</span>
+            </h1>
+            <p>
+              Sürətli rəsmiləşdirmə, aşağı faizlər və komissiyasız nağdlaşdırma.
+            </p>
+            <Button variant="primary" size="lg">
+              İndi müraciət et
+            </Button>
           </div>
 
-          {/* 2. Kalkulyator Kartı */}
           <div className={`${styles.bentoItem} ${styles.calcArea}`}>
-           <CurrencyCard/>
+            <CurrencyCard />
           </div>
 
-          {/* 3. Sosial Şəbəkə Kartı */}
           <div className={`${styles.bentoItem} ${styles.socialArea}`}>
             <SocialCard />
           </div>
 
-          {/* 4. Kiçik Trust/Güvən Kartı */}
-          {/* <div className={`${styles.bentoItem} ${styles.trustCard}`}>
-            <h3>15+ Dəqiqə</h3>
-            <p>Sürətli rəsmiləşmə</p>
-          </div> */}
-<div className={`${styles.bentoItem} ${styles.trustCard}`}>
-  {/* Yuxarı hissədə kiçik bir ikon və ya simvol */}
-  <div className={styles.iconTag}>
-    <MdFlashOn /> {/* Və ya hər hansı sürəti təmsil edən ikon */}
-  </div>
-  
-  <div className={styles.cardContent}>
-    <h3>15+ Dəqiqə</h3>
-    <p>Sürətli rəsmiləşmə</p>
-  </div>
-</div>
+          <div className={`${styles.bentoItem} ${styles.trustCard}`}>
+            <div className={styles.iconTag}>
+              <MdFlashOn />
+            </div>
 
+            <div className={styles.cardContent}>
+              <h3>15+ Dəqiqə</h3>
+              <p>Sürətli rəsmiləşmə</p>
+            </div>
+          </div>
         </div>
       </section>
     </main>

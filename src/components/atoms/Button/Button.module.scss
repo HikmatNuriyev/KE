@@ -9,18 +9,18 @@
   border-radius: 12px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease; // transition dəyişənində problem olsa, birbaşa belə yazmaq olar
+  transition: all 0.3s ease; 
   font-family: inherit;
   border: none;
   outline: none;
 
   // Variants
   &.primary {
-    background: var(--accent, #9d50bb); // CSS variable istifadə edirik ki, Dark Mode-da avtomatik dəyişsin
+    background: var(--gradient-primary); 
     color: #ffffff;
     
     &:hover {
-      // Köhnə darken($brand-purple, 5%) yerinə müasir üsul:
+      
       background: color.scale(#9d50bb, $lightness: -10%);
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(157, 80, 187, 0.3);
@@ -48,7 +48,7 @@
     }
   }
 
-  // Sizes
+ 
   &.sm { padding: 8px 16px; font-size: 14px; }
   &.md { padding: 12px 24px; font-size: 15px; }
   &.lg { padding: 16px 32px; font-size: 16px; }

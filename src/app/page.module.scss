@@ -1,36 +1,15 @@
+
 // .mainWrapper {
 //   position: relative;
-//   z-index: 10;
-//   border-radius: 80px 80px 0 0;
-//   min-height: 100vh;
-//   transition: background-color 0.5s ease, box-shadow 0.5s ease;
+//   // border-radius: 80px 80px 0 0;
+//   background-color: var(--bg-main);
+//   box-shadow: 0 -30px 60px rgba(0, 0, 0, 0.05);
 
-//   // --- LIGHT MODE (Açıq və Premium) ---
-//   background-color: #fcfcfd; // Tam ağ deyil, çox yüngül buz rəngi
-//   box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.03); // Yuxarı hissəyə yüngül kölgə
-
-//   // --- DARK MODE ---
-//   :global(.dark) & {
-//     background-color: #0d0211; // Sənin o maksimum tünd rəngin
-//     box-shadow: none;
+//   @media (max-width: 768px) {
+//     border-radius: 40px 40px 0 0;
 //   }
 // }
-.mainWrapper {
-  position: relative; 
-  z-index: 10;
-  border-radius: 80px 80px 0 0;
-  min-height: 100vh;
-  transition: background-color 0.5s ease, box-shadow 0.5s ease;
-  
-  // --- LIGHT MODE ---
-  background-color: #fcfcfd; 
-  box-shadow: 0 -30px 60px rgba(0, 0, 0, 0.05);
 
-  // --- DARK MODE ---
-  // Qeyd: Əgər HTML-də class="dark" yoxdursa, aşağıdakı rəng aktiv olmayacaq.
-  // Təqdimatda əllə yoxlamaq üçün bu sətri :global(.dark) & yox, sadəcə background-color: #0d0211; edə bilərsən.
-  :global(.dark) & {
-    background-color: #0d0211;
-    box-shadow: none;
-  }
-}
+// .contentPadding {
+//   padding: 20px 0;
+// }

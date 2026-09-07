@@ -1,26 +1,22 @@
 import styles from "./AppBanner.module.scss";
 import Button from "@/components/atoms/Button/Button";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
+import app from "../../../../public/app.png";
 import Image from "next/image";
 const AppBanner = () => {
   return (
     <section className={styles.appSection}>
       <div className={styles.mainCard}>
         <div className={styles.visualSide}>
-          <div className={styles.phoneFrame}>
-            <div className={styles.screenInner}>
-                 <Image 
-        className={styles.logo}
-            src="/images/KE1.webp"  
-            alt="Kredit Evi Loqo" 
-            width={100} 
-            height={100} 
-            priority 
+          <Image
+            className={styles.appImage}
+            src={app}
+            width={500}
+              height={600}
+            objectFit="cover"
+            alt="App Banner"
           />
-              <div className={styles.brandLogo}><span></span></div>
-              <small style={{color: '#999', fontSize: '10px'}}></small>
-            </div>
-          </div>
+          
           <div className={styles.glow}></div>
         </div>
 

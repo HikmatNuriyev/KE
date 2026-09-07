@@ -1,7 +1,7 @@
 @use "@/styles/variables" as *;
 
 .footer {
-  background: #621e6e; // Ultra dark background
+  background: var(--gradient-primary);
   padding: 100px 0 40px;
   color: #ffffff;
   font-family: $font-main;
