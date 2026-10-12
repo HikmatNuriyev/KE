@@ -40,7 +40,7 @@ export default function Home() {
             <a href="tel:*2200" className={styles.callRow}>
               <LuPhone />
               <span>
-                <small>Çağrı mərkəzi</small>
+                
                 *2200
               </span>
               <FaArrowRight className={styles.callArrow} />
