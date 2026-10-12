@@ -88,8 +88,8 @@ const NewsSection = () => {
               </h3>
 
               <p>
-                Şəbəkəmizi böyüdürük. Artıq Sumqayıt sakini olan
-                müştərilərimizə daha yaxınıq.
+                {/* Şəbəkəmizi böyüdürük. Artıq Sumqayıt sakini olan
+                müştərilərimizə daha yaxınıq. */}
               </p>
 
               <button className={styles.readMore}>
