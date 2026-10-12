@@ -1,26 +1,52 @@
 @use "@/styles/variables" as *;
+
 .statsSection {
   padding: 100px 0;
   background: $white;
   position: relative;
+  overflow: hidden;
+
+  // Çox həlim, brend-uyğun arxa fon parıltısı — AppBanner/Calculator-dakı aurora
+  // reseptinin işıq versiyası (bura "boğan" bir gradient yox, sadəcə çox zəif iz)
+  &::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 60%;
+    background: radial-gradient(
+      circle,
+      rgba(157, 80, 187, 0.06) 0%,
+      transparent 70%
+    );
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+  }
 }
 
 .container {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 $space-container;
+  position: relative;
+  z-index: 1;
 }
 
 .header {
   text-align: center;
   margin-bottom: 60px;
-  
+
   h2 {
     font-size: 42px;
     color: $text-dark;
-    span { color: $brand-purple; }
+    span {
+      color: $brand-purple;
+    }
   }
-  
+
   p {
     color: $text-muted;
     font-size: 18px;
@@ -33,8 +59,12 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
 
-  @media (max-width: 1024px) { grid-template-columns: repeat(2, 1fr); }
-  @media (max-width: 600px) { grid-template-columns: 1fr; }
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .statCard {
@@ -46,14 +76,15 @@
   align-items: center;
   text-align: center;
   transition: $v-transition;
-  border: 1px solid rgba(0,0,0,0.02);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  text-decoration: none;
 
   &:hover {
     transform: translateY(-10px);
     background: $white;
     box-shadow: 0 30px 60px rgba($brand-purple, 0.1);
     border-color: rgba($brand-purple, 0.1);
-    
+
     .icon {
       background: $brand-purple;
       color: $white;
@@ -73,7 +104,7 @@
     font-size: 28px;
     margin-bottom: 25px;
     transition: $v-transition;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.03);
   }
 
   .text {
@@ -89,6 +120,40 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
+    }
+  }
+}
+
+// Filiallar kartı indi /filiallar-a keçid verir — kiçik, həmişə görünən
+// "Xəritədə bax" ipucu (yalnız hover-lə görünən deyil, toxunma ekranları
+// üçün də əlçatan olsun)
+.linked {
+  cursor: pointer;
+  position: relative;
+
+  .linkHint {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent-color);
+    opacity: 0.75;
+    transition: gap 0.3s, opacity 0.3s;
+
+    svg {
+      font-size: 10px;
+      transition: transform 0.3s;
+    }
+  }
+
+  &:hover .linkHint {
+    opacity: 1;
+    gap: 9px;
+
+    svg {
+      transform: translateX(3px);
     }
   }
 }
