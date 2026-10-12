@@ -1,20 +1,32 @@
 @use "@/styles/variables" as *;
 
 .exchangeSection {
-  padding: 100px 0;
+  // padding: 100px 0;
+  padding: 50px 20px;
+
+  @media (max-width: 768px) {
+    padding: 40px 16px; // mobildə hero ilə eyni kənar
+  }
   background: var(--bg-main);
   overflow: hidden;
 }
 
 .container {
-  max-width: 1200px;
+  // max-width: 1200px;
+  // margin: 0 auto;
+  // padding: 0 24px;
+  // hero ilə eyni: qlobal .container + içəridə 1200px
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 $space-container;
 }
 
 .mainGrid {
+  max-width: 1200px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  // grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1fr 1fr; // hero kimi yarıbayarı: orta xətt hero kartının kənarına düşür
   gap: 24px;
 
   @media (max-width: 1024px) {

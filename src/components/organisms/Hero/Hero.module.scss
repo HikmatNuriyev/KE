@@ -195,10 +195,11 @@
 
 .main {
   padding-top: calc(var(--header-height) + 40px);
-  padding-bottom: 80px;
+  // padding-bottom: 80px;
+  padding-bottom: 50px; // altdakı bölmələrlə eyni aralıq (50 + 50 = 100px)
   padding-inline: 20px;
   background-color: var(--bg-main);
-  min-height: 100vh;
+  // min-height: 100vh;
   display: flex;
   align-items: center;
   transition: background-color 0.4s ease;
@@ -488,4 +489,679 @@
       color: rgba(255, 255, 255, 0.8);
     }
   }
+}
+
+// ============================================================
+// HERO SLIDER (Lombard + Lizinq), yeni sosial və trust kartları
+// ============================================================
+
+.heroCard {
+  justify-content: stretch;
+  padding: 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -120px;
+    left: -100px;
+    width: 340px;
+    height: 340px;
+    background: radial-gradient(circle, rgba(131, 44, 135, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @media (max-width: 600px) {
+    padding: 0;
+  }
+}
+
+.slider {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+
+  @media (max-width: 1024px) {
+    padding: 32px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 24px;
+  }
+}
+
+.slides {
+  position: relative;
+  flex: 1;
+  display: grid;
+}
+
+// Bütün slaydlar eyni hüceyrədə üst-üstə durur, hündürlük ən uzununa görə
+.slide {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s;
+
+  h1 {
+    font-size: clamp(32px, 5.2vw, 64px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin: 20px 0;
+    color: var(--text-main);
+
+    span {
+      display: inline-block;
+      background: linear-gradient(120deg, #9d50bb 0%, #832c87 45%, #360838 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  p {
+    color: var(--text-muted);
+    font-size: clamp(16px, 2vw, 19px);
+    line-height: 1.5;
+    margin-bottom: 30px;
+    max-width: 460px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: opacity 0.2s ease;
+    transform: none;
+  }
+}
+
+.slideActive {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.slideCta {
+  align-self: flex-start;
+  text-decoration: none;
+
+  svg {
+    font-size: 13px;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    color: #fff;
+
+    svg {
+      transform: translateX(4px);
+    }
+  }
+}
+
+.sliderNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+
+  button {
+    position: relative;
+    width: 28px;
+    height: 6px;
+    padding: 0;
+    border: none;
+    border-radius: 6px;
+    background: rgba(131, 44, 135, 0.15);
+    cursor: pointer;
+    overflow: hidden;
+    transition: width 0.4s ease, background 0.3s ease;
+  }
+
+  .dotActive {
+    width: 56px;
+    background: rgba(131, 44, 135, 0.25);
+  }
+}
+
+// Aktiv nöqtə avtomatik keçidə qədər dolur
+.dotFill {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--gradient-primary);
+  transform-origin: left;
+  animation: dotFill 6s linear forwards;
+}
+
+@keyframes dotFill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.arrows {
+  display: flex;
+  gap: 8px;
+
+  button {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    border: 1px solid rgba(131, 44, 135, 0.18);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--accent-color);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: var(--gradient-primary);
+      border-color: transparent;
+      color: #fff;
+    }
+  }
+
+  @media (max-width: 600px) {
+    display: none;
+  }
+}
+
+// ============ SOSİAL KART ============
+.socialGlass {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 28px;
+  background: linear-gradient(160deg, rgba(157, 80, 187, 0.09) 0%, var(--bg-card) 55%);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -70px;
+    right: -70px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(157, 80, 187, 0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  > * {
+    position: relative;
+  }
+
+  @media (max-width: 768px) {
+    padding: 24px;
+  }
+}
+
+.socialHead {
+  h3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+
+  p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+}
+
+.socialLinks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px;
+    border-radius: 16px;
+    font-size: 20px;
+    color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(131, 44, 135, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.35s ease;
+
+    span {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-main);
+      transition: color 0.35s ease;
+    }
+
+    &:hover {
+      color: #fff;
+      border-color: transparent;
+      transform: translateY(-3px);
+
+      span {
+        color: #fff;
+      }
+    }
+  }
+
+  .insta:hover {
+    background: linear-gradient(135deg, #f58529 0%, #dd2a7b 50%, #8134af 100%);
+  }
+
+  .fb:hover {
+    background: linear-gradient(135deg, #1877f2 0%, #0c4fb0 100%);
+  }
+}
+
+.callRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(157, 80, 187, 0.08);
+  color: var(--accent-color);
+  font-size: 18px;
+  transition: background 0.3s ease;
+
+  span {
+    display: flex;
+    flex-direction: column;
+    font-family: $font-heading;
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--text-main);
+
+    small {
+      font-family: $font-main;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+  }
+
+  .callArrow {
+    margin-left: auto;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background: rgba(157, 80, 187, 0.14);
+    color: var(--accent-color);
+
+    .callArrow {
+      transform: translateX(4px);
+    }
+  }
+}
+
+// ============ TRUST KART (gradient) ============
+.trustGradient {
+  display: flex;
+  flex-direction: column;
+  background: var(--gradient-primary);
+  box-shadow: 0 20px 45px rgba(86, 26, 89, 0.28);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.22) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cardContent {
+    margin-top: auto;
+
+    h3 {
+      display: flex;
+      align-items: baseline;
+      font-size: clamp(40px, 4.4vw, 56px);
+      line-height: 1;
+      letter-spacing: -1px;
+
+      span {
+        font-size: 0.6em;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      small {
+        margin-left: 8px;
+        font-size: 0.4em;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.85);
+      }
+    }
+  }
+}
+
+.trustList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 18px;
+
+  li {
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
+
+// ============ SLAYD ŞƏKİLLƏRİ ============
+// Şəkil bütün kartı örtür, üstündə brend rəngli qaranlıq qat — mətn oxunaqlı qalır
+.slideBgs {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.slideBg {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 0.8s ease, transform 6s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      100deg,
+      rgba(54, 8, 56, 0.92) 0%,
+      rgba(86, 26, 89, 0.72) 45%,
+      rgba(131, 44, 135, 0.25) 100%
+    );
+
+    @media (max-width: 600px) {
+      background: linear-gradient(
+        0deg,
+        rgba(54, 8, 56, 0.94) 0%,
+        rgba(86, 26, 89, 0.75) 55%,
+        rgba(131, 44, 135, 0.35) 100%
+      );
+    }
+  }
+}
+
+.slideBgActive {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.slider {
+  isolation: isolate;
+  border-radius: inherit;
+}
+
+.heroCard:has(.withImage) {
+  border-color: transparent;
+
+  &::before,
+  &::after {
+    opacity: 0;
+  }
+}
+
+.withImage {
+  .slide {
+    h1 {
+      color: #fff;
+
+      span {
+        background: linear-gradient(120deg, #f3d1ff 0%, #d79bea 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.82);
+    }
+  }
+
+  .badge {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.28);
+  }
+
+  .slideCta {
+    background: #fff;
+    color: #360838;
+
+    &:hover {
+      background: #fff;
+      color: #360838;
+    }
+  }
+
+  .dots {
+    button {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .dotActive {
+      background: rgba(255, 255, 255, 0.35);
+    }
+  }
+
+  .dotFill {
+    background: #fff;
+  }
+
+  .arrows button {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.28);
+    color: #fff;
+
+    &:hover {
+      background: #fff;
+      color: #360838;
+    }
+  }
+}
+
+// ============ ŞƏKİLLİ SLAYD — yalnız şəkil ============
+// Yazılar şəklin özündədir: üstündə qat, mətn, düymə və naviqasiya yoxdur,
+// şəkil yerində sabit durur (yalnız slaydlar arası yumşaq keçid)
+.slideBg {
+  transform: none;
+  transition: opacity 0.8s ease;
+
+  &::after {
+    display: none;
+  }
+}
+
+.slideBgActive {
+  transform: none;
+  z-index: 1;
+}
+
+.slideHidden {
+  display: none;
+}
+
+.slideLink {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.withImage .sliderNav {
+  display: none;
+}
+
+// Şəkilli slaydda kart hover-də yerindən oynamasın
+.heroCard:has(.withImage):hover {
+  transform: none;
+}
+
+// Mobildə şəkilli kart kvadrat olsun ki, 1080×1080 post kəsilmədən görünsün
+@media (max-width: 600px) {
+  .heroCard:has(.withImage) {
+    min-height: 0;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+// Şəkilli slaydda yalnız aşağıda kiçik göstərici qalır — növbəti slayda nə qədər qaldığını göstərir
+.withImage .sliderNav {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  z-index: 3;
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 999px;
+  transform: translateX(-50%);
+  background: rgba(20, 4, 22, 0.28);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  .arrows {
+    display: none;
+  }
+}
+
+
+// Şəkilli slaydda böyük kart şəklin özü kimi kvadrat olur — şəkil kartı tam doldurur,
+// nə kəsilir, nə də boş zolaq qalır.
+.main :global(.container) {
+  container-type: inline-size;
+}
+
+.bentoGrid:has(.withImage) {
+  .heroCard {
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+  }
+
+  // Desktopda sətir hündürlüyünü kartın enindən hesablayırıq:
+  // böyük kartın eni = (grid eni - gap) / 2, hər sətir = (en - gap) / 2
+  @media (min-width: 1025px) {
+    grid-template-rows: repeat(2, calc((min(1200px, 100cqw) - 24px) / 4 - 12px));
+
+    .calcArea,
+    .socialArea,
+    .trustCard {
+      min-height: 0;
+      padding: 22px 24px;
+    }
+  }
+}
+
+// Ekran daraldıqca sağdakı kartlar yığcamlaşır ki, kvadrat sətirlərə sığsın
+@media (min-width: 1025px) and (max-width: 1320px) {
+  .bentoGrid:has(.withImage) {
+    .socialHead p {
+      display: none;
+    }
+
+    .socialGlass {
+      gap: 10px;
+    }
+
+    .socialLinks a {
+      gap: 8px;
+      padding: 10px 12px;
+      font-size: 17px;
+    }
+
+    .callRow {
+      padding: 8px 12px;
+    }
+
+    .trustGradient .cardContent h3 {
+      font-size: 40px;
+    }
+
+    .iconTag {
+      margin-bottom: 10px;
+    }
+
+    // Məzənnə kartı: qeydi gizlədib aralıqları azaldırıq
+    .calcArea {
+      p {
+        display: none;
+      }
+
+      > div > div:nth-child(2) {
+        margin: 10px 0 0;
+        gap: 8px;
+
+        > div {
+          padding: 8px 12px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1120px) {
+  .bentoGrid:has(.withImage) {
+    .calcArea,
+    .socialArea,
+    .trustCard {
+      padding: 16px 18px;
+    }
+
+    .socialHead h3 {
+      font-size: 17px;
+    }
+
+    .trustGradient .cardContent h3 {
+      font-size: 34px;
+    }
+
+    .trustList {
+      display: none;
+    }
+  }
+}
+
+.trustGradient .iconTag {
+  flex-shrink: 0;
 }

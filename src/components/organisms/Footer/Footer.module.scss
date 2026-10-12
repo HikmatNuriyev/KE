@@ -2,8 +2,13 @@
 
 .footer {
   background: var(--gradient-primary);
-  padding: 100px 0 40px;
+  // padding: 100px 0 40px;
+  padding: 100px 20px 40px; // yuxarıdakı bölmələrlə eyni kənar
   color: #ffffff;
+
+  @media (max-width: 768px) {
+    padding-inline: 16px;
+  }
   font-family: $font-main;
 }
 
@@ -14,6 +19,8 @@
 }
 
 .topSection {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -134,6 +141,8 @@
 }
 
 .bottomBar {
+  max-width: 1200px;
+  margin: 0 auto;
   padding-top: 40px;
   display: flex;
   justify-content: space-between;

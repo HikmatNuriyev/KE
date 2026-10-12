@@ -70,13 +70,13 @@ const LeasingPage = () => {
           </div>
 
           <div className={styles.heroAside}>
-            {/* Kalkulyator sonra əlavə olunacaq */}
+        
             <div className={styles.heroCalculator}></div>
 
             <div className={styles.heroDocuments}>
               <div className={styles.cardHead}>
                 <h3>Tələb olunan sənədlər</h3>
-                <p>Müraciət üçün bu sənədlər kifayətdir</p>
+               
               </div>
 
               <ul className={styles.docList}>
