@@ -8,7 +8,8 @@
     padding: 40px 16px; // mobildə hero ilə eyni kənar
   }
   background: var(--bg-main);
-  overflow: hidden;
+  // overflow: hidden;
+  overflow: clip; // hidden sticky-ni sındırırdı, clip eyni işi görür
 }
 
 .container {
@@ -282,4 +283,315 @@
   color: rgba(255, 255, 255, 0.4);
   text-align: center;
   line-height: 1.5;
+}
+
+
+// ============ TELEFON ÜÇÜN RAHAT KALKULYATOR ============
+
+.weightRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+// −/+ düymələri yalnız planşet/telefonda görünür
+.stepBtn {
+  display: none;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-main);
+  color: var(--accent-color);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s ease, transform 0.15s ease;
+
+  &:active {
+    transform: scale(0.94);
+    background: rgba(157, 80, 187, 0.12);
+  }
+
+  &:disabled {
+    opacity: 0.35;
+  }
+}
+
+// nəticənin telefonda yapışqan zolağı
+.mobileSummary {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .stepBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .weightRow {
+    width: 100%;
+  }
+
+  .weightInputBox {
+    flex: 1;
+    width: auto;
+    justify-content: center;
+    min-width: 0;
+
+    input {
+      width: 100%;
+      min-width: 0;
+      text-align: center;
+    }
+  }
+
+//   .mobileSummary {
+//     position: sticky;
+//     bottom: 12px;
+//     z-index: 5;
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     gap: 12px;
+//     width: 100%;
+//     margin-top: 28px;
+//     padding: 14px 20px;
+//     border: 1px solid rgba(255, 255, 255, 0.12);
+//     border-radius: 18px;
+//     background: rgba(26, 11, 46, 0.88);
+//     -webkit-backdrop-filter: blur(16px) saturate(160%);
+//     backdrop-filter: blur(16px) saturate(160%);
+//     box-shadow: 0 14px 30px rgba(26, 11, 46, 0.28);
+//     color: #fff;
+//     font-family: inherit;
+//     cursor: pointer;
+//     text-align: left;
+//     transition: opacity 0.25s ease, transform 0.3s ease;
+//   }
+
+//   .summaryHidden {
+//     opacity: 0;
+//     transform: translateY(8px);
+//     pointer-events: none;
+//   }
+
+//   .summaryMeta {
+//     font-size: 14px;
+//     font-weight: 600;
+//     color: rgba(255, 255, 255, 0.6);
+//     white-space: nowrap;
+//   }
+
+//   .summaryPrice {
+//     font-size: 26px;
+//     font-weight: 800;
+//     letter-spacing: -0.5px;
+//     white-space: nowrap;
+
+//     small {
+//       font-size: 14px;
+//       font-weight: 700;
+//       margin-left: 2px;
+//     }
+//   }
+}
+
+@media (max-width: 600px) {
+  .title {
+    margin-bottom: 24px;
+  }
+
+  .field {
+    margin-bottom: 24px;
+
+    label {
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+  }
+
+  .weightInputBox {
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    background: var(--bg-main);
+    height: 56px;
+    align-items: center;
+    padding: 0 12px;
+
+    &:focus-within {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px rgba(157, 80, 187, 0.15);
+    }
+
+    input {
+      font-size: 28px;
+      padding: 0;
+    }
+
+    .unit {
+      font-size: 16px;
+      margin-left: 4px;
+    }
+  }
+
+  // barmaqla rahat basılsın: 3 sütun, 48px hündürlük
+  .purityGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: none;
+  }
+
+  .purityBtn {
+    height: 48px;
+    padding: 0;
+    font-size: 16px;
+  }
+
+  .mainPrice {
+    font-size: 44px;
+  }
+
+  .detailItem {
+    font-size: 15px;
+    gap: 12px;
+    align-items: baseline;
+
+    span:last-child {
+      white-space: nowrap;
+    }
+  }
+
+  .footerNote {
+    font-size: 12.5px;
+  }
+}
+
+
+// ============ TELEFONDA NƏTİCƏ: böyük kart gizlənir, gradient zolaq qalır ============
+
+.mobileDetails,
+.mobileNote {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .resultCard {
+    display: none;
+  }
+
+  .inputCard {
+    min-width: 0;
+  }
+
+  .mobileDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+display: none;
+    div {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    span:last-child {
+      color: var(--text-main);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+  }
+
+  .mobileSummary {
+    position: sticky;
+    bottom: 12px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; // dar ekranda və ya böyük məbləğdə düymə alt sətrə keçir
+    gap: 10px;
+    margin-top: 20px;
+    padding: 14px;
+    border-radius: 22px;
+    background: var(--gradient-primary);
+    box-shadow: 0 16px 34px rgba(86, 26, 89, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    color: #fff;
+  }
+
+  // yuxarıda məbləğ + çəki/əyar, altda tam enli düymə
+  .summaryText {
+    flex: 1 0 100%;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap; // çox böyük məbləğdə çəki/əyar alt sətrə keçir
+    column-gap: 10px;
+    row-gap: 2px;
+    padding: 2px 4px 0;
+    line-height: 1.15;
+  }
+
+  .summaryMeta {
+    order: 2;
+  }
+
+  .summaryMeta {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
+  }
+
+  .summaryPrice {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+
+    small {
+      font-size: 14px;
+      font-weight: 700;
+      margin-left: 2px;
+    }
+  }
+
+  .summaryBtn {
+    flex: 1 0 100%;
+    height: 48px;
+    padding: 0 16px;
+    white-space: nowrap;
+    border: none;
+    border-radius: 14px;
+    background: #fff;
+    color: #561a59;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+
+    &:active {
+      transform: scale(0.96);
+    }
+  }
+
+  .mobileNote {
+    display: block;
+    margin-top: 14px;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--text-muted);
+    text-align: center;
+  }
 }

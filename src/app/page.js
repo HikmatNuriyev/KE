@@ -1,5 +1,4 @@
 import CreditCalculator from "@/components/molecules/Calculator/Calculator";
-import NetworkStats from "@/components/molecules/NetworkStats/NetworkStats";
 import AppBanner from "@/components/organisms/AppBanner/AppBanner";
 import Hero from "@/components/organisms/Hero/Hero";
 import Footer from "@/components/organisms/Footer/Footer";
@@ -14,7 +13,6 @@ export default function Home() {
         <div className={styles.contentPadding}>
           <AppBanner />
           <CreditCalculator />
-          <NetworkStats />
           <NewsSection />
           <Footer />
         </div>

@@ -338,3 +338,148 @@
     color: #fff;
   }
 }
+
+
+// ============ TELEFON VƏ PLANŞET ÜÇÜN ============
+
+// planşet: böyük xəbər enli kart, kiçiklər yan-yana
+@media (max-width: 1024px) {
+  .mainNews {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  .sideNews {
+    flex-direction: row;
+
+    .smallCard {
+      flex: 1 1 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    margin-bottom: 24px;
+
+    h2 {
+      font-size: clamp(28px, 7.5vw, 36px);
+      line-height: 1.15;
+    }
+
+    p {
+      font-size: 15px;
+      margin-top: 8px;
+    }
+  }
+
+  .bentoGrid {
+    gap: 16px;
+  }
+
+  // böyük xəbər: ekranın yarısını tutan şəkilli kart
+  .mainNews {
+    aspect-ratio: 4 / 5;
+    max-height: 520px;
+    width: 100%;
+    border-radius: 24px;
+
+    &:hover .bgImage {
+      transform: none; // telefonda böyümə effekti lazım deyil
+    }
+  }
+
+  .overlay {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.88) 0%,
+      rgba(0, 0, 0, 0.45) 45%,
+      transparent 75%
+    );
+  }
+
+  .content {
+    left: 0;
+    right: 0;
+    padding: 22px;
+
+    .badge {
+      padding: 5px 14px;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .date {
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    h3 {
+      font-size: 22px;
+      line-height: 1.25;
+      margin-bottom: 16px;
+
+      br {
+        display: none;
+      }
+    }
+
+    p:empty {
+      display: none;
+    }
+
+    // barmaqla rahat basılsın
+    .readMore {
+      width: 100%;
+      height: 50px;
+      justify-content: center;
+      font-size: 15px;
+      border-radius: 14px;
+    }
+  }
+
+  // kiçik xəbərlər: yığcam, alt-alta
+  .sideNews {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .smallCard {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    column-gap: 14px;
+    padding: 18px 18px 18px 20px;
+    border-radius: 20px;
+
+    &:hover {
+      transform: none;
+    }
+
+    .date {
+      grid-column: 1;
+      font-size: 12.5px;
+      margin-bottom: 6px;
+    }
+
+    h4 {
+      grid-column: 1;
+      font-size: 16px;
+      line-height: 1.35;
+      margin-bottom: 0;
+    }
+
+    button {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      min-width: 64px;
+      height: 44px;
+      padding: 0 16px;
+      border-radius: 12px;
+      color: var(--accent-color);
+      border-color: rgba(157, 80, 187, 0.25);
+      background: rgba(157, 80, 187, 0.06);
+      font-size: 14px;
+    }
+  }
+}
