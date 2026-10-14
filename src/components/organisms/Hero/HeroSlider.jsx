@@ -16,7 +16,7 @@ const slides = [
     cta: "İndi müraciət et",
     href: "/qizil-krediti",
   
-    image: "/images/lom.jpg",
+    image: "/images/lombard.jpg",
   },
   {
     id: "lizinq",
