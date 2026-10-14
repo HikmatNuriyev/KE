@@ -197,3 +197,27 @@
   50% { opacity: 1; }
   100% { opacity: 0.2; }
 }
+
+:global(.dark) {
+  .rateBox {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .right {
+      .up { color: #4ade80; }
+      .down { color: #f87171; }
+    }
+  }
+
+  .currencyWrapper .top .liveIndicator {
+    color: #4ade80;
+
+    .pulse {
+      background: #4ade80;
+    }
+  }
+}

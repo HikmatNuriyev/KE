@@ -12,15 +12,15 @@ const managementData = [
     id: "lorem-ipsum-1",
     name: "Mübariz Qurbanov ",
     position: "Müşahidə Şurasının Sədri",
-    image: "/images/mm0.jpg",
+    image: "/images/ceo.JPG",
     bio: "Mübariz Qurbanov 1976-cı ildə Şəki şəhərində anadan olub. 1993-1998-ci illərdə Azərbaycan Dövlət İqtisad Universitetinin Kommersiya fakültəsində Beynəlxalq İqtisadi Münasibətlər ixtisası üzrə təhsil alıb. Peşəkar fəaliyyətinə 2003-cü ildə başlayıb. 2003–2014-ci illərdə “İnkişaf üçün Maliyyə” Bank Olmayan Kredit Təşkilatında filial müdiri, Baş Kredit müdiri və İdarə Heyəti Sədrinin müavini vəzifələrində çalışıb.2014–2020-ci illərdə “Azərbaycan Beynəlxalq Bankı” ASC-də Pərakəndə Biznes Departamentində şöbə müdiri, departament direktorunun müavini kimi müxtəlif vəzifələrdə çalışaraq Bankın həyata keçirdiyi bir çox layihələrə rəhbərlik etmişdir. Mübariz Qurbanov “Frankfurt School of Finance and Management” və Stanford Univercity kimi nüfuzlu ali məktəblərin təşkil etdiyi müxtəlif sertifikasiya kurslarını uğurla bitirmişdir. 2025-ci ilin Sentyabr ayından etibarən “Azərbaycan Mikro Kredit” ASC-nin Müşahidə Şurasının sədri vəzifəsinə təyin edilmişdir. ",
   },
   {
     id: "lorem-ipsum-2",
     name: "Elşad Bağırov ",
     position: "Direktor",
-    image: "/images/eb1.jpg",
-    bio: "test",
+    image: "/images/direktor.JPG",
+    bio: "",
   },
 ];
 

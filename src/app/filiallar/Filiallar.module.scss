@@ -345,3 +345,45 @@
     }
   }
 }
+
+:global(.dark) {
+  .mapPane {
+    background: #15101b;
+
+    :global(.leaflet-tile-pane) {
+      filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(0.9) saturate(0.6);
+    }
+
+    :global(.leaflet-control-zoom) a {
+      background: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+    }
+
+    :global(.leaflet-popup-content-wrapper),
+    :global(.leaflet-popup-tip) {
+      background: var(--bg-card);
+      color: var(--text-main);
+    }
+
+    :global(.leaflet-control-attribution) {
+      background: rgba(24, 16, 32, 0.8) !important;
+      color: var(--text-muted);
+
+      a {
+        color: var(--accent-color);
+      }
+    }
+  }
+
+  .pinDot {
+    box-shadow: 0 0 0 3px rgba(201, 139, 221, 0.25), 0 2px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  .branchRow:hover {
+    background: rgba(201, 139, 221, 0.08);
+  }
+
+  .rowIcon {
+    background: rgba(201, 139, 221, 0.12);
+  }
+}

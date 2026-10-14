@@ -1271,3 +1271,45 @@
     display: none;
   }
 }
+
+:global(.dark) {
+  .bentoItem:hover {
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+  }
+
+  .socialGlass {
+    background: linear-gradient(160deg, rgba(201, 139, 221, 0.1) 0%, var(--bg-card) 55%);
+  }
+
+  .socialLinks a {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .callRow {
+    background: rgba(201, 139, 221, 0.1);
+
+    &:hover {
+      background: rgba(201, 139, 221, 0.16);
+    }
+  }
+
+  .arrows button {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .dots button {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .trustGradient {
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+  }
+}
+
+:global(.dark) .slider:not(.withImage) .slide h1 span {
+  background: linear-gradient(120deg, #e3b3f0 0%, #c98bdd 50%, #9d50bb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}

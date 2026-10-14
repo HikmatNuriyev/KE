@@ -1,20 +1,3 @@
 [
-  { "id": 1, "name": "Mərkəz",  "address": null, "lat": 40.4093, "lng": 49.8671, "exact": false },
-  { "id": 2, "name": "Gəncə",  "address": null, "lat": 40.6828, "lng": 46.3606, "exact": false },
-  { "id": 3, "name": "Sumqayıt",  "address": null, "lat": 40.5892, "lng": 49.6686, "exact": false },
-  { "id": 4, "name": "Qarayev",  "address": null, "lat": 39.2089, "lng": 45.4120, "exact": false },
-  { "id": 5, "name": "Quba",  "address": null, "lat": 41.3606, "lng": 48.5128, "exact": false },
-  { "id": 6, "name": "Lənkəran", "address": null, "lat": 38.7537, "lng": 48.8511, "exact": false },
-  { "id": 7, "name": "Şamaxı",  "address": null, "lat": 40.6309, "lng": 48.6436, "exact": false },
-  { "id": 8, "name": "Xaçmaz",  "address": null, "lat": 41.4650, "lng": 48.8000, "exact": false },
-  { "id": 9, "name": "Göyçay",  "address": null, "lat": 40.6550, "lng": 47.7400, "exact": false },
-  { "id": 10, "name": "Yevlax", "address": null, "lat": 40.6150, "lng": 47.1500, "exact": false },
-  { "id": 11, "name": "Şəmkir", "address": null, "lat": 40.8275, "lng": 46.0183, "exact": false },
-  { "id": 12, "name": "Masallı",   "lat": 39.0333, "lng": 48.6667, "exact": false },
-  { "id": 13, "name": "Astara",  "address": null, "lat": 38.4350, "lng": 48.8700, "exact": false },
-  { "id": 14, "name": "Tovuz",  "address": null, "lat": 40.9900, "lng": 45.6300, "exact": false },
-  { "id": 15, "name": "Xırdalan",  "address": null, "lat": 40.4486, "lng": 49.7439, "exact": false },
-  { "id": 16, "name": "Mingəçevir",  "address": null, "lat": 40.7700, "lng": 47.0500, "exact": false },
-  { "id": 17, "name": "Sabirabad",  "address": null, "lat": 39.9833, "lng": 48.4667, "exact": false },
-  { "id": 18, "name": "Bərdə",  "address": null, "lat": 40.3764, "lng": 47.1211, "exact": false }
+  { "id": 1, "name": "Bakı", "city": "Bakı", "address": null, "lat": 40.4093, "lng": 49.8671, "exact": false }
 ]

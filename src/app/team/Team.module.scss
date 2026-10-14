@@ -303,3 +303,52 @@
     transform: none;
   }
 }
+
+:global(.dark) {
+  .card {
+    background: var(--glass-card);
+    border-color: var(--glass-border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      border-color: rgba(201, 139, 221, 0.3);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+    }
+  }
+
+  .photo {
+    background:
+      radial-gradient(circle at 80% 10%, rgba(232, 121, 249, 0.16) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(201, 139, 221, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+  }
+
+  .placeholder {
+    color: rgba(201, 139, 221, 0.35);
+  }
+
+  .dialog {
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+
+    &::backdrop {
+      background: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  .close {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.1);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.14);
+    }
+  }
+
+  .dialogPhoto .placeholder {
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .dialogMeta {
+    border-top-color: rgba(255, 255, 255, 0.08);
+  }
+}
