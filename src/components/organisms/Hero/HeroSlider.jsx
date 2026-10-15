@@ -7,17 +7,7 @@ import btn from "@/components/atoms/Button/Button.module.scss";
 import styles from "./Hero.module.scss";
 
 const slides = [
-  {
-    id: "lombard",
-    badge: "Qızıl Girovlu Kredit",
-    title: "Sənin Qızılın,",
-    accent: "Sənin İmkanın.",
-    text: "Sürətli rəsmiləşdirmə, aşağı faizlər və komissiyasız nağdlaşdırma.",
-    cta: "İndi müraciət et",
-    href: "/qizil-krediti",
   
-    image: "/images/lombard.jpg",
-  },
   {
     id: "lizinq",
     badge: "Avtomobil Lizinqi",
@@ -28,6 +18,17 @@ const slides = [
     href: "/lizing",
     image: "/images/lizinqMobile.png",
   },
+  //   {
+  //   id: "lombard",
+  //   badge: "Qızıl Girovlu Kredit",
+  //   title: "Sənin Qızılın,",
+  //   accent: "Sənin İmkanın.",
+  //   text: "Sürətli rəsmiləşdirmə, aşağı faizlər və komissiyasız nağdlaşdırma.",
+  //   cta: "İndi müraciət et",
+  //   href: "/qizil-krediti",
+  
+  //   image: "/images/lombard1.jpg",
+  // },
 ];
 
 const DELAY = 6000;
