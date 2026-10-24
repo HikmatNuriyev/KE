@@ -1,12 +1,16 @@
 
 "use client";
 import { useEffect, useRef, useState } from "react";
-import branches from "../../../public/data/branches.json";
+// import branches from "../../../public/data/branches.json";
 import styles from "./Filiallar.module.scss";
 import { FaSearch, FaMapMarkerAlt, FaBuilding, FaChevronRight } from "react-icons/fa";
 
-const mapsQuery = (branch) =>
-  encodeURIComponent(`Kredit Evi ${branch.name} ${branch.city}`);
+// const mapsQuery = (branch) =>
+//   encodeURIComponent(`Kredit Evi ${branch.name} ${branch.city}`);
+const googleMapsUrl = (branch) =>
+  `https://www.google.com/maps/search/?api=1&query=${branch.lat},${branch.lng}`;
+const wazeUrl = (branch) =>
+  `https://www.waze.com/ul?ll=${branch.lat},${branch.lng}&navigate=yes`;
 
 
 function loadStyle(href) {
@@ -35,6 +39,8 @@ function loadScript(src) {
 const AZ_CENTER = [40.25, 47.8];
 
 export default function FiliallarPage() {
+  const [branches, setBranches] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [highlightedId, setHighlightedId] = useState(null);
   const highlightTimer = useRef(null);
@@ -43,31 +49,57 @@ export default function FiliallarPage() {
   const mapInstanceRef = useRef(null);
 
 
+  // const filtered = branches
+  //   .filter(
+  //     (b) =>
+  //       b.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  //       b.city.toLowerCase().includes(searchTerm.toLowerCase())
+  //   )
+  //   .sort((a, b) => a.name.localeCompare(b.name, "az"));
+  const query = searchTerm.toLocaleLowerCase("az");
   const filtered = branches
     .filter(
       (b) =>
-        b.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        b.city.toLowerCase().includes(searchTerm.toLowerCase())
+        b.name.toLocaleLowerCase("az").includes(query) ||
+        b.address.toLocaleLowerCase("az").includes(query)
     )
     .sort((a, b) => a.name.localeCompare(b.name, "az"));
 
-  
   useEffect(() => {
+    let cancelled = false;
+
+    fetch("/api/branches")
+      .then((res) => (res.ok ? res.json() : []))
+      .then((data) => {
+        if (!cancelled) setBranches(Array.isArray(data) ? data : []);
+      })
+      .catch(() => {})
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!branches.length) return;
     let cancelled = false;
 
     async function initMap() {
       loadStyle("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
-      loadStyle(
-        "https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
-      );
-      loadStyle(
-        "https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
-      );
+      // loadStyle(
+      //   "https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+      // );
+      // loadStyle(
+      //   "https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+      // );
 
       await loadScript("https://unpkg.com/leaflet@1.9.4/dist/leaflet.js");
-      await loadScript(
-        "https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
-      );
+      // await loadScript(
+      //   "https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
+      // );
 
       if (cancelled || !mapElRef.current || mapInstanceRef.current) return;
 
@@ -83,15 +115,16 @@ export default function FiliallarPage() {
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }).addTo(map);
 
-      const clusterGroup = L.markerClusterGroup({
-        maxClusterRadius: 50,
-        iconCreateFunction: (cluster) =>
-          L.divIcon({
-            html: `<div class="${styles.clusterBubble}">${cluster.getChildCount()}</div>`,
-            className: "",
-            iconSize: L.point(38, 38),
-          }),
-      });
+      // const clusterGroup = L.markerClusterGroup({
+      //   maxClusterRadius: 50,
+      //   iconCreateFunction: (cluster) =>
+      //     L.divIcon({
+      //       html: `<div class="${styles.clusterBubble}">${cluster.getChildCount()}</div>`,
+      //       className: "",
+      //       iconSize: L.point(38, 38),
+      //     }),
+      // });
+      const clusterGroup = L.featureGroup();
 
       const pinIcon = L.divIcon({
         className: "",
@@ -108,16 +141,10 @@ export default function FiliallarPage() {
         marker.bindPopup(
           `<div class="${styles.popupCard}">
              <strong>${branch.name} filialı</strong>
-             <span>${branch.city}${
-            branch.exact ? "" : ""
-          }</span>
+             <span>${branch.address}</span>
              <div class="${styles.popupLinks}">
-               <a href="https://www.google.com/maps/search/?api=1&query=${mapsQuery(
-                 branch
-               )}" target="_blank" rel="noopener noreferrer">Google Maps</a>
-               <a href="https://www.waze.com/ul?q=${mapsQuery(
-                 branch
-               )}" target="_blank" rel="noopener noreferrer">Waze</a>
+               <a href="${googleMapsUrl(branch)}" target="_blank" rel="noopener noreferrer">Google Maps</a>
+               <a href="${wazeUrl(branch)}" target="_blank" rel="noopener noreferrer">Waze</a>
              </div>
            </div>`
         );
@@ -138,7 +165,7 @@ export default function FiliallarPage() {
         mapInstanceRef.current = null;
       }
     };
-  }, []);
+  }, [branches]);
 
 
   const focusBranch = (branch) => {
@@ -149,8 +176,11 @@ export default function FiliallarPage() {
     if (inst) {
       const marker = inst.markerById[branch.id];
       inst.map.flyTo([branch.lat, branch.lng], 12, { duration: 0.8 });
+      // if (marker) {
+      //   inst.clusterGroup.zoomToShowLayer(marker, () => marker.openPopup());
+      // }
       if (marker) {
-        inst.clusterGroup.zoomToShowLayer(marker, () => marker.openPopup());
+        inst.map.once("moveend", () => marker.openPopup());
       }
     }
 
@@ -180,7 +210,7 @@ export default function FiliallarPage() {
               <FaSearch className={styles.searchIcon} />
               <input
                 type="text"
-                placeholder="Filial və ya şəhər axtar..."
+                placeholder="Filial və ya ünvan axtar..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
@@ -188,7 +218,12 @@ export default function FiliallarPage() {
           </div>
 
           <div className={styles.sidebarList}>
-            {filtered.length > 0 ? (
+            {loading ? (
+              <div className={styles.emptyState}>
+                <FaMapMarkerAlt />
+                <p>Filiallar yüklənir...</p>
+              </div>
+            ) : filtered.length > 0 ? (
               filtered.map((branch) => (
                 <button
                   key={branch.id}
@@ -203,10 +238,11 @@ export default function FiliallarPage() {
                   </span>
                   <span className={styles.rowText}>
                     <strong>{branch.name} filialı</strong>
-                    <small>
+                    {/* <small>
                       {branch.city}
                       {!branch.exact && " "}
-                    </small>
+                    </small> */}
+                    <small>{branch.address}</small>
                   </span>
                   <FaChevronRight className={styles.rowChevron} />
                 </button>
@@ -214,7 +250,11 @@ export default function FiliallarPage() {
             ) : (
               <div className={styles.emptyState}>
                 <FaMapMarkerAlt />
-                <p>&quot;{searchTerm}&quot; üzrə nəticə tapılmadı.</p>
+                <p>
+                  {searchTerm
+                    ? `"${searchTerm}" üzrə nəticə tapılmadı.`
+                    : "Filial məlumatı hazırda əlçatan deyil."}
+                </p>
               </div>
             )}
           </div>

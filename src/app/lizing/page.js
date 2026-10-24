@@ -41,6 +41,7 @@ import {
   LuMinus,
   LuArrowUpRight,
 } from "react-icons/lu";
+import LeasingCalculator from "@/components/molecules/LeasingCalculator/LeasingCalculator";
 import styles from "./lizinq.module.scss";
 import { documents, steps, popularCars, faq, supportLines } from "./data";
 
@@ -60,10 +61,28 @@ const LeasingPage = () => {
       <div className="container">
         <div className={styles.hero}>
           <div className={styles.heroBanner}>
+            {/* <Image
+              src="/images/lizinq.png"
+              alt="Avtomobil lizinqi"
+              fill
+              style={{ objectFit: "cover" }}
+              priority
+            /> */}
             <Image
               src="/images/lizinq.png"
               alt="Avtomobil lizinqi"
               fill
+              sizes="(max-width: 600px) 1px, (max-width: 1100px) 100vw, 75vw"
+              className={styles.bannerDesktop}
+              style={{ objectFit: "cover" }}
+              priority
+            />
+            <Image
+              src="/images/lizinqMobile.png"
+              alt="Avtomobil lizinqi"
+              fill
+              sizes="(max-width: 600px) 100vw, 1px"
+              className={styles.bannerMobile}
               style={{ objectFit: "cover" }}
               priority
             />
@@ -71,7 +90,16 @@ const LeasingPage = () => {
 
           <div className={styles.heroAside}>
         
-            <div className={styles.heroCalculator}></div>
+            {/* <div className={styles.heroCalculator}></div> */}
+            <a href="#lizinq-kalkulyator" className={styles.heroCalculator}>
+              <span className={styles.eyebrow}>Kalkulyator</span>
+              <h3>Aylıq ödənişi hesablayın</h3>
+              <p>Qiyməti və müddəti yazın, ilkin və aylıq ödənişi dərhal görün</p>
+              <span className={styles.calcLink}>
+                Hesabla
+                <LuArrowUpRight />
+              </span>
+            </a>
 
             <div className={styles.heroDocuments}>
               <div className={styles.cardHead}>
@@ -95,6 +123,8 @@ const LeasingPage = () => {
             </div>
           </div>
         </div>
+
+        <LeasingCalculator cars={popularCars} />
 
         <div className={styles.bento}>
           <div className={`${styles.glassCard} ${styles.stepsCard}`}>

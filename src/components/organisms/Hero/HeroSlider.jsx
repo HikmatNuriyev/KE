@@ -18,17 +18,17 @@ const slides = [
     href: "/lizing",
     image: "/images/lizinqMobile.png",
   },
-  //   {
-  //   id: "lombard",
-  //   badge: "Qızıl Girovlu Kredit",
-  //   title: "Sənin Qızılın,",
-  //   accent: "Sənin İmkanın.",
-  //   text: "Sürətli rəsmiləşdirmə, aşağı faizlər və komissiyasız nağdlaşdırma.",
-  //   cta: "İndi müraciət et",
-  //   href: "/qizil-krediti",
+    {
+    id: "lombard",
+    badge: "Qızıl Girovlu Kredit",
+    title: "Sənin Qızılın,",
+    accent: "Sənin İmkanın.",
+    text: "Sürətli rəsmiləşdirmə, aşağı faizlər və komissiyasız nağdlaşdırma.",
+    cta: "İndi müraciət et",
+    href: "/qizil-krediti",
   
-  //   image: "/images/lombard1.jpg",
-  // },
+    image: "/images/lombardnew.png",
+  },
 ];
 
 const DELAY = 6000;

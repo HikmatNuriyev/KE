@@ -54,10 +54,13 @@
 import styles from './BranchPreview.module.scss';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
-import branches from '../../../../public/data/branches.json';
+// import branches from '../../../../public/data/branches.json';
+import { getBranches } from '@/lib/branches';
 import AzMap from '../../atoms/AzMap/AzMap';
 
-const BranchPreview = () => {
+// const BranchPreview = () => {
+const BranchPreview = async () => {
+  const branches = await getBranches();
   return (
     <section className={styles.branchPreview}>
       <div className={styles.container}>

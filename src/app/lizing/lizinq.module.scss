@@ -179,9 +179,10 @@
 
     .heroBanner {
       width: 100%;
-      aspect-ratio: 2.1 / 1;
-      min-height: 340px;
-      max-height: 460px;
+      // aspect-ratio: 2.1 / 1;
+      // min-height: 340px;
+      // max-height: 460px;
+      aspect-ratio: 17 / 10;
     }
 
     .heroAside {
@@ -198,8 +199,8 @@
 
     .heroBanner {
       aspect-ratio: 1 / 1;
-      min-height: 320px;
-      max-height: 430px;
+      // min-height: 320px;
+      // max-height: 430px;
       border-radius: 16px;
     }
 
@@ -219,7 +220,8 @@
 
 .leasingSection {
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
+  overflow: clip;
 
   
   &::before,
@@ -291,6 +293,60 @@
 
   .cardHead {
     margin-bottom: 14px;
+  }
+}
+
+.hero .heroCalculator {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 22px 22px;
+  color: var(--text-main);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    color: var(--text-main);
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--text-muted);
+  }
+}
+
+.calcLink {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 6px;
+  margin-top: auto;
+  padding: 10px 18px;
+  border-radius: 100px;
+  background: var(--gradient-primary);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.bannerMobile {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .bannerDesktop {
+    display: none;
+  }
+
+  .bannerMobile {
+    display: block;
   }
 }
 

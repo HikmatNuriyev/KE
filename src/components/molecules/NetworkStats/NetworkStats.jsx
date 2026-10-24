@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./NetworkStats.module.scss";
-import branches from "../../../../public/data/branches.json";
+// import branches from "../../../../public/data/branches.json";
+import { getBranches } from "@/lib/branches";
 import {
   FaMapMarkedAlt,
   FaHandshake,
@@ -9,7 +10,9 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 
-const NetworkStats = () => {
+// const NetworkStats = () => {
+const NetworkStats = async () => {
+  const branches = await getBranches();
   return (
     <section className={styles.statsSection}>
       <div className={styles.container}>
