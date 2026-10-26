@@ -49,13 +49,7 @@ export default function FiliallarPage() {
   const mapInstanceRef = useRef(null);
 
 
-  // const filtered = branches
-  //   .filter(
-  //     (b) =>
-  //       b.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //       b.city.toLowerCase().includes(searchTerm.toLowerCase())
-  //   )
-  //   .sort((a, b) => a.name.localeCompare(b.name, "az"));
+
   const query = searchTerm.toLocaleLowerCase("az");
   const filtered = branches
     .filter(
@@ -115,15 +109,7 @@ export default function FiliallarPage() {
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }).addTo(map);
 
-      // const clusterGroup = L.markerClusterGroup({
-      //   maxClusterRadius: 50,
-      //   iconCreateFunction: (cluster) =>
-      //     L.divIcon({
-      //       html: `<div class="${styles.clusterBubble}">${cluster.getChildCount()}</div>`,
-      //       className: "",
-      //       iconSize: L.point(38, 38),
-      //     }),
-      // });
+
       const clusterGroup = L.featureGroup();
 
       const pinIcon = L.divIcon({
@@ -197,14 +183,7 @@ export default function FiliallarPage() {
        
         <aside className={styles.sidebar}>
           <div className={styles.sidebarHeader}>
-            {/* <span className={styles.topTag}>Şəbəkəmiz</span> */}
-            {/* <h1 className={styles.title}>
-              Harada olursanız, <span>yanınızdayıq.</span>
-            </h1> */}
-            {/* <p className={styles.subtitle}>
-              Azərbaycan üzrə {branches.length} filialımızdan sizə ən yaxın
-              olanı tapın.
-            </p> */}
+          
 
             <div className={styles.searchWrapper}>
               <FaSearch className={styles.searchIcon} />

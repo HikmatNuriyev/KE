@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Button from "@/components/atoms/Button/Button";
-import { calculateLeasing, clampMonths, LEASING } from "@/lib/leasing";
+// import { calculateLeasing, clampMonths, LEASING } from "@/lib/leasing";
+import { calculateLeasing, LEASING } from "@/lib/leasing";
 import styles from "./LeasingCalculator.module.scss";
 
 const currentYear = new Date().getFullYear();
@@ -114,7 +115,8 @@ const LeasingCalculator = ({ cars = [] }) => {
             </div>
 
             <div className={`${styles.field} ${styles.full}`}>
-              <label htmlFor="leaseMonths">Müddət (ay)</label>
+              {/* <label htmlFor="leaseMonths">Müddət (ay)</label> */}
+              <label>Müddət (ay)</label>
               <div className={styles.monthRow}>
                 <div className={styles.chips} role="radiogroup">
                   {monthOptions.map((m) => (
@@ -132,7 +134,7 @@ const LeasingCalculator = ({ cars = [] }) => {
                     </button>
                   ))}
                 </div>
-                <div className={`${styles.inputBox} ${styles.monthInput}`}>
+                {/* <div className={`${styles.inputBox} ${styles.monthInput}`}>
                   <input
                     id="leaseMonths"
                     type="text"
@@ -143,9 +145,9 @@ const LeasingCalculator = ({ cars = [] }) => {
                     onBlur={() => setMonths(String(clampMonths(months)))}
                   />
                   <span className={styles.unit}>ay</span>
-                </div>
+                </div> */}
               </div>
-              <small className={styles.hint}>Maksimum {LEASING.maxMonths} ay</small>
+              {/* <small className={styles.hint}>Maksimum {LEASING.maxMonths} ay</small> */}
             </div>
 
             <div className={`${styles.field} ${styles.full}`}>

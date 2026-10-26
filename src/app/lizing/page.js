@@ -1,33 +1,3 @@
-// "use client";
-// import styles from "./lizinq.module.scss";
-// import Image from "next/image";
-// const LeasingPage = () => {
-//   return (
-//     <section className={styles.leasingSection}>
-//       <div className="container">
-//         <div className={styles.hero}>
-//           <div className={styles.heroBanner}>
-//             <Image
-//               src="/images/lizinq.png"
-//               alt="Hero Banner"
-//               fill
-//               style={{ objectFit: "cover" }}
-//               priority
-//             />{" "}
-//           </div>
-
-//           <div className={styles.heroAside}>
-//             <div className={styles.heroCalculator}></div>
-
-//             <div className={styles.heroDocuments}></div>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default LeasingPage;
 
 "use client";
 import { useState } from "react";
@@ -40,6 +10,7 @@ import {
   LuPlus,
   LuMinus,
   LuArrowUpRight,
+  LuChevronDown,
 } from "react-icons/lu";
 import LeasingCalculator from "@/components/molecules/LeasingCalculator/LeasingCalculator";
 import styles from "./lizinq.module.scss";
@@ -55,19 +26,15 @@ const docIcons = {
 
 const LeasingPage = () => {
   const [openFaq, setOpenFaq] = useState(null);
+  const [faqListOpen, setFaqListOpen] = useState(false);
+  const [carsListOpen, setCarsListOpen] = useState(false);
 
   return (
     <section className={styles.leasingSection}>
       <div className="container">
         <div className={styles.hero}>
           <div className={styles.heroBanner}>
-            {/* <Image
-              src="/images/lizinq.png"
-              alt="Avtomobil lizinqi"
-              fill
-              style={{ objectFit: "cover" }}
-              priority
-            /> */}
+       
             <Image
               src="/images/lizinq.png"
               alt="Avtomobil lizinqi"
@@ -147,11 +114,27 @@ const LeasingPage = () => {
           </div>
 
           <div className={`${styles.glassCard} ${styles.carsCard}`}>
-            <div className={styles.cardHead}>
+            {/* <div className={styles.cardHead}>
               <h2>Ən çox sorğulanan avtomobillər</h2>
+            </div> */}
+            <div className={`${styles.cardHead} ${styles.faqHead}`}>
+              <h2>
+                <button
+                  type="button"
+                  className={styles.faqToggle}
+                  onClick={() => setCarsListOpen(!carsListOpen)}
+                  aria-expanded={carsListOpen}
+                >
+                  Ən çox sorğulanan avtomobillər
+                  <LuChevronDown className={styles.faqChevron} />
+                </button>
+              </h2>
             </div>
 
-            <ul className={styles.carTags}>
+            {/* <ul className={styles.carTags}> */}
+            <ul
+              className={`${styles.carTags} ${carsListOpen ? styles.carTagsOpen : ""}`}
+            >
               {popularCars.map((car) => (
                 <li key={`${car.brand}-${car.model}`}>
                   <small>{car.brand}</small>
@@ -162,11 +145,27 @@ const LeasingPage = () => {
           </div>
 
           <div className={`${styles.glassCard} ${styles.faqCard}`}>
-            <div className={styles.cardHead}>
+            {/* <div className={styles.cardHead}>
               <h2>Ən çox verilən suallar</h2>
+            </div> */}
+            <div className={`${styles.cardHead} ${styles.faqHead}`}>
+              <h2>
+                <button
+                  type="button"
+                  className={styles.faqToggle}
+                  onClick={() => setFaqListOpen(!faqListOpen)}
+                  aria-expanded={faqListOpen}
+                >
+                  Ən çox verilən suallar
+                  <LuChevronDown className={styles.faqChevron} />
+                </button>
+              </h2>
             </div>
 
-            <div className={styles.faqList}>
+            {/* <div className={styles.faqList}> */}
+            <div
+              className={`${styles.faqList} ${faqListOpen ? styles.faqListOpen : ""}`}
+            >
               {faq.map((item, i) => {
                 const isOpen = openFaq === i;
                 return (

@@ -1,111 +1,4 @@
-// @use "sass:color";
-// @use "@/styles/variables" as *;
 
-// .leasingSection {
-//   padding: 100px 0;
-//   background: var(--bg-main);
-//   transition: background 0.3s ease;
-// }
-
-// .hero {
-//   display: grid;
-//   grid-template-columns: minmax(0, 2.75fr) minmax(300px, 1fr);
-//   gap: 18px;
-//   align-items: stretch;
-//   height: clamp(420px, 34.6vw, 500px);
-//   margin-bottom: 100px;
-//   width: 100%;
-
-//   .heroBanner {
-//     position: relative;
-//     min-width: 0;
-//     height: 100%;
-//     border-radius: 20px;
-//     overflow: hidden;
-//     border: 1px solid rgba(131, 44, 135, 0.22);
-
-
-//     background: linear-gradient(
-//       135deg,
-//       rgba(131, 44, 135, 0.22) 0%,
-//       var(--bg-card) 38%,
-//       var(--bg-card) 68%,
-//       rgba(54, 8, 56, 0.18) 100%
-//     );
-    
-//       background-size: cover;
-//   background-position: center; 
-//   background-repeat: no-repeat;
-//   }
-
-//   .heroAside {
-//     min-width: 0;
-//     display: grid;
-//     grid-template-rows: 1.1fr 0.85fr;
-//     gap: 18px;
-//     height: 100%;
-//   }
-
-//   .heroCalculator,
-//   .heroDocuments {
-//     min-width: 0;
-//     min-height: 0;
-//     border-radius: 16px;
-//     overflow: hidden;
-//     border: 1px solid rgba(131, 44, 135, 0.25);
-//     background: linear-gradient(
-//       135deg,
-//       rgba(131, 44, 135, 0.12) 0%,
-//       var(--bg-card) 48%,
-//       var(--bg-card) 75%,
-//       rgba(131, 44, 135, 0.08) 100%
-//     );
-//   }
-
-//   @media (max-width: 1100px) {
-//     grid-template-columns: 1fr;
-//     height: auto;
-//     gap: 16px;
-//     margin-bottom: 70px;
-
-//     .heroBanner {
-//       width: 100%;
-//       aspect-ratio: 2.1 / 1;
-//       min-height: 340px;
-//       max-height: 460px;
-//     }
-
-//     .heroAside {
-//       grid-template-columns: repeat(2, minmax(0, 1fr));
-//       grid-template-rows: 190px;
-//       height: auto;
-//       gap: 16px;
-//     }
-//   }
-
-//   @media (max-width: 600px) {
-//     gap: 12px;
-//     margin-bottom: 50px;
-
-//     .heroBanner {
-//       aspect-ratio: 1 / 1;
-//       min-height: 320px;
-//       max-height: 430px;
-//       border-radius: 16px;
-//     }
-
-//     .heroAside {
-//       grid-template-columns: 1fr;
-//       grid-template-rows: repeat(2, minmax(160px, auto));
-//       gap: 12px;
-//     }
-
-//     .heroCalculator,
-//     .heroDocuments {
-//       border-radius: 14px;
-//     }
-//   }
-// }
 
 @use "sass:color";
 @use "@/styles/variables" as *;
@@ -571,6 +464,29 @@
   display: none;
 }
 
+.faqToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: default;
+}
+
+.faqChevron {
+  display: none;
+  flex-shrink: 0;
+  font-size: 22px;
+  color: var(--accent-color);
+  transition: transform 0.3s ease;
+}
+
 // --- Dəstək və xidmət ---
 .supportCol {
   display: flex;
@@ -771,5 +687,49 @@
 
   .supportAccent {
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@media (max-width: 600px) {
+  .faqHead {
+    margin-bottom: 0;
+  }
+
+  .faqToggle {
+    cursor: pointer;
+  }
+
+  .faqChevron {
+    display: block;
+  }
+
+  .faqToggle[aria-expanded="true"] .faqChevron {
+    transform: rotate(180deg);
+  }
+
+  .faqList {
+    display: none;
+  }
+
+  .faqList.faqListOpen {
+    display: grid;
+    margin-top: 18px;
+  }
+
+  .carsCard .faqHead {
+    margin-bottom: 0;
+  }
+
+  .carsCard .faqToggle {
+    width: 100%;
+  }
+
+  .carTags {
+    display: none;
+  }
+
+  .carTags.carTagsOpen {
+    display: flex;
+    margin-top: 18px;
   }
 }

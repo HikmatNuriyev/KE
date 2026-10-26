@@ -1,4 +1,4 @@
-// Lizinq səhifəsinin məzmunu — siyahıları buradan yeniləmək kifayətdir
+
 
 export const documents = [
   { title: "Şəxsiyyət vəsiqəsi", icon: "id" },
@@ -25,7 +25,7 @@ export const steps = [
   },
 ];
 
-// Kredit şərtləri əlavə olunanda hər modelə "terms" sahəsi yazmaq olar
+
 export const popularCars = [
   { brand: "Changan", model: "Oshan X5 Plus" },
   { brand: "Changan", model: "Qiyuan A05" },
