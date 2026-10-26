@@ -2,10 +2,14 @@
 
 import NextImage from 'next/image';
 import styles from './Footer.module.scss';
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
+// import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 
 import { FaApple, FaGooglePlay } from 'react-icons/fa';
-import appImage from '../../../../public/app.png';
+import appImage from '../../../../public/images/footer-app.webp';
+
+const appStoreUrl = "https://apps.apple.com/az/app/kredit-evi/id1611922467";
+const googlePlayUrl = "https://play.google.com/store/apps/details?id=az.kreditEvi.mobile&hl=az";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -34,10 +38,13 @@ const Footer = () => {
                 <a href="tel:*2200">*2200</a>
               </div>
               <div className={styles.socials}>
-                <a href="#" aria-label="Facebook"><FaFacebookF /></a>
-                <a href="#" aria-label="Instagram"><FaInstagram /></a>
-                <a href="#" aria-label="Linkedin"><FaLinkedinIn /></a>
-                <a href="#" aria-label="WhatsApp" className={styles.whatsapp}><FaWhatsapp /></a>
+                {/* <a href="#" aria-label="Facebook"><FaFacebookF /></a> */}
+                <a href="https://www.facebook.com/krediteviasc" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></a>
+                {/* <a href="#" aria-label="Instagram"><FaInstagram /></a> */}
+                <a href="https://www.instagram.com/kreditevi.az/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
+                {/* <a href="#" aria-label="Linkedin"><FaLinkedinIn /></a> */}
+                <a href="https://www.linkedin.com/company/kredit-evi-asc/posts/" target="_blank" rel="noopener noreferrer" aria-label="Linkedin"><FaLinkedinIn /></a>
+                {/* <a href="#" aria-label="WhatsApp" className={styles.whatsapp}><FaWhatsapp /></a> */}
               </div>
             </div>
           </div>
@@ -50,10 +57,22 @@ const Footer = () => {
               <p>Hər an yanınızda.</p>
 
               <div className={styles.appStores}>
-                <a href="#" className={styles.storeBtn}>
+                {/* <a href="#" className={styles.storeBtn}> */}
+                <a
+                  href={appStoreUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.storeBtn}
+                >
                   <FaApple /> App Store
                 </a>
-                <a href="#" className={styles.storeBtn}>
+                {/* <a href="#" className={styles.storeBtn}> */}
+                <a
+                  href={googlePlayUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.storeBtn}
+                >
                   <FaGooglePlay /> Google Play
                 </a>
               </div>

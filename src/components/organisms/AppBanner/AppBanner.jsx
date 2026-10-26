@@ -2,7 +2,9 @@ import styles from "./AppBanner.module.scss";
 
 import btnStyles from "@/components/atoms/Button/Button.module.scss";
 import { FaApple, FaGooglePlay, FaStar } from "react-icons/fa";
-import app from "../../../../public/app.png";
+
+import apps from "../../../../public/images/Hikmet.png";
+// import app from "../../../../public/images/app-banner.webp";
 import Image from "next/image";
 
 const appStoreUrl = "https://apps.apple.com/az/app/kredit-evi/id1611922467";
@@ -50,9 +52,10 @@ const AppBanner = () => {
             <div className={styles.ratingChip}></div>
             <Image
               className={styles.appImage}
-              src={app}
+              src={apps}
               width={1400}
-              height={1680}
+              height={1240}
+              sizes="(max-width: 900px) 90vw, 560px"
               alt="Kredit Evi mobil tətbiqi"
               priority
             />
