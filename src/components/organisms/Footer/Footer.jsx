@@ -103,10 +103,10 @@ const Footer = () => {
           </div>
 
           <div className={styles.column}>
-            <h4>Dəstək</h4>
+            {/* <h4>Dəstək</h4>
             <a href="#">Tez-tez verilən suallar</a>
             <a href="#">Məxfilik siyasəti</a>
-            <a href="#">Əlaqə</a>
+            <a href="#">Əlaqə</a> */}
           </div>
         </div>
 

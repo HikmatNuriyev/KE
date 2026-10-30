@@ -27,11 +27,25 @@ export default function Home() {
             </div>
 
             <div className={styles.socialLinks}>
-              <a href="#" aria-label="Instagram" className={styles.insta}>
+              {/* <a href="#" aria-label="Instagram" className={styles.insta}> */}
+              <a
+                href="https://www.instagram.com/kreditevi.az/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className={styles.insta}
+              >
                 <FaInstagram />
                 <span>Instagram</span>
               </a>
-              <a href="#" aria-label="Facebook" className={styles.fb}>
+              {/* <a href="#" aria-label="Facebook" className={styles.fb}> */}
+              <a
+                href="https://www.facebook.com/krediteviasc"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className={styles.fb}
+              >
                 <FaFacebookF />
                 <span>Facebook</span>
               </a>

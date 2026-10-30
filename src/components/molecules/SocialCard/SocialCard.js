@@ -10,7 +10,13 @@ const SocialCard = () => {
       </div>
 
       <div className={styles.platforms}>
-        <a href="#" className={styles.item}>
+        
+        <a
+          href="https://www.instagram.com/kreditevi.az/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.item}
+        >
           <div className={styles.mainInfo}>
             <div className={styles.iconBox}><FaInstagram /></div>
             <span>Instagram</span>
@@ -18,7 +24,13 @@ const SocialCard = () => {
           <FaArrowRight className={styles.arrow} />
         </a>
 
-        <a href="#" className={styles.item}>
+  
+        <a
+          href="https://www.facebook.com/krediteviasc"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.item}
+        >
           <div className={styles.mainInfo}>
             <div className={styles.iconBox}><FaFacebookF /></div>
             <span>Facebook</span>
@@ -27,7 +39,7 @@ const SocialCard = () => {
         </a>
       </div>
 
-      {/* Boşluğu dolduran lüks həndəsi dekor */}
+      
       <div className={styles.decorCircle}></div>
     </div>
   );

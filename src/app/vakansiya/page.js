@@ -1,23 +1,25 @@
 import styles from './Vacancies.module.scss';
 import { HiOutlineLocationMarker, HiOutlineClock, HiOutlineBriefcase } from 'react-icons/hi';
+import VacancyApply from '@/components/molecules/VacancyApply/VacancyApply';
+import { vacancies } from '@/data/vacancies';
 
-const vacancies = [
-  {
-    id: 1,
-    title: "Kredit Mütəxəssisi",
-    location: "Bakı (Nərimanov ray.)",
-    type: "Tam iş günü",
-    category: "Satış / Kredit",
-  },
- 
-  {
-    id: 3,
-    title: "İT Dəstək Mütəxəssisi",
-    location: "Baş ofis",
-    type: "Növbəli",
-    category: "İnformasiya Texnologiyaları",
-  }
-];
+// const vacancies = [
+//   {
+//     id: 1,
+//     title: "Kredit Mütəxəssisi",
+//     location: "Bakı (Nərimanov ray.)",
+//     type: "Tam iş günü",
+//     category: "Satış / Kredit",
+//   },
+//
+//   {
+//     id: 3,
+//     title: "İT Dəstək Mütəxəssisi",
+//     location: "Baş ofis",
+//     type: "Növbəli",
+//     category: "İnformasiya Texnologiyaları",
+//   }
+// ];
 
 const VacanciesPage = () => {
   return (
@@ -40,7 +42,8 @@ const VacanciesPage = () => {
                     <span><HiOutlineBriefcase /> {job.category}</span>
                   </div>
                 </div>
-                <button className={styles.applyBtn}>Müraciət et</button>
+                {/* <button className={styles.applyBtn}>Müraciət et</button> */}
+                <VacancyApply job={job} className={styles.applyBtn} />
               </div>
             ))
           ) : (
