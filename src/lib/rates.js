@@ -1,11 +1,17 @@
 
-const CBAR_URL = (date) => `${process.env.CBAR_API_URL}/${date}.xml`;
+const CBAR_BASE = process.env.CBAR_API_URL ?? "";
+const CBAR_URL = (date) => `${CBAR_BASE.replace(/\/+$/, "")}/${date}.xml`;
 const GOLD_URL = process.env.GOLD_PRICES_API_URL;
 
 const REQUEST_OPTIONS = {
   headers: { "User-Agent": "Mozilla/5.0" },
   next: { revalidate: 3600 },
 };
+
+
+const TIMEOUT_MS = 8000;
+
+const withTimeout = () => ({ ...REQUEST_OPTIONS, signal: AbortSignal.timeout(TIMEOUT_MS) });
 
 const bakuDate = (daysAgo = 0) => {
   const date = new Date(Date.now() - daysAgo * 86400000);
@@ -37,10 +43,13 @@ function parseCbar(xml) {
   return rates;
 }
 
+export { CBAR_URL, GOLD_URL, bakuDate };
+
 async function fetchCbar(date) {
-  if (!process.env.CBAR_API_URL) return null;
+  if (!CBAR_BASE) return null;
   try {
-    const res = await fetch(CBAR_URL(date), REQUEST_OPTIONS);
+   
+    const res = await fetch(CBAR_URL(date), withTimeout());
     if (!res.ok) return null;
     const rates = parseCbar(await res.text());
     return Object.keys(rates).length ? rates : null;
@@ -49,13 +58,17 @@ async function fetchCbar(date) {
   }
 }
 
-async function findCbar(fromDay, maxDays = 7) {
-  for (let day = fromDay; day < fromDay + maxDays; day++) {
-    const date = bakuDate(day);
-    const rates = await fetchCbar(date);
-    if (rates) return { date, day, rates };
-  }
-  return null;
+
+
+async function findCbarDays(count = 2, maxDays = 10) {
+  const results = await Promise.all(
+    Array.from({ length: maxDays }, async (_, day) => {
+      const date = bakuDate(day);
+      const rates = await fetchCbar(date);
+      return rates ? { date, day, rates } : null;
+    })
+  );
+  return results.filter(Boolean).slice(0, count);
 }
 
 const trendOf = (current, previous) => {
@@ -64,10 +77,9 @@ const trendOf = (current, previous) => {
 };
 
 export async function getCurrencyRates(codes = ["USD"]) {
-  const latest = await findCbar(0);
-  if (!latest) return { date: null, rates: [] };
 
-  const previous = await findCbar(latest.day + 1);
+  const [latest, previous] = await findCbarDays();
+  if (!latest) return { date: null, rates: [] };
 
   const rates = codes
     .filter((code) => latest.rates[code])
@@ -84,7 +96,8 @@ export async function getCurrencyRates(codes = ["USD"]) {
 export async function getGoldPrices() {
   if (!GOLD_URL) return [];
   try {
-    const res = await fetch(GOLD_URL, REQUEST_OPTIONS);
+
+    const res = await fetch(GOLD_URL, { ...withTimeout(), next: { revalidate: 300 } });
     if (!res.ok) return [];
     const data = JSON.parse((await res.text()).replace(/^﻿/, "").trim());
     const list = Array.isArray(data?.prices) ? data.prices : [];

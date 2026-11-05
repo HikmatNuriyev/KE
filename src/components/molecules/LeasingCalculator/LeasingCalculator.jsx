@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Button from "@/components/atoms/Button/Button";
-// import { calculateLeasing, clampMonths, LEASING } from "@/lib/leasing";
+
 import { calculateLeasing, LEASING } from "@/lib/leasing";
 import styles from "./LeasingCalculator.module.scss";
 

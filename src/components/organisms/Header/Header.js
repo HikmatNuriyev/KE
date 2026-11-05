@@ -30,7 +30,7 @@ const Header = () => {
     setMounted(true);
   }, []);
 
-  // aşağı sürüşdürəndə şüşə bir az qatılaşır
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     onScroll();
@@ -38,7 +38,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // menyu açıq olanda səhifə sürüşməsin, Esc ilə bağlansın
+ 
   useEffect(() => {
     if (!menuOpen) return;
     const onKey = (e) => e.key === "Escape" && setMenuOpen(false);
@@ -126,9 +126,9 @@ const Header = () => {
                 {theme === "dark" ? <FaSun /> : <FaMoon />}
               </button>
 
-              <div className={styles.langSelector}>
+              {/* <div className={styles.langSelector}>
                 AZ <FaChevronDown />
-              </div>
+              </div> */}
             </div>
 
             <div className={styles.btnGroup}>
@@ -140,7 +140,7 @@ const Header = () => {
               >
                 Ödəniş
               </Link>
-              <button className={styles.ctaBtn}>Onlayn Müraciət</button>
+              {/* <button className={styles.ctaBtn}>Onlayn Müraciət</button> */}
             </div>
           </div>
 
@@ -158,7 +158,7 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Mobil menyu */}
+    
       <div
         className={`${styles.overlay} ${menuOpen ? styles.overlayShow : ""}`}
         onClick={closeMenu}
@@ -240,9 +240,9 @@ const Header = () => {
           >
             Ödəniş
           </Link>
-          <button className={styles.ctaBtn} onClick={closeMenu}>
+          {/* <button className={styles.ctaBtn} onClick={closeMenu}>
             Onlayn Müraciət
-          </button>
+          </button> */}
         </div>
       </div>
     </>
