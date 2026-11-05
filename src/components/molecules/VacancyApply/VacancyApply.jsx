@@ -150,7 +150,7 @@ const VacancyApply = ({ job, className }) => {
                 </div>
               ) : (
                 <form onSubmit={onSubmit} noValidate={false}>
-                  <span className={styles.tag}>Müraciət</span>
+                  
                   <h3 id={`apply-${job.id}`}>{job.title}</h3>
 
                   <div className={styles.fields}>
