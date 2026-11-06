@@ -4,7 +4,7 @@ import btnStyles from "@/components/atoms/Button/Button.module.scss";
 import { FaApple, FaGooglePlay, FaStar } from "react-icons/fa";
 
 import apps from "../../../../public/images/Hikmet.png";
-// import app from "../../../../public/images/app-banner.webp";
+
 import Image from "next/image";
 
 const appStoreUrl = "https://apps.apple.com/az/app/kredit-evi/id1611922467";
