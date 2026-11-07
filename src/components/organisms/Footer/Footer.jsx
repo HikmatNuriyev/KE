@@ -90,7 +90,7 @@ const Footer = () => {
         <div className={styles.navLinks}>
           <div className={styles.column}>
             <h4>Xidmətlər</h4>
-            <a href="#">Qızıl Lombardi</a>
+            <a href="#">Lombard</a>
             <a href="#">Lizinq</a>
             <a href="#">Kalkulyator</a>
           </div>
@@ -103,10 +103,7 @@ const Footer = () => {
           </div>
 
           <div className={styles.column}>
-            {/* <h4>Dəstək</h4>
-            <a href="#">Tez-tez verilən suallar</a>
-            <a href="#">Məxfilik siyasəti</a>
-            <a href="#">Əlaqə</a> */}
+         
           </div>
         </div>
 

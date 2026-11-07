@@ -37,6 +37,8 @@ function loadScript(src) {
 }
 
 const AZ_CENTER = [40.25, 47.8];
+const MOBILE_QUERY = "(max-width: 900px)";
+const isMobile = () => window.matchMedia(MOBILE_QUERY).matches;
 
 export default function FiliallarPage() {
   const [branches, setBranches] = useState([]);
@@ -78,7 +80,8 @@ export default function FiliallarPage() {
   }, []);
 
   useEffect(() => {
-    if (!branches.length) return;
+    // if (!branches.length) return;
+    if (!branches.length || isMobile()) return;
     let cancelled = false;
 
     async function initMap() {
@@ -155,6 +158,11 @@ export default function FiliallarPage() {
 
 
   const focusBranch = (branch) => {
+    if (isMobile()) {
+      window.open(googleMapsUrl(branch), "_blank", "noopener,noreferrer");
+      return;
+    }
+
     setSearchTerm("");
     setHighlightedId(branch.id);
 

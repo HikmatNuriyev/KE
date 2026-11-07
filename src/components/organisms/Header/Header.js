@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const services = [
-  { href: "/qizil-krediti", label: "Qızıl Lombardı" },
+  { href: "/qizil-krediti", label: "Lombard" },
   { href: "/lizing", label: "Lizinq" },
 ];
 
@@ -126,9 +126,6 @@ const Header = () => {
                 {theme === "dark" ? <FaSun /> : <FaMoon />}
               </button>
 
-              {/* <div className={styles.langSelector}>
-                AZ <FaChevronDown />
-              </div> */}
             </div>
 
             <div className={styles.btnGroup}>

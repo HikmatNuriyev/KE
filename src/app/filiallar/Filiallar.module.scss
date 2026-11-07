@@ -122,9 +122,9 @@
     border-radius: 10px;
   }
 
-  @media (max-width: 900px) {
-    max-height: 420px;
-  }
+  // @media (max-width: 900px) {
+  //   max-height: 420px;
+  // }
 }
 
 .branchRow {
@@ -209,11 +209,11 @@
 .mapPane {
   flex: 1;
   position: relative;
-  background: #eef1f4; // tile-lar yüklənənə qədər görünən neytral fon
+  background: #eef1f4; 
 
   @media (max-width: 900px) {
-    height: 360px;
-    order: 1;
+  
+    display: none;
   }
 
   :global(.leaflet-container) {
