@@ -7,7 +7,7 @@ import { getCurrencyRates } from '@/lib/rates';
 
 const CurrencyCard = async () => {
 const currencyNew = process.env.CURRENT_URL? await getCurrencyRates(['XAG']) : null;
-console.log('currencyNew:', currencyNew);
+// console.log('currencyNew:', currencyNew);
 
   const currency = await getCurrencyRates(['USD', 'XAU']);
   const xau = currency.rates.find((r) => r.code === 'XAU');

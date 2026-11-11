@@ -2,7 +2,6 @@
 
 import NextImage from 'next/image';
 import styles from './Footer.module.scss';
-// import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 
 import { FaApple, FaGooglePlay } from 'react-icons/fa';

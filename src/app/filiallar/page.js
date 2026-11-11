@@ -13,11 +13,51 @@ const wazeUrl = (branch) =>
   `https://www.waze.com/ul?ll=${branch.lat},${branch.lng}&navigate=yes`;
 
 
+// function loadStyle(href) {
+//   if (document.querySelector(`link[href="${href}"]`)) return;
+//   const link = document.createElement("link");
+//   link.rel = "stylesheet";
+//   link.href = href;
+//   document.head.appendChild(link);
+// }
+
+// function loadScript(src) {
+//   return new Promise((resolve, reject) => {
+//     if (document.querySelector(`script[src="${src}"]`)) {
+//       const check = () => (window.L ? resolve() : setTimeout(check, 50));
+//       return check();
+//     }
+//     const script = document.createElement("script");
+//     script.src = src;
+//     script.async = true;
+//     script.onload = resolve;
+//     script.onerror = reject;
+//     document.body.appendChild(script);
+//   });
+// }
+
+const LEAFLET_CSS = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+const LEAFLET_JS = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
+const SRI = {
+  [LEAFLET_CSS]: "sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=",
+  [LEAFLET_JS]: "sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=",
+};
+
+const escapeHtml = (value = "") =>
+  String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+
 function loadStyle(href) {
   if (document.querySelector(`link[href="${href}"]`)) return;
   const link = document.createElement("link");
   link.rel = "stylesheet";
   link.href = href;
+  link.integrity = SRI[href];
+  link.crossOrigin = "anonymous";
   document.head.appendChild(link);
 }
 
@@ -29,6 +69,8 @@ function loadScript(src) {
     }
     const script = document.createElement("script");
     script.src = src;
+    script.integrity = SRI[src];
+    script.crossOrigin = "anonymous";
     script.async = true;
     script.onload = resolve;
     script.onerror = reject;
@@ -85,7 +127,8 @@ export default function FiliallarPage() {
     let cancelled = false;
 
     async function initMap() {
-      loadStyle("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
+      // loadStyle("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
+      loadStyle(LEAFLET_CSS);
       // loadStyle(
       //   "https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
       // );
@@ -93,7 +136,8 @@ export default function FiliallarPage() {
       //   "https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
       // );
 
-      await loadScript("https://unpkg.com/leaflet@1.9.4/dist/leaflet.js");
+      // await loadScript("https://unpkg.com/leaflet@1.9.4/dist/leaflet.js");
+      await loadScript(LEAFLET_JS);
       // await loadScript(
       //   "https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
       // );
@@ -127,13 +171,23 @@ export default function FiliallarPage() {
 
       branches.forEach((branch) => {
         const marker = L.marker([branch.lat, branch.lng], { icon: pinIcon });
+//         marker.bindPopup(
+//           `<div class="${styles.popupCard}">
+//              <strong>${branch.name} filialı</strong>
+//              <span>${branch.address}</span>
+//              <div class="${styles.popupLinks}">
+//                <a href="${googleMapsUrl(branch)}" target="_blank" rel="noopener noreferrer">Google Maps</a>
+//                <a href="${wazeUrl(branch)}" target="_blank" rel="noopener noreferrer">Waze</a>
+//              </div>
+//            </div>`
+//         );
         marker.bindPopup(
           `<div class="${styles.popupCard}">
-             <strong>${branch.name} filialı</strong>
-             <span>${branch.address}</span>
+             <strong>${escapeHtml(branch.name)} filialı</strong>
+             <span>${escapeHtml(branch.address)}</span>
              <div class="${styles.popupLinks}">
-               <a href="${googleMapsUrl(branch)}" target="_blank" rel="noopener noreferrer">Google Maps</a>
-               <a href="${wazeUrl(branch)}" target="_blank" rel="noopener noreferrer">Waze</a>
+               <a href="${escapeHtml(googleMapsUrl(branch))}" target="_blank" rel="noopener noreferrer">Google Maps</a>
+               <a href="${escapeHtml(wazeUrl(branch))}" target="_blank" rel="noopener noreferrer">Waze</a>
              </div>
            </div>`
         );
