@@ -16,9 +16,11 @@ const currencyNew = process.env.CURRENT_URL? await getCurrencyRates(['XAG']) : n
   const rates = [
    
     xau && {
-      name: 'Qızıl (1 unsiya)',
+      // name: 'Qızıl (1 unsiya)',
+      name: 'Qızıl (1 qram)',
       code: 'XAU',
-      value: xau.value.toFixed(2),
+      // value: xau.value.toFixed(2),
+      value: (xau.value / 31.1034768).toFixed(2),
       trend: xau.trend,
     },
     usd && {

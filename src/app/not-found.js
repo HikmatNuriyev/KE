@@ -27,12 +27,7 @@ export default function NotFound() {
           </Link>
         </div>
 
-        <nav className={styles.links}>
-          <Link href="/qizil-krediti">Qızıl krediti</Link>
-          <Link href="/lizing">Lizinq</Link>
-          <Link href="/vakansiya">Vakansiyalar</Link>
-          <Link href="/about">Haqqımızda</Link>
-        </nav>
+ 
       </div>
     </section>
   );

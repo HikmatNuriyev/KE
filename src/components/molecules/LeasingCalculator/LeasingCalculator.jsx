@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Button from "@/components/atoms/Button/Button";
+import { openChat } from "@/lib/openChat";
 
 import { calculateLeasing, LEASING } from "@/lib/leasing";
 import styles from "./LeasingCalculator.module.scss";
@@ -227,7 +228,8 @@ const LeasingCalculator = ({ cars = [] }) => {
             </p>
           )}
 
-          <Button variant="gold" size="lg" className={styles.ctaButton}>
+          {/* <Button variant="gold" size="lg" className={styles.ctaButton}> */}
+          <Button variant="gold" size="lg" className={styles.ctaButton} onClick={openChat}>
             Müraciət et
           </Button>
 

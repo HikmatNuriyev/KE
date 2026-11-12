@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import styles from "./GoldLoan.module.scss";
+import { openChat } from "@/lib/openChat";
 
 
 const goldPurities = [375, 500, 583, 585, 750, 875, 916, 958, 999];
@@ -95,18 +96,7 @@ const LombardCalculator = () => {
           {loading ? "—" : total.toLocaleString("az-AZ")} <small>AZN</small>
         </strong>
         <dl>
-          {/* <div>
-            <dt>1 qram {purity} əyar</dt>
-            <dd>{money(gramPrice)}</dd>
-          </div>
-          <div>
-            <dt>Kredit əmsalı</dt>
-            <dd>{Math.round(LTV * 100)}%</dd>
-          </div>
-          <div>
-            <dt>1 qram üçün kredit</dt>
-            <dd>{money(loanPerGram)}</dd>
-          </div> */}
+        
           <div>
             <dt>Əyar</dt>
             <dd>{purity}</dd>
@@ -121,6 +111,10 @@ const LombardCalculator = () => {
           </div>
         </dl>
         {/* <p>Yekun məbləğ filialda qiymətləndirmədən sonra dəqiqləşdirilir.</p> */}
+       
+        <button type="button" className={styles.calcApply} onClick={openChat}>
+         Müraciət et
+        </button>
       </div>
     </div>
   );

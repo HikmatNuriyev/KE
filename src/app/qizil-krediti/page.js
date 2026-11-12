@@ -127,7 +127,7 @@ const GoldLoan = () => {
               Lombard: qızıl və elektronika girovu ilə kredit
             </h1>
             <Image
-              src="/images/artboardWeb.png"
+              src="/images/artboardNew.png"
               alt="Qızıl girovu ilə kredit"
               width={0}
               height={0}
