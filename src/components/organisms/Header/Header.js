@@ -16,6 +16,7 @@ const about = [
   { href: "/team", label: "Rəhbərlik" },
   { href: "/filiallar", label: "Filiallarımız" },
   { href: "/about", label: "Haqqımızda" },
+    { href: "/hesabatlar", label: "Hesabatlar" },
 ];
 
 const Header = () => {

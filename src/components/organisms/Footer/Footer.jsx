@@ -82,6 +82,7 @@ const Footer = () => {
             <a href="#">Lombard</a>
             <a href="#">Lizinq</a>
             <a href="#">Kalkulyator</a>
+             <a href="/hesabatlar">Hesabatlar</a>
           </div>
 
           <div className={styles.column}>
@@ -89,6 +90,7 @@ const Footer = () => {
             <a href="#">Haqqımızda</a>
             <a href="#">Filiallar</a>
             <a href="#">Vakansiyalar</a>
+           
           </div>
 
           <div className={styles.column}>
