@@ -98,7 +98,6 @@ const Footer = () => {
 
         <div className={styles.bottomBar}>
           <p>© {currentYear} Kredit Evi ASC. Bütün hüquqlar qorunur.</p>
-          <div className={styles.studio}>Designed & Developed by Hikmat Nuriyev</div>
         </div>
       </div>
       <script src="https://cdn.soft10.io/widget.js" data-customer-id="lc_602a0e522abaef6326752818907a10ad" data-language="az" defer></script>

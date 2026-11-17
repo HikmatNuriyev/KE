@@ -23,7 +23,7 @@ const managementData = [
   },
   {
 id: "lorem-ipsum-5",
-    name: "Məmmədov Emin Fariz oğlu",
+    name: "Emin Məmmədov Fariz oğlu",
     position: "Direktor müavini",
     image: "/images/EminM.png",
   },
