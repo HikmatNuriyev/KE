@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  // Arxa fonda çox-çox zərif bir hərəkətli gradient (boşluğu doldurur)
   background: radial-gradient(at top right, rgba($brand-purple, 0.03) 0%, #ffffff 70%);
   position: relative;
 }
@@ -82,15 +81,13 @@
       background: $brand-purple;
       color: #ffffff;
     }
-    
+
     .arrow {
       color: $brand-purple;
       transform: translateX(4px);
     }
   }
 }
-
-// Kartın küncünə lüks bir element (Pattern)
 .decorCircle {
   position: absolute;
   bottom: -20px;
@@ -100,7 +97,7 @@
   border: 1px solid rgba($brand-purple, 0.05);
   border-radius: 50%;
   pointer-events: none;
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -109,4 +106,3 @@
     border-radius: 50%;
   }
 }
-

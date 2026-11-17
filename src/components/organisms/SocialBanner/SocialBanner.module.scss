@@ -1,10 +1,8 @@
-
-
 @use "@/styles/variables" as *;
 
 .premiumWrapper {
   padding: 40px 0 120px;
-  background-color: transparent; // Sənin dediyin kimi, ana fonun üstündə oturur
+  background-color: transparent;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -14,26 +12,25 @@
 .inner {
   text-align: center;
   z-index: 5;
-  
+
   .overline {
     display: block;
     font-size: 13px;
     letter-spacing: 4px;
     text-transform: uppercase;
-    // Rəngi qızılı yerinə brend bənövşəyisinə və ya parlaq ağa çəkək ki, AppBanner-lə uyuşsun
-    color: #8e2de2; 
+    color: #8e2de2;
     margin-bottom: 20px;
     font-weight: 700;
 
     :global(.dark) & {
-      color: #d4af37; // Dark mode-da lüks qızılı toxunuş qala bilər
+      color: #d4af37;
     }
   }
 
   .title {
     font-size: 56px;
     font-weight: 800;
-    color: #1a1a1a; // Light mode üçün tünd
+    color: #1a1a1a;
     line-height: 1.2;
     margin-bottom: 60px;
 
@@ -43,7 +40,7 @@
       background: linear-gradient(90deg, #8e2de2, #4a00e0);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      
+
       :global(.dark) & {
         background: linear-gradient(90deg, #fff, #d4af37);
       }
@@ -57,14 +54,10 @@
   padding: 24px 60px;
   border-radius: 100px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  
-  // LIGHT MODE (Premium Glass)
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-
-  // DARK MODE (Lüks Deep Purple)
   :global(.dark) & {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -84,7 +77,7 @@
   align-items: center;
   gap: 15px;
   text-decoration: none;
-  
+
   .iconBox {
     width: 56px;
     height: 56px;
@@ -104,17 +97,17 @@
 
   .linkText {
     text-align: left;
-    span { 
-      display: block; 
-      color: #1a1a1a; 
-      font-weight: 700; 
-      font-size: 17px; 
+    span {
+      display: block;
+      color: #1a1a1a;
+      font-weight: 700;
+      font-size: 17px;
 
       :global(.dark) & { color: $white; }
     }
-    small { 
-      color: rgba(0, 0, 0, 0.5); 
-      font-size: 12px; 
+    small {
+      color: rgba(0, 0, 0, 0.5);
+      font-size: 12px;
 
       :global(.dark) & { color: rgba(255, 255, 255, 0.4); }
     }
@@ -122,11 +115,11 @@
 
   &:hover {
     .iconBox {
-      background: #8e2de2; // Brend rəngi
+      background: #8e2de2;
       transform: scale(1.15) rotate(5deg);
-      
+
       :global(.dark) & {
-        background: #d4af37; // Qızılı rəng dark modda hover olanda çıxsın
+        background: #d4af37;
       }
     }
   }
@@ -143,6 +136,6 @@
   }
 
   @media (max-width: 768px) {
-    display: none; // Mobildə bölücü lazım deyil
+    display: none;
   }
 }

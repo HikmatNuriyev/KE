@@ -6,11 +6,4 @@ export const vacancies = [
     type: "Tam iş günü",
     category: "Satış / Kredit",
   },
-  // {
-  //   id: 3,
-  //   title: "İT Dəstək Mütəxəssisi",
-  //   location: "Baş ofis",
-  //   type: "Növbəli",
-  //   category: "İnformasiya Texnologiyaları",
-  // }
 ];

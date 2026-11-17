@@ -1,4 +1,4 @@
-@use "sass:color"; // Sass-ın rəng funksiyalarını çağırdıq
+@use "sass:color";
 @use "@/styles/variables" as *;
 
 .btn {
@@ -9,18 +9,15 @@
   border-radius: 12px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease; 
+  transition: all 0.3s ease;
   font-family: inherit;
   border: none;
   outline: none;
-
-  // Variants
   &.primary {
-    background: var(--gradient-primary); 
+    background: var(--gradient-primary);
     color: #ffffff;
-    
+
     &:hover {
-      
       background: color.scale(#9d50bb, $lightness: -10%);
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(157, 80, 187, 0.3);
@@ -29,9 +26,9 @@
 
   &.outline {
     background: transparent;
-    color: var(--text); // Dəyişənə bağladıq
+    color: var(--text);
     border: 2px solid var(--accent);
-    
+
     &:hover {
       background: rgba(157, 80, 187, 0.05);
       color: var(--accent);
@@ -48,18 +45,14 @@
     }
   }
 
-  
   &.gold {
     background: white;
     color: #1a0b2e;
 
     &:hover {
-      // background: color.scale($brand-gold, $lightness: -8%);
       transform: translateY(-2px);
-      // box-shadow: 0 10px 24px rgba(212, 175, 55, 0.35);
     }
   }
-
 
   &.sm { padding: 8px 16px; font-size: 14px; }
   &.md { padding: 12px 24px; font-size: 15px; }

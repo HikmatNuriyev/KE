@@ -27,7 +27,6 @@ export default function Home() {
             </div>
 
             <div className={styles.socialLinks}>
-              {/* <a href="#" aria-label="Instagram" className={styles.insta}> */}
               <a
                 href="https://www.instagram.com/kreditevi.az/"
                 target="_blank"
@@ -38,7 +37,6 @@ export default function Home() {
                 <FaInstagram />
                 <span>Instagram</span>
               </a>
-              {/* <a href="#" aria-label="Facebook" className={styles.fb}> */}
               <a
                 href="https://www.facebook.com/krediteviasc"
                 target="_blank"
@@ -54,7 +52,7 @@ export default function Home() {
             <a href="tel:*2200" className={styles.callRow}>
               <LuPhone />
               <span>
-                
+
                 *2200
               </span>
               <FaArrowRight className={styles.callArrow} />

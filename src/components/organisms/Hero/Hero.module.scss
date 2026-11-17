@@ -1,205 +1,10 @@
-// @use "@/styles/variables" as *;
-
-// .main {
-//   padding-top: calc(var(--header-height) + 40px);
-//   padding-bottom: 80px;
-//   padding-inline: 20px;
-//   background-color: var(--bg-main);
-//   min-height: 100vh;
-//   display: flex;
-//   align-items: center;
-//   transition: background-color 0.4s ease;
-
-//   @media (max-width: 1024px) {
-//     padding-bottom: 60px;
-//   }
-
-//   @media (max-width: 768px) {
-//     padding-top: calc(var(--header-height) + 24px);
-//     padding-bottom: 40px;
-//     padding-inline: 16px;
-//   }
-// }
-// .bentoGrid {
-//   display: grid;
-//   grid-template-columns: repeat(4, 1fr);
-//   // Sabit 320px yerinə minmax — mətn uzansa sətir "sıxılmır", tərs uzanır
-//   grid-template-rows: repeat(2, minmax(280px, auto));
-//   gap: 24px;
-//   width: 100%;
-//   max-width: 1200px;
-//   margin: 0 auto;
-
-//   @media (max-width: 1024px) {
-//     grid-template-columns: repeat(2, 1fr);
-//     grid-template-rows: none;
-//     grid-auto-rows: minmax(220px, auto);
-//     gap: 16px;
-//   }
-
-//   @media (max-width: 600px) {
-//     grid-template-columns: 1fr;
-//     grid-auto-rows: auto;
-//     gap: 14px;
-//   }
-// }
-
-// .bentoItem {
-//   background: var(--bg-card);
-//   border-radius: 32px;
-//   padding: 40px;
-//   border: 1px solid var(--border-color);
-//   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-//   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-//   overflow: hidden;
-//   position: relative;
-
-//   @media (max-width: 1024px) {
-//     padding: 32px;
-//     border-radius: 28px;
-//   }
-
-//   @media (max-width: 768px) {
-//     padding: 24px;
-//   }
-
-//   @media (max-width: 400px) {
-//     padding: 20px;
-//     border-radius: 22px;
-//   }
-
-//   &:hover {
-//     @media (min-width: 1025px) {
-//       transform: translateY(-8px);
-//       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
-//       border-color: var(--accent-color);
-//     }
-//   }
-
-//   // Toxunma/klaviatura ilə naviqasiya edənlər üçün — hover-i olmayan cihazlarda fokus göstəricisi
-//   &:focus-visible {
-//     outline: 2px solid var(--accent-color);
-//     outline-offset: 3px;
-//   }
-
-//   // Hərəkətə həssas istifadəçilər üçün animasiyanı söndürürük
-//   @media (prefers-reduced-motion: reduce) {
-//     transition: none;
-//     &:hover {
-//       transform: none;
-//     }
-//   }
-// }
-
-// .heroCard {
-//   grid-column: span 2;
-//   grid-row: span 2;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-
-//   @media (max-width: 1024px) {
-//     grid-column: span 2;
-//     grid-row: span 1;
-//     min-height: 420px;
-//   }
-
-//   @media (max-width: 600px) {
-//     grid-column: span 1;
-//     min-height: 380px;
-//     padding-top: 60px;
-//     padding-bottom: 60px;
-//   }
-
-//   h1 {
-//     font-size: clamp(32px, 8vw, 64px);
-//     font-weight: 800;
-//     line-height: 1.1;
-//     letter-spacing: -1.5px;
-//     margin: 20px 0;
-//     color: var(--text-main);
-//     span {
-//       color: var(--accent-color);
-//     }
-//   }
-
-//   p {
-//     color: var(--text-muted);
-//     font-size: clamp(16px, 2vw, 19px);
-//     line-height: 1.5;
-//     margin-bottom: 30px;
-//     max-width: 100%;
-//   }
-// }
-
-// .calcArea {
-//   grid-column: span 2;
-//   background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-main) 100%);
-
-//   @media (max-width: 1024px) {
-//     min-height: 280px;
-//   }
-
-//   @media (max-width: 600px) {
-//     grid-column: span 1;
-//     min-height: 250px;
-//   }
-// }
-
-// .socialArea,
-// .trustCard {
-//   @media (max-width: 1024px) {
-//     grid-column: span 1;
-//     min-height: 220px;
-//   }
-
-//   @media (max-width: 600px) {
-//     grid-column: span 1;
-//     min-height: 180px;
-//   }
-// }
-
-// .trustCard {
-//   background: var(--accent-color);
-//   color: #ffffff;
-//   border: none;
-
-//   .cardContent {
-//     h3 {
-//       font-size: clamp(28px, 4vw, 38px);
-//       margin-bottom: 8px;
-//     }
-//   }
-// }
-
-// :global(.dark) {
-//   .bentoItem {
-//     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-//     border-color: rgba(255, 255, 255, 0.08);
-//   }
-// }
-
-
-// .heroImage {
-//   position: absolute;
-//   inset: 0;
-//   width: 100%;
-//   height: 100%;
-//   object-fit: cover;
-//   object-position: center;
-//   z-index: 0;
-// }
-
-
 @use "@/styles/variables" as *;
 
 .main {
   padding-top: calc(var(--header-height) + 40px);
-  // padding-bottom: 80px;
-  padding-bottom: 50px; // altdakı bölmələrlə eyni aralıq (50 + 50 = 100px)
+  padding-bottom: 50px;
   padding-inline: 20px;
   background-color: var(--bg-main);
-  // min-height: 100vh;
   display: flex;
   align-items: center;
   transition: background-color 0.4s ease;
@@ -282,18 +87,12 @@
     }
   }
 }
-
-// ============ HERO CARD ============
-// Foto yoxdur, ona görə tam "glass" yerinə: arxada zərif "aurora" işıq ləkəsi
-// + üzərində kiçik şüşə badge. Bu, effekti hiss etdirir, amma abır-həyalı qalır.
 .heroCard {
   grid-column: span 2;
   grid-row: span 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  // Dekorativ "aurora" ləkəsi — arxa fonda, kontentin arxasında
   &::before {
     content: "";
     position: absolute;
@@ -345,8 +144,6 @@
     max-width: 100%;
   }
 }
-
-// Şüşə "badge" — kiçik, restrained tətbiq
 .badge {
   display: inline-flex;
   align-items: center;
@@ -361,10 +158,6 @@
   backdrop-filter: blur(8px);
   border: 1px solid rgba(157, 80, 187, 0.2);
 }
-
-// ============ CALC AREA (CurrencyCard konteyneri) ============
-// Zəngin qradient fon — CurrencyCard-ın içindəki .rateBox-lar bunun
-// üzərində "üzən" şüşə kartlar kimi görünəcək.
 .calcArea {
   grid-column: span 2;
   background: linear-gradient(135deg, #9d50bb 0%, #4a1f5c 100%);
@@ -390,8 +183,6 @@
     min-height: 180px;
   }
 }
-
-// ============ TRUST CARD ============
 .trustCard {
   background: linear-gradient(135deg, var(--accent-color) 0%, #5c2470 100%);
   color: #ffffff;
@@ -418,8 +209,6 @@
     }
   }
 }
-
-// İkonun ətrafındakı şüşə "çip" — kiçik, aydın glass nümunəsi
 .iconTag {
   width: 44px;
   height: 44px;
@@ -442,11 +231,6 @@
     border-color: rgba(255, 255, 255, 0.08);
   }
 }
-
-
-// ============ CALC AREA (CurrencyCard konteyneri) ============
-// Tünd qradient yerinə çox zərif, işıqlı ton — glass rateBox-lar buna
-// yaxşı oturur, amma kart özü "ağır" görünmür
 .calcArea {
   grid-column: span 2;
   background: linear-gradient(135deg, rgba(157, 80, 187, 0.08) 0%, var(--bg-card) 60%);
@@ -460,10 +244,6 @@
     min-height: 250px;
   }
 }
-
-// ============ TRUST CARD ============
-// Qradient yerinə geri flat rəng — kiçik kartda tək tünd ton problemsizdir,
-// əsl "ağırlıq" iki tünd kartın yan-yana olmasından yaranırdı
 .trustCard {
   background: var(--accent-color);
   color: #ffffff;
@@ -490,10 +270,6 @@
     }
   }
 }
-
-// ============================================================
-// HERO SLIDER (Lombard + Lizinq), yeni sosial və trust kartları
-// ============================================================
 
 .heroCard {
   justify-content: stretch;
@@ -538,8 +314,6 @@
   flex: 1;
   display: grid;
 }
-
-// Bütün slaydlar eyni hüceyrədə üst-üstə durur, hündürlük ən uzununa görə
 .slide {
   grid-area: 1 / 1;
   display: flex;
@@ -634,8 +408,6 @@
     background: rgba(131, 44, 135, 0.25);
   }
 }
-
-// Aktiv nöqtə avtomatik keçidə qədər dolur
 .dotFill {
   position: absolute;
   inset: 0;
@@ -680,8 +452,6 @@
     display: none;
   }
 }
-
-// ============ SOSİAL KART ============
 .socialGlass {
   display: flex;
   flex-direction: column;
@@ -815,8 +585,6 @@
     }
   }
 }
-
-// ============ TRUST KART (gradient) ============
 .trustGradient {
   display: flex;
   flex-direction: column;
@@ -884,9 +652,6 @@
     backdrop-filter: blur(6px);
   }
 }
-
-// ============ SLAYD ŞƏKİLLƏRİ ============
-// Şəkil bütün kartı örtür, üstündə brend rəngli qaranlıq qat — mətn oxunaqlı qalır
 .slideBgs {
   position: absolute;
   inset: 0;
@@ -1001,10 +766,6 @@
     }
   }
 }
-
-// ============ ŞƏKİLLİ SLAYD — yalnız şəkil ============
-// Yazılar şəklin özündədir: üstündə qat, mətn, düymə və naviqasiya yoxdur,
-// şəkil yerində sabit durur (yalnız slaydlar arası yumşaq keçid)
 .slideBg {
   transform: none;
   transition: opacity 0.8s ease;
@@ -1032,21 +793,15 @@
 .withImage .sliderNav {
   display: none;
 }
-
-// Şəkilli slaydda kart hover-də yerindən oynamasın
 .heroCard:has(.withImage):hover {
   transform: none;
 }
-
-// Mobildə şəkilli kart kvadrat olsun ki, 1080×1080 post kəsilmədən görünsün
 @media (max-width: 600px) {
   .heroCard:has(.withImage) {
     min-height: 0;
     aspect-ratio: 1 / 1;
   }
 }
-
-// Şəkilli slaydda yalnız aşağıda kiçik göstərici qalır — növbəti slayda nə qədər qaldığını göstərir
 .withImage .sliderNav {
   display: flex;
   position: absolute;
@@ -1065,10 +820,6 @@
     display: none;
   }
 }
-
-
-// Şəkilli slaydda böyük kart şəklin özü kimi kvadrat olur — şəkil kartı tam doldurur,
-// nə kəsilir, nə də boş zolaq qalır.
 .main :global(.container) {
   container-type: inline-size;
 }
@@ -1078,9 +829,6 @@
     aspect-ratio: 1 / 1;
     min-height: 0;
   }
-
-  // Desktopda sətir hündürlüyünü kartın enindən hesablayırıq:
-  // böyük kartın eni = (grid eni - gap) / 2, hər sətir = (en - gap) / 2
   @media (min-width: 1025px) {
     grid-template-rows: repeat(2, calc((min(1200px, 100cqw) - 24px) / 4 - 12px));
 
@@ -1092,8 +840,6 @@
     }
   }
 }
-
-// Ekran daraldıqca sağdakı kartlar yığcamlaşır ki, kvadrat sətirlərə sığsın
 @media (min-width: 1025px) and (max-width: 1320px) {
   .bentoGrid:has(.withImage) {
     .socialHead p {
@@ -1121,8 +867,6 @@
     .iconTag {
       margin-bottom: 10px;
     }
-
-    // Məzənnə kartı: qeydi gizlədib aralıqları azaldırıq
     .calcArea {
       p {
         display: none;
@@ -1165,7 +909,6 @@
 .trustGradient .iconTag {
   flex-shrink: 0;
 }
-
 
 @media (max-width: 600px) {
   .bentoGrid {

@@ -1,40 +1,12 @@
-
 "use client";
 import { useEffect, useRef, useState } from "react";
-// import branches from "../../../public/data/branches.json";
 import styles from "./Filiallar.module.scss";
 import { FaSearch, FaMapMarkerAlt, FaBuilding, FaChevronRight } from "react-icons/fa";
 
-// const mapsQuery = (branch) =>
-//   encodeURIComponent(`Kredit Evi ${branch.name} ${branch.city}`);
 const googleMapsUrl = (branch) =>
   `https://www.google.com/maps/search/?api=1&query=${branch.lat},${branch.lng}`;
 const wazeUrl = (branch) =>
   `https://www.waze.com/ul?ll=${branch.lat},${branch.lng}&navigate=yes`;
-
-
-// function loadStyle(href) {
-//   if (document.querySelector(`link[href="${href}"]`)) return;
-//   const link = document.createElement("link");
-//   link.rel = "stylesheet";
-//   link.href = href;
-//   document.head.appendChild(link);
-// }
-
-// function loadScript(src) {
-//   return new Promise((resolve, reject) => {
-//     if (document.querySelector(`script[src="${src}"]`)) {
-//       const check = () => (window.L ? resolve() : setTimeout(check, 50));
-//       return check();
-//     }
-//     const script = document.createElement("script");
-//     script.src = src;
-//     script.async = true;
-//     script.onload = resolve;
-//     script.onerror = reject;
-//     document.body.appendChild(script);
-//   });
-// }
 
 const LEAFLET_CSS = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
 const LEAFLET_JS = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
@@ -92,8 +64,6 @@ export default function FiliallarPage() {
   const mapElRef = useRef(null);
   const mapInstanceRef = useRef(null);
 
-
-
   const query = searchTerm.toLocaleLowerCase("az");
   const filtered = branches
     .filter(
@@ -122,25 +92,13 @@ export default function FiliallarPage() {
   }, []);
 
   useEffect(() => {
-    // if (!branches.length) return;
     if (!branches.length || isMobile()) return;
     let cancelled = false;
 
     async function initMap() {
-      // loadStyle("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
       loadStyle(LEAFLET_CSS);
-      // loadStyle(
-      //   "https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
-      // );
-      // loadStyle(
-      //   "https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
-      // );
 
-      // await loadScript("https://unpkg.com/leaflet@1.9.4/dist/leaflet.js");
       await loadScript(LEAFLET_JS);
-      // await loadScript(
-      //   "https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
-      // );
 
       if (cancelled || !mapElRef.current || mapInstanceRef.current) return;
 
@@ -156,7 +114,6 @@ export default function FiliallarPage() {
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }).addTo(map);
 
-
       const clusterGroup = L.featureGroup();
 
       const pinIcon = L.divIcon({
@@ -171,16 +128,6 @@ export default function FiliallarPage() {
 
       branches.forEach((branch) => {
         const marker = L.marker([branch.lat, branch.lng], { icon: pinIcon });
-//         marker.bindPopup(
-//           `<div class="${styles.popupCard}">
-//              <strong>${branch.name} filialı</strong>
-//              <span>${branch.address}</span>
-//              <div class="${styles.popupLinks}">
-//                <a href="${googleMapsUrl(branch)}" target="_blank" rel="noopener noreferrer">Google Maps</a>
-//                <a href="${wazeUrl(branch)}" target="_blank" rel="noopener noreferrer">Waze</a>
-//              </div>
-//            </div>`
-//         );
         marker.bindPopup(
           `<div class="${styles.popupCard}">
              <strong>${escapeHtml(branch.name)} filialı</strong>
@@ -210,7 +157,6 @@ export default function FiliallarPage() {
     };
   }, [branches]);
 
-
   const focusBranch = (branch) => {
     if (isMobile()) {
       window.open(googleMapsUrl(branch), "_blank", "noopener,noreferrer");
@@ -224,9 +170,6 @@ export default function FiliallarPage() {
     if (inst) {
       const marker = inst.markerById[branch.id];
       inst.map.flyTo([branch.lat, branch.lng], 12, { duration: 0.8 });
-      // if (marker) {
-      //   inst.clusterGroup.zoomToShowLayer(marker, () => marker.openPopup());
-      // }
       if (marker) {
         inst.map.once("moveend", () => marker.openPopup());
       }
@@ -242,10 +185,9 @@ export default function FiliallarPage() {
   return (
     <div className={styles.filiallarPage}>
       <div className={styles.splitLayout}>
-       
+
         <aside className={styles.sidebar}>
           <div className={styles.sidebarHeader}>
-          
 
             <div className={styles.searchWrapper}>
               <FaSearch className={styles.searchIcon} />
@@ -279,10 +221,6 @@ export default function FiliallarPage() {
                   </span>
                   <span className={styles.rowText}>
                     <strong>{branch.name} filialı</strong>
-                    {/* <small>
-                      {branch.city}
-                      {!branch.exact && " "}
-                    </small> */}
                     <small>{branch.address}</small>
                   </span>
                   <FaChevronRight className={styles.rowChevron} />
@@ -301,7 +239,6 @@ export default function FiliallarPage() {
           </div>
         </aside>
 
-       
         <div className={styles.mapPane} ref={mapElRef} />
       </div>
     </div>

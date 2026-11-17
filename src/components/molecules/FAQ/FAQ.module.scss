@@ -6,7 +6,7 @@
 }
 
 .container {
-  max-width: 900px; // Daha dar tuturuq ki, oxumaq rahat olsun
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 $space-container;
 }
@@ -50,7 +50,7 @@
     background: $white;
     box-shadow: 0 20px 40px rgba(0,0,0,0.05);
     border-color: rgba($brand-purple, 0.1);
-    
+
     .answer {
       max-height: 200px;
       opacity: 1;

@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import styles from "./GoldLoan.module.scss";
 import { openChat } from "@/lib/openChat";
 
-
 const goldPurities = [375, 500, 583, 585, 750, 875, 916, 958, 999];
 const basePrice999 = 142.5;
 
@@ -39,9 +38,9 @@ const LombardCalculator = () => {
   const purities = prices.length ? prices.map((p) => Number(p.assay)) : goldPurities;
   const apiPrice = prices.find((p) => Number(p.assay) === purity)?.price;
   const gramPrice = apiPrice ?? (purity / 999) * basePrice999;
- 
+
   const grams = parseFloat(weight) || 0;
- 
+
   const total = Math.round(gramPrice * grams);
 
   const onWeightChange = (e) => {
@@ -60,7 +59,6 @@ const LombardCalculator = () => {
         <h2>
           Alacağınız məbləği <span>hesablayın</span>
         </h2>
-    
 
         <label htmlFor="lombardWeight">Qızılın çəkisi (qram)</label>
         <div className={styles.calcWeight}>
@@ -96,7 +94,7 @@ const LombardCalculator = () => {
           {loading ? "—" : total.toLocaleString("az-AZ")} <small>AZN</small>
         </strong>
         <dl>
-        
+
           <div>
             <dt>Əyar</dt>
             <dd>{purity}</dd>
@@ -110,8 +108,7 @@ const LombardCalculator = () => {
             <dd>{grams} qr</dd>
           </div>
         </dl>
-        {/* <p>Yekun məbləğ filialda qiymətləndirmədən sonra dəqiqləşdirilir.</p> */}
-       
+
         <button type="button" className={styles.calcApply} onClick={openChat}>
          Müraciət et
         </button>

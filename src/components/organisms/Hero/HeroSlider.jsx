@@ -7,7 +7,7 @@ import btn from "@/components/atoms/Button/Button.module.scss";
 import styles from "./Hero.module.scss";
 
 const slides = [
-  
+
   {
     id: "lizinq",
     badge: "Avtomobil Lizinqi",
@@ -26,7 +26,7 @@ const slides = [
     text: "Sürətli rəsmiləşdirmə, aşağı faizlər və komissiyasız nağdlaşdırma.",
     cta: "İndi müraciət et",
     href: "/qizil-krediti",
-  
+
     image: "/images/lombardnew.png",
   },
 ];

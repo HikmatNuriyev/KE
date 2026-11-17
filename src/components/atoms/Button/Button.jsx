@@ -1,13 +1,13 @@
 import styles from './Button.module.scss';
 
-const Button = ({ 
-  children, 
-  variant = 'primary', 
-  size = 'md', 
-  className = '', 
+const Button = ({
+  children,
+  variant = 'primary',
+  size = 'md',
+  className = '',
   onClick,
   type = 'button',
-  disabled = false 
+  disabled = false
 }) => {
   return (
     <button

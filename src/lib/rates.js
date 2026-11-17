@@ -1,4 +1,3 @@
-
 const CBAR_BASE = process.env.CBAR_API_URL ?? "";
 const CBAR_URL = (date) => `${CBAR_BASE.replace(/\/+$/, "")}/${date}.xml`;
 const GOLD_URL = process.env.GOLD_PRICES_API_URL;
@@ -7,7 +6,6 @@ const REQUEST_OPTIONS = {
   headers: { "User-Agent": "Mozilla/5.0" },
   next: { revalidate: 3600 },
 };
-
 
 const TIMEOUT_MS = 8000;
 
@@ -48,7 +46,7 @@ export { CBAR_URL, GOLD_URL, bakuDate };
 async function fetchCbar(date) {
   if (!CBAR_BASE) return null;
   try {
-   
+
     const res = await fetch(CBAR_URL(date), withTimeout());
     if (!res.ok) return null;
     const rates = parseCbar(await res.text());
@@ -57,8 +55,6 @@ async function fetchCbar(date) {
     return null;
   }
 }
-
-
 
 async function findCbarDays(count = 2, maxDays = 10) {
   const results = await Promise.all(

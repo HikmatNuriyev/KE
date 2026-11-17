@@ -1,6 +1,5 @@
 import Link from "next/link";
 import styles from "./NetworkStats.module.scss";
-// import branches from "../../../../public/data/branches.json";
 import { getBranches } from "@/lib/branches";
 import {
   FaMapMarkedAlt,
@@ -10,7 +9,6 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 
-// const NetworkStats = () => {
 const NetworkStats = async () => {
   const branches = await getBranches();
   return (
@@ -24,7 +22,6 @@ const NetworkStats = async () => {
         </div>
 
         <div className={styles.grid}>
-          {/* Filiallar — canlı say, /filiallar səhifəsinə keçid */}
           <Link href="/filiallar" className={`${styles.statCard} ${styles.linked}`}>
             <div className={styles.icon}>
               <FaMapMarkedAlt />
@@ -38,7 +35,6 @@ const NetworkStats = async () => {
             </span>
           </Link>
 
-          {/* Tərəfdaşlar */}
           <div className={styles.statCard}>
             <div className={styles.icon}>
               <FaHandshake />
@@ -49,7 +45,6 @@ const NetworkStats = async () => {
             </div>
           </div>
 
-          {/* Müştəri Məmnuniyyəti */}
           <div className={styles.statCard}>
             <div className={styles.icon}>
               <FaUserCheck />
@@ -60,7 +55,6 @@ const NetworkStats = async () => {
             </div>
           </div>
 
-          {/* Təcrübə */}
           <div className={styles.statCard}>
             <div className={styles.icon}>
               <FaAward />

@@ -1,7 +1,7 @@
 "use client";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { LuMoon, LuSun } from "react-icons/lu"; // Daha incə ikonlar
+import { LuMoon, LuSun } from "react-icons/lu";
 import styles from "./ThemeSwitcher.module.scss";
 
 export default function ThemeSwitcher() {
@@ -12,7 +12,7 @@ export default function ThemeSwitcher() {
   if (!mounted) return null;
 
   return (
-    <button 
+    <button
       className={styles.toggleBtn}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       aria-label="Toggle Theme"

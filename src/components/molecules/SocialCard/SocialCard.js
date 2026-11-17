@@ -10,7 +10,7 @@ const SocialCard = () => {
       </div>
 
       <div className={styles.platforms}>
-        
+
         <a
           href="https://www.instagram.com/kreditevi.az/"
           target="_blank"
@@ -24,7 +24,6 @@ const SocialCard = () => {
           <FaArrowRight className={styles.arrow} />
         </a>
 
-  
         <a
           href="https://www.facebook.com/krediteviasc"
           target="_blank"
@@ -39,7 +38,6 @@ const SocialCard = () => {
         </a>
       </div>
 
-      
       <div className={styles.decorCircle}></div>
     </div>
   );

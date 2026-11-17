@@ -3,7 +3,6 @@ import { HiOutlineLocationMarker, HiOutlineClock, HiOutlineBriefcase } from 'rea
 import VacancyApply from '@/components/molecules/VacancyApply/VacancyApply';
 import { vacancies } from '@/data/vacancies';
 
-
 const VacanciesPage = () => {
   return (
     <section className={styles.vacancySection}>
@@ -25,7 +24,6 @@ const VacanciesPage = () => {
                     <span><HiOutlineBriefcase /> {job.category}</span>
                   </div>
                 </div>
-                {/* <button className={styles.applyBtn}>Müraciət et</button> */}
                 <VacancyApply job={job} className={styles.applyBtn} />
               </div>
             ))

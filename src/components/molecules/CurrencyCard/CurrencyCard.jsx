@@ -1,25 +1,19 @@
-
 import { FaArrowUp, FaArrowDown, FaCoins } from 'react-icons/fa';
 import styles from './CurrencyCard.module.scss';
 
 import { getCurrencyRates } from '@/lib/rates';
 
-
 const CurrencyCard = async () => {
-const currencyNew = process.env.CURRENT_URL? await getCurrencyRates(['XAG']) : null;
-// console.log('currencyNew:', currencyNew);
 
   const currency = await getCurrencyRates(['USD', 'XAU']);
   const xau = currency.rates.find((r) => r.code === 'XAU');
   const usd = currency.rates.find((r) => r.code === 'USD');
 
   const rates = [
-   
+
     xau && {
-      // name: 'Qızıl (1 unsiya)',
       name: 'Qızıl (1 qram)',
       code: 'XAU',
-      // value: xau.value.toFixed(2),
       value: (xau.value / 31.1034768).toFixed(2),
       trend: xau.trend,
     },
@@ -53,7 +47,7 @@ const currencyNew = process.env.CURRENT_URL? await getCurrencyRates(['XAG']) : n
             </div>
             <div className={styles.right}>
               <span className={styles.value}>{rate.value}</span>
-           
+
               {rate.trend === 'up' && <FaArrowUp className={styles.up} />}
               {rate.trend === 'down' && <FaArrowDown className={styles.down} />}
             </div>
@@ -61,7 +55,6 @@ const currencyNew = process.env.CURRENT_URL? await getCurrencyRates(['XAG']) : n
         ))}
       </div>
 
-     
       {currency.date && (
         <p className={styles.note}>* Mərkəzi Bankın {currency.date} tarixli məzənnəsi</p>
       )}

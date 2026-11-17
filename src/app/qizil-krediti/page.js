@@ -108,8 +108,7 @@ const faqs = [
 ];
 
 const contacts = [
-  { title: "Kredit müraciəti ilə bağlı", phone: "*2200" },
-  { title: "Kredit ödənişi ilə bağlı", phone: "*2200" },
+  { title: "Lombard ilə bağlı", phone: "*2200" },
 ];
 
 const formatAzn = (n) => `${Math.round(n).toLocaleString("az-AZ")} AZN`;
@@ -119,9 +118,6 @@ const GoldLoan = () => {
     <section className={styles.goldSection}>
       <div className="container">
         <div className={styles.grid}>
-          {/*
-        
-          */}
           <div className={styles.heroBanner}>
             <h1 className={styles.srOnly}>
               Lombard: qızıl və elektronika girovu ilə kredit
@@ -147,7 +143,6 @@ const GoldLoan = () => {
               priority
             />
           </div>
-   
 
           <div className={styles.sectionHead}>
             <h2>Lombard məhsullarımız</h2>
@@ -158,7 +153,7 @@ const GoldLoan = () => {
               key={p.id}
               className={`${styles.glass} ${styles.productCard} ${styles[p.id]}`}
             >
-             
+
               <h3>{p.title}</h3>
               <p>{p.text}</p>
               <dl className={styles.terms}>
@@ -191,7 +186,6 @@ const GoldLoan = () => {
 
           <div className={`${styles.glass} ${styles.tableCard}`}>
             <h3>Nümunə ödəniş cədvəli</h3>
-            {/* <p className={styles.tableNote}>İllik effektiv faiz {ANNUAL_RATE}% ilə, bərabər aylıq ödənişlər</p> */}
             <table className={styles.loanTable}>
               <thead>
                 <tr>

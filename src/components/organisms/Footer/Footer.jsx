@@ -1,5 +1,3 @@
-
-
 import NextImage from 'next/image';
 import styles from './Footer.module.scss';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
@@ -37,18 +35,12 @@ const Footer = () => {
                 <a href="tel:*2200">*2200</a>
               </div>
               <div className={styles.socials}>
-                {/* <a href="#" aria-label="Facebook"><FaFacebookF /></a> */}
                 <a href="https://www.facebook.com/krediteviasc" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></a>
-                {/* <a href="#" aria-label="Instagram"><FaInstagram /></a> */}
                 <a href="https://www.instagram.com/kreditevi.az/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
-                {/* <a href="#" aria-label="Linkedin"><FaLinkedinIn /></a> */}
                 <a href="https://www.linkedin.com/company/kredit-evi-asc/posts/" target="_blank" rel="noopener noreferrer" aria-label="Linkedin"><FaLinkedinIn /></a>
-                {/* <a href="#" aria-label="WhatsApp" className={styles.whatsapp}><FaWhatsapp /></a> */}
               </div>
             </div>
           </div>
-
-        
 
           <div className={styles.appPromo}>
             <div className={styles.appText}>
@@ -56,7 +48,6 @@ const Footer = () => {
               <p>Hər an yanınızda.</p>
 
               <div className={styles.appStores}>
-                {/* <a href="#" className={styles.storeBtn}> */}
                 <a
                   href={appStoreUrl}
                   target="_blank"
@@ -65,7 +56,6 @@ const Footer = () => {
                 >
                   <FaApple /> App Store
                 </a>
-                {/* <a href="#" className={styles.storeBtn}> */}
                 <a
                   href={googlePlayUrl}
                   target="_blank"
@@ -102,7 +92,7 @@ const Footer = () => {
           </div>
 
           <div className={styles.column}>
-         
+
           </div>
         </div>
 

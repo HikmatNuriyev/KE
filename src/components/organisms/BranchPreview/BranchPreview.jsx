@@ -1,70 +1,15 @@
-// import styles from './BranchPreview.module.scss';
-// import Link from 'next/link';
-// import { FaArrowRight } from 'react-icons/fa';
-
-// const BranchPreview = () => {
-//   return (
-//     <section className={styles.branchPreview}>
-//       <div className={styles.container}>
-//         <div className={styles.textContent}>
-//           <div className={styles.tagLine}>
-//             <span className={styles.line}></span>
-//             <span className={styles.tag}>Şəbəkəmiz</span>
-//           </div>
-//           <h2>Hər nöqtədə <br /> <span>yanınızdayıq</span></h2>
-//           <p>
-//             Azərbaycanın dörd bir yanında, 34 fərqli nöqtədə peşəkar komandamızla maliyyə ehtiyaclarınız üçün xidmətinizdəyik.
-//           </p>
-          
-//           <div className={styles.actions}>
-//             <Link href="/filiallar" className={styles.mainBtn}>
-//               Filialları göstər (34)
-//             </Link>
-//             <Link href="/elaqe" className={styles.linkBtn}>
-//               Xəritədə bax <FaArrowRight />
-//             </Link>
-//           </div>
-//         </div>
-
-//         <div className={styles.mapContainer}>
-//           <div className={styles.mapWrapper}>
-//             {/* Buraya artıq əllə path yazmırıq, real şəkli qoyuruq */}
-//             <img 
-//               src="/images/az.svg" 
-//               alt="Azerbaijan Map" 
-//               className={styles.mapImg} 
-//             />
-            
-//             {/* Nöqtələr bu şəklin üzərində "absolute" dayanacaq */}
-//             <div className={`${styles.pin} ${styles.baku}`}></div>
-//             <div className={`${styles.pin} ${styles.sumqayit}`}></div>
-//             <div className={`${styles.pin} ${styles.gence}`}></div>
-//             <div className={`${styles.pin} ${styles.quba}`}></div>
-//             <div className={`${styles.pin} ${styles.lenkeran}`}></div>
-//             <div className={`${styles.pin} ${styles.naxcivan}`}></div>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default BranchPreview
-
 import styles from './BranchPreview.module.scss';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
-// import branches from '../../../../public/data/branches.json';
 import { getBranches } from '@/lib/branches';
 import AzMap from '../../atoms/AzMap/AzMap';
 
-// const BranchPreview = () => {
 const BranchPreview = async () => {
   const branches = await getBranches();
   return (
     <section className={styles.branchPreview}>
       <div className={styles.container}>
-        
+
         <div className={styles.textContent}>
           <div className={styles.tagLine}>
             <span className={styles.line}></span>
@@ -112,7 +57,6 @@ const BranchPreview = async () => {
     ))}
   </svg>
 </div>
-
 
       </div>
     </section>

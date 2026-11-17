@@ -1,4 +1,3 @@
-
 "use client";
 import { useState } from "react";
 import Image from "next/image";
@@ -16,8 +15,6 @@ import LeasingCalculator from "@/components/molecules/LeasingCalculator/LeasingC
 import styles from "./lizinq.module.scss";
 import { documents, steps, popularCars, faq, supportLines } from "./data";
 
-
-
 const docIcons = {
   id: LuIdCard,
   car: LuCarFront,
@@ -34,7 +31,7 @@ const LeasingPage = () => {
       <div className="container">
         <div className={styles.hero}>
           <div className={styles.heroBanner}>
-       
+
             <Image
               src="/images/lizinq.png"
               alt="Avtomobil lizinqi"
@@ -56,8 +53,7 @@ const LeasingPage = () => {
           </div>
 
           <div className={styles.heroAside}>
-        
-            {/* <div className={styles.heroCalculator}></div> */}
+
             <a href="#lizinq-kalkulyator" className={styles.heroCalculator}>
               <span className={styles.eyebrow}>Kalkulyator</span>
               <h3>Aylıq ödənişi hesablayın</h3>
@@ -71,7 +67,7 @@ const LeasingPage = () => {
             <div className={styles.heroDocuments}>
               <div className={styles.cardHead}>
                 <h3>Tələb olunan sənədlər</h3>
-               
+
               </div>
 
               <ul className={styles.docList}>
@@ -96,7 +92,7 @@ const LeasingPage = () => {
         <div className={styles.bento}>
           <div className={`${styles.glassCard} ${styles.stepsCard}`}>
             <div className={styles.cardHead}>
-      
+
               <h2>4 addımda avtomobil sahibi olun</h2>
             </div>
 
@@ -114,9 +110,6 @@ const LeasingPage = () => {
           </div>
 
           <div className={`${styles.glassCard} ${styles.carsCard}`}>
-            {/* <div className={styles.cardHead}>
-              <h2>Ən çox sorğulanan avtomobillər</h2>
-            </div> */}
             <div className={`${styles.cardHead} ${styles.faqHead}`}>
               <h2>
                 <button
@@ -131,7 +124,6 @@ const LeasingPage = () => {
               </h2>
             </div>
 
-            {/* <ul className={styles.carTags}> */}
             <ul
               className={`${styles.carTags} ${carsListOpen ? styles.carTagsOpen : ""}`}
             >
@@ -145,9 +137,6 @@ const LeasingPage = () => {
           </div>
 
           <div className={`${styles.glassCard} ${styles.faqCard}`}>
-            {/* <div className={styles.cardHead}>
-              <h2>Ən çox verilən suallar</h2>
-            </div> */}
             <div className={`${styles.cardHead} ${styles.faqHead}`}>
               <h2>
                 <button
@@ -162,7 +151,6 @@ const LeasingPage = () => {
               </h2>
             </div>
 
-            {/* <div className={styles.faqList}> */}
             <div
               className={`${styles.faqList} ${faqListOpen ? styles.faqListOpen : ""}`}
             >

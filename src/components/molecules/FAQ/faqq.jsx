@@ -1,4 +1,3 @@
-
 "use client"
 import { useState } from 'react';
 import styles from './FAQ.module.scss';
@@ -23,8 +22,8 @@ const Faq = () => {
 
         <div className={styles.accordion}>
           {questions.map((item, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className={`${styles.faqItem} ${activeIndex === index ? styles.active : ''}`}
               onClick={() => setActiveIndex(activeIndex === index ? null : index)}
             >

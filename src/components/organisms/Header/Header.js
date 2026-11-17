@@ -1,4 +1,3 @@
-
 "use client";
 import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
@@ -30,7 +29,6 @@ const Header = () => {
     setMounted(true);
   }, []);
 
-
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     onScroll();
@@ -38,7 +36,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
- 
   useEffect(() => {
     if (!menuOpen) return;
     const onKey = (e) => e.key === "Escape" && setMenuOpen(false);
@@ -137,7 +134,6 @@ const Header = () => {
               >
                 Ödəniş
               </Link>
-              {/* <button className={styles.ctaBtn}>Onlayn Müraciət</button> */}
             </div>
           </div>
 
@@ -155,7 +151,6 @@ const Header = () => {
         </div>
       </header>
 
-    
       <div
         className={`${styles.overlay} ${menuOpen ? styles.overlayShow : ""}`}
         onClick={closeMenu}
@@ -237,9 +232,6 @@ const Header = () => {
           >
             Ödəniş
           </Link>
-          {/* <button className={styles.ctaBtn} onClick={closeMenu}>
-            Onlayn Müraciət
-          </button> */}
         </div>
       </div>
     </>

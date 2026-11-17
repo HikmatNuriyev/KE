@@ -11,7 +11,6 @@
 
 .grid {
   display: grid;
-  // grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
   grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
   align-items: start;
   gap: 18px;
@@ -253,10 +252,7 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  // padding: 40px;
   padding: 32px;
-  // position: sticky;
-  // top: calc(var(--header-height) + 20px);
   border-radius: $radius-lg;
  background: var(--text-main);
   color: #ffffff;
@@ -298,8 +294,6 @@
   display: flex;
   align-items: baseline;
   gap: 10px;
-  // margin: 4px 0 24px;
-  // font-size: clamp(42px, 5vw, 58px);
   margin: 2px 0 20px;
   font-size: clamp(36px, 3.6vw, 46px);
   font-weight: 800;
@@ -307,7 +301,6 @@
   line-height: 1.1;
 
   span {
-    // font-size: 24px;
     font-size: 20px;
     font-weight: 700;
   }
@@ -354,8 +347,6 @@
 
 .ctaButton {
   width: 100%;
-  // height: 56px;
-  // margin-top: 24px;
   height: 52px;
   margin-top: 20px;
   border-radius: $radius-sm;
@@ -376,10 +367,6 @@
 
 @media (max-width: 1024px) {
   .resultCard {
-    // position: sticky;
-    // top: auto;
-    // bottom: 12px;
-    // z-index: 5;
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;

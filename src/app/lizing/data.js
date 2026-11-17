@@ -1,5 +1,3 @@
-
-
 export const documents = [
   { title: "Şəxsiyyət vəsiqəsi", icon: "id" },
   { title: "Sürücülük vəsiqəsi", icon: "car" },
@@ -24,7 +22,6 @@ export const steps = [
     text: "Müraciət təsdiqləndikdən sonra sənədləşmə aparılır və avtomobil sizə təhvil verilir.",
   },
 ];
-
 
 export const popularCars = [
   { brand: "Changan", model: "Oshan X5 Plus" },

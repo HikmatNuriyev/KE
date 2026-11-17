@@ -79,7 +79,6 @@ const LeasingCalculator = ({ cars = [] }) => {
                   inputMode="numeric"
                   autoComplete="off"
                   placeholder="0"
-                  // value={price}
                   value={withSpaces(price)}
                   onChange={(e) => setPrice(onlyDigits(e.target.value))}
                   onFocus={(e) => e.target.select()}
@@ -116,7 +115,6 @@ const LeasingCalculator = ({ cars = [] }) => {
             </div>
 
             <div className={`${styles.field} ${styles.full}`}>
-              {/* <label htmlFor="leaseMonths">Müddət (ay)</label> */}
               <label>Müddət (ay)</label>
               <div className={styles.monthRow}>
                 <div className={styles.chips} role="radiogroup">
@@ -135,20 +133,7 @@ const LeasingCalculator = ({ cars = [] }) => {
                     </button>
                   ))}
                 </div>
-                {/* <div className={`${styles.inputBox} ${styles.monthInput}`}>
-                  <input
-                    id="leaseMonths"
-                    type="text"
-                    inputMode="numeric"
-                    autoComplete="off"
-                    value={months}
-                    onChange={(e) => setMonths(onlyDigits(e.target.value).slice(0, 3))}
-                    onBlur={() => setMonths(String(clampMonths(months)))}
-                  />
-                  <span className={styles.unit}>ay</span>
-                </div> */}
               </div>
-              {/* <small className={styles.hint}>Maksimum {LEASING.maxMonths} ay</small> */}
             </div>
 
             <div className={`${styles.field} ${styles.full}`}>
@@ -160,7 +145,6 @@ const LeasingCalculator = ({ cars = [] }) => {
                   inputMode="numeric"
                   autoComplete="off"
                   placeholder={`Boş qalsa avtomatik: ${minDownText}`}
-                  // value={downPayment}
                   value={withSpaces(downPayment)}
                   onChange={(e) => setDownPayment(onlyDigits(e.target.value))}
                 />
@@ -176,10 +160,6 @@ const LeasingCalculator = ({ cars = [] }) => {
         </div>
 
         <div className={styles.resultCard} aria-live="polite">
-          {/* <span className={styles.resultLabel}>Aylıq ödəniş</span>
-          <div className={styles.mainPrice}>
-            {monthlyText} <span>₼</span>
-          </div> */}
           <div className={styles.resultHead}>
             <span className={styles.resultLabel}>Aylıq ödəniş</span>
             <div className={styles.mainPrice}>
@@ -228,7 +208,6 @@ const LeasingCalculator = ({ cars = [] }) => {
             </p>
           )}
 
-          {/* <Button variant="gold" size="lg" className={styles.ctaButton}> */}
           <Button variant="gold" size="lg" className={styles.ctaButton} onClick={openChat}>
             Müraciət et
           </Button>

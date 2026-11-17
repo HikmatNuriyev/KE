@@ -143,14 +143,14 @@ const VacancyApply = ({ job, className }) => {
                 <div className={styles.success}>
                   <HiOutlineCheckCircle />
                   <h3>Müraciətiniz göndərildi</h3>
-          
+
                   <button type="button" className={styles.submitBtn} onClick={close}>
                     Bağla
                   </button>
                 </div>
               ) : (
                 <form onSubmit={onSubmit} noValidate={false}>
-                  
+
                   <h3 id={`apply-${job.id}`}>{job.title}</h3>
 
                   <div className={styles.fields}>

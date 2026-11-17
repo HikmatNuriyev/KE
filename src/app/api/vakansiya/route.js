@@ -25,7 +25,6 @@ const FILE_TYPES = {
 const hits = new Map();
 const attempts = new Map();
 
-// async function verifyTurnstile(token, ip) {
 async function verifyTurnstile(token, ip, host) {
   const secret = process.env.TURNSTILE_SECRET_KEY;
   if (!secret) return process.env.NODE_ENV !== "production";
@@ -40,7 +39,6 @@ async function verifyTurnstile(token, ip, host) {
       signal: AbortSignal.timeout(8000),
     });
     const data = await res.json();
-    // return data.success === true;
     if (data.success !== true) return false;
     if (process.env.NODE_ENV !== "production") return true;
     return typeof data.hostname === "string" && data.hostname === host;
@@ -67,14 +65,6 @@ function getTransporter() {
   }
   return transporter;
 }
-
-// function getIp(req) {
-//   return (
-//     req.headers.get("x-real-ip") ||
-//     req.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
-//     "unknown"
-//   );
-// }
 
 function getIp(req) {
   const realIp = req.headers.get("x-real-ip")?.trim();
@@ -185,7 +175,6 @@ export async function POST(req) {
     return fail("Bir neçə saniyə gözləyib yenidən göndərin.");
   }
 
-  // if (!(await verifyTurnstile(form.get("cf-turnstile-response"), ip))) {
   if (!(await verifyTurnstile(form.get("cf-turnstile-response"), ip, getHost(req)))) {
     return fail("Təhlükəsizlik yoxlaması keçilmədi. Səhifəni yeniləyib yenidən cəhd edin.", 403);
   }
